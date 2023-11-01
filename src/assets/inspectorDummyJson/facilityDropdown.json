@@ -1,0 +1,14 @@
+[
+    {
+      "name": "Facility 1",
+      "facility_id": 1
+    },
+    {
+      "name": "Facility 2",
+      "facility_id": 2
+    },
+    {
+      "name": "Facility 3",
+      "facility_id": 3
+    }
+  ]

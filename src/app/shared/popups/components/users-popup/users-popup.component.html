@@ -1,0 +1,376 @@
+<!-- Modal user roles -->
+<ng-template [ngIf]="is_userRole">
+    <div class="user-role-modal">
+        <div class="modal-body px-0 pt-0">
+            <div class="text-start" id="userRolePopup">
+                <div class="border-0 bg-white-100 mt-5 mb-4">
+                    <button (click)="modalRef.hide()" class="close btn-close usersrole-close-icon" type="button"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="title modal-title" id="ModalLabel">{{stringValues?.USER_ROLES}}</div>
+                </div>
+            </div>
+            <div class="row user-header">
+                <div class="col-md-6">
+                    <div class="">
+                        <label for="username" class="user-label">{{stringValues?.USER_NAME}}</label>
+                    </div>
+                    <div class="user-name">
+                        {{userInfo.firstname }} {{userInfo.lastName}}
+                    </div>
+                </div>
+            </div>
+            <div class="row user-details">
+                <div class="col-md-12">
+                    <div class="table-responsive scroll-table">
+                        <table class="table user-role-facility">
+                            <thead class="table-header">
+                                <tr>
+                                    <th scope="col" class="px-5">{{stringValues?.BUSINESS}}</th>
+                                    <th scope="col" class="px-5">{{stringValues?.DIVISION}}</th>
+                                    <th scope="col" class="px-5">{{stringValues?.FACILITY}} </th>
+                                    <th scope="col" class="px-5 text-center">{{stringValues?.ROLE_NAME}}
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let userRoles of userInfo.userroles">
+                                <tr>                                
+                                    <td class="user-role-table-td">{{(userRoles.businessname)?userRoles.businessname :
+                                        '-' }}</td>
+                                    <td class="user-role-table-td">{{(userRoles.divisionname)?userRoles.divisionname :
+                                        '-'}}</td>
+                                    <td class="user_group_icon user-role-table-td">
+                                        {{(userRoles.facilityname)?userRoles.facilityname : '-' }}</td>
+                                    <td class="text-center">
+                                        <span class="role user-role-table-td">{{(userRoles.rolecode)?userRoles.rolecode
+                                            : '-'}}</span>
+                                    </td>  
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 modal-footer justify-content-center border-0 bg-white-100">
+                    <button (click)="modalRef.hide()" class="actionBtn  close-button"
+                        type="button">{{stringValues?.CLOSE | uppercase}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ng-template>
+
+<!-- //is_userDetails -->
+<ng-template [ngIf]="is_userDetails">
+    <div class="create-users-modal ">
+        <div class="modal-body">
+            <div class="text-start" id="CreateUsersPopup">
+                <div class="border-0">
+                    <div class="modal-title" id="ModalLabel">{{stringValues?.USER_DETAILS}}</div>
+                    <button (click)="modalRefCreateUser.hide()" class="close btn-close create-user-close-icon"
+                        type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="row user-details">
+                    <div class="col-md-12">
+                        <form [formGroup]="registerUser" (ngSubmit)="Save()">
+                            <div class="" [ngClass]="(!is_editUser)?'users-form-section': ''">
+                                <div class="row border-bottom padding-bottom30 ">
+                                    <div class="col-md-12">
+                                        <label class="form-label">{{stringValues?.USER_CATEGORY}}</label>
+                                        <div class="d-flex">
+                                            <div class="form-check" *ngFor="let category of userCategory"
+                                                [ngClass]="(category.categoryCode ==='CONTRACTOR')?'mx-5': ''">
+                                                <div *ngIf="loginUserRole === viewOnlyAdmin">
+                                                    <input class="form-check-input" type="radio" [attr.disabled]="true"
+                                                        [checked]="category.categoryCode === usercategorycode"
+                                                        [(ngModel)]="usercategorycode" name="category"
+                                                        value="{{category?.categoryCode}}" formControlName="category">
+                                                    <ng-template [ngIf]="category.categoryCode === 'SSO'"
+                                                        [ngIfElse]="ContractorBlock">
+                                                        <label class="form-check-label" for="sso_user">
+                                                            {{stringValues?.SSO_USER_GP_USER}}
+                                                        </label>
+                                                    </ng-template>
+                                                    <ng-template #ContractorBlock>
+                                                        <label class="form-check-label" for="sso_user">
+                                                            {{stringValues?.CONTRACTOR}}
+                                                        </label>
+                                                    </ng-template>
+                                                </div>
+                                                <div *ngIf="loginUserRole !== viewOnlyAdmin">
+                                                    <input class="form-check-input" type="radio"
+                                                        [checked]="category.categoryCode === usercategorycode"
+                                                        [(ngModel)]="usercategorycode" name="category"
+                                                        value="{{category?.categoryCode}}" formControlName="category"
+                                                        (change)='onRadioChange(category.categoryCode)'>
+                                                    <ng-template [ngIf]="category.categoryCode === 'SSO'"
+                                                        [ngIfElse]="ContractorBlock">
+                                                        <label class="form-check-label" for="sso_user">
+                                                            {{stringValues?.SSO_USER_GP_USER}}
+                                                        </label>
+                                                    </ng-template>
+                                                    <ng-template #ContractorBlock>
+                                                        <label class="form-check-label" for="sso_user">
+                                                            {{stringValues?.CONTRACTOR}}
+                                                        </label>
+                                                    </ng-template>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ng-template [ngIf]="is_showSsoLogin">
+                                        <div class="col-md-4 mt-4">
+                                            <label class="form-label">{{stringValues?.SSO_LOGIN}}<span
+                                                    class="mandatory">*</span></label>
+                                            <input type="text" class="form-control" formControlName="sso_login"
+                                                #sso_login id="sso_login" [(ngModel)]="ssoLogin"
+                                                (keyup)="keypress($event)"
+                                                [readonly]="loginUserRole === viewOnlyAdmin ? true: null || is_editUser"
+                                                placeholder="{{stringValues?.ENTER_SSO_LOGIN_DETAILS}}"
+                                                [ngClass]="{  'is-invalid': submitted && f.sso_login.errors }"
+                                                maxlength="100">
+                                            <span *ngIf="is_verify">
+                                                <img src="assets/icons/Verify.svg" alt="Verify"
+                                                    class="fa-check-circle fa-circle-font">
+                                            </span>
+                                            <span *ngIf="errorMessage">
+                                                <img src="assets/icons/Error.svg" alt="error"
+                                                    class="fa-exclamation-circle fa-circle-font">
+                                            </span>
+                                            <div *ngIf="submitted && f.sso_login.errors" class="invalid-feedback">
+                                                <div *ngIf="f.sso_login.errors.required">
+                                                    {{stringValues?.SSO_LOGIN_IS_REQUIRED}}
+                                                </div>
+                                                <div *ngIf="f.sso_login.errors.email">
+                                                    {{stringValues?.EMAIL_IS_INVALID}}
+                                                </div>
+                                            </div>
+                                            <div class="error-message" *ngIf="errorMessage">{{errorMessage}}</div>
+                                        </div>
+                                        <div class="col-md-3 mt-5 my-2 py-2 p-0 verify-link">
+                                            <ng-template [ngIf]="loginUserRole !== viewOnlyAdmin"
+                                                [ngIfElse]="verifyHide">
+                                                <a [attr.disabled]="!isVerifyShow && !is_editUser"
+                                                    class="contractor-sso-link"
+                                                    (click)="(!isVerifyShow && !is_editUser)? null :onVerifyUser(sso_login.value,'SSO')"
+                                                    [ngClass]="{'disabled':!isVerifyShow && !is_editUser}">{{stringValues?.VERIFY}}</a>
+                                            </ng-template>
+                                            <ng-template #verifyHide></ng-template>
+                                        </div>
+                                        <div class="col-md-5"></div>
+                                    </ng-template>
+                                    <ng-template [ngIf]="!is_showSsoLogin">
+                                        <div class="col-md-4 mt-4">
+                                            <label class="form-label">{{stringValues?.CONTRACTOR_LOGIN}}<span
+                                                    class="mandatory">*</span></label>
+                                            <input type="text"
+                                                [readonly]="loginUserRole === viewOnlyAdmin ? true: null || is_editUser"
+                                                class="form-control" formControlName="contractor_login"
+                                                #contractor_login id="contractor_login" [(ngModel)]="contractorLogin"
+                                                (keyup)="keypress($event)"
+                                                placeholder="{{stringValues?.ENTER_SSO_CONTRACTOR_DETAILS}}"
+                                                [ngClass]="{ 'is-invalid': submitted && f.contractor_login.errors }"
+                                                maxlength="100">
+                                            <span *ngIf="is_verify">
+                                                <img src="assets/icons/Verify.svg" alt="Verify"
+                                                    class="fa-check-circle fa-circle-font">
+                                            </span>
+                                            <span *ngIf="errorMessage">
+                                                <img src="assets/icons/Error.svg" alt="error"
+                                                    class="fa-exclamation-circle fa-circle-font">
+                                            </span>
+                                            <div *ngIf="submitted && f.contractor_login.errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="f.contractor_login.errors.required">
+                                                    {{stringValues?.CONTRACTOR_IS_REQUIRED}} </div>
+                                                <div *ngIf="f.contractor_login.errors.email">
+                                                    {{stringValues?.EMAIL_IS_INVALID}}
+                                                </div>
+                                            </div>
+                                            <div class="error-message" *ngIf="errorMessage">{{errorMessage}}</div>
+                                        </div>
+                                        <div class="col-md-3 mt-5 my-2 py-2 p-0 verify-link">
+
+                                            <ng-template
+                                                [ngIf]="(usercategorycode === 'SSO' && is_editUser) && loginUserRole !== viewOnlyAdmin"
+                                                [ngIfElse]="contractorHide">
+                                                <a class="contractor-sso-link"
+                                                    (click)="onVerifyUser(contractor_login.value,'CONTRACTOR')"
+                                                    [ngClass]="{'disabled': !isVerifyShow}">{{stringValues?.VERIFY}}</a>
+                                            </ng-template>
+
+                                            <ng-template [ngIf]="loginUserRole !== viewOnlyAdmin && !is_editUser"
+                                                [ngIfElse]="contractorHide">
+                                                <a class="contractor-sso-link"
+                                                    (click)="!isVerifyShow? null : onVerifyUser(contractor_login.value,'CONTRACTOR')"
+                                                    [ngClass]="{'disabled': !isVerifyShow}">{{stringValues?.VERIFY}}</a>
+                                            </ng-template>
+                                            <ng-template #contractorHide></ng-template>
+                                        </div>
+                                        <div class="col-md-5"></div>
+                                    </ng-template>
+                                </div>
+                                <div class=""
+                                    [ngClass]="(!is_editUser)? 'row mt-4 pt-2 border-bottom padding-bottom30': 'row mt-4 pt-2 padding-bottom30'">
+                                    <div class="col-md-3">
+                                        <label class="form-label">{{stringValues?.FIRST_NAME}}<span
+                                                class="mandatory">*</span></label>
+                                        <input type="text" [readonly]="loginUserRole === viewOnlyAdmin ? true: null"
+                                            formControlName="firstName" [(ngModel)]="FirstName" class="form-control"
+                                            placeholder="{{stringValues?.ENTER_FIRST_NAME}}" maxlength="100"
+                                            [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+                                            (keyup)="trimData(FirstName,'firstName')" />
+
+                                        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                            <div *ngIf="f.firstName.errors.required">
+                                                {{stringValues?.FIRST_NAME_IS_REQUIRED}}
+                                            </div>
+                                            <div *ngIf="f.firstName.errors.pattern">
+                                                {{stringValues?.ALPHABETS_ONLY}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">{{stringValues?.LAST_NAME}} <span
+                                                class="mandatory">*</span></label>
+                                        <input type="text" [readonly]="loginUserRole === viewOnlyAdmin ? true: null"
+                                            formControlName="lastName" [(ngModel)]="LastName" class="form-control"
+                                            placeholder="{{stringValues?.ENTER_LAST_NAME}}" maxlength="100"
+                                            [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+                                            (keyup)="trimData(LastName,'lastName')" />
+                                        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                            <div *ngIf="f.lastName.errors.required">
+                                                {{stringValues?.LAST_NAME_IS_REQUIRED}}
+                                            </div>
+                                            <div *ngIf="f.lastName.errors.pattern">
+                                                {{stringValues?.ALPHABETS_ONLY}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="form-label">{{stringValues?.SHORT_NAME}} </label>
+                                        <div class="short-name">{{shortname(FirstName,LastName)}}
+                                            {{FirstName.trim()}}{{LastName | shortName}} </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label">{{stringValues?.EMAIL}} <span
+                                                class="mandatory">*</span></label>
+                                        <input type="text" [readonly]="true" maxlength="100" [(ngModel)]="Email"
+                                            formControlName="email" class="form-control ps-3 mb-0"
+                                            placeholder="{{stringValues?.ENTER_EMAIL}}"
+                                            [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                                        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                            <div *ngIf="f.email.errors.required">
+                                                {{stringValues?.EMAIL_IS_REQUIRED}}
+                                            </div>
+                                            <div *ngIf="f.email.errors.pattern">
+                                                {{stringValues?.EMAIL_IS_INVALID}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Roles block start -->
+                                <ng-template [ngIf]="!is_editUser">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="roles-level-title" id="ModalLabel1">
+                                                {{stringValues?.ROLE_AND_LEVEL}}</div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <app-manage-role [stringValues]="stringValues" [registerUser]="registerUser"
+                                                [f]="f" [userCategory]="usercategorycode"></app-manage-role>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <ng-container *ngIf="isStringValues">
+                                                <app-role-level-multi-facility-filter [stringValues]="stringValues"
+                                                    [registerUser]="registerUser" [f]="f" [submitted]="submitted"
+                                                    [loginUserRole]="loginUserRole"
+                                                    [is_superAdmin]="is_superAdmin"></app-role-level-multi-facility-filter>
+                                            </ng-container>
+
+                                        </div>
+                                    </div>
+                                </ng-template>
+                            </div>
+
+                            <div class="row mt-4 pt-2">
+                                <div class="col-md-12">
+                                    <div class="modal-footer justify-content-center border-0 bg-white-100">
+                                        <ng-template [ngIf]="loginUserRole === viewOnlyAdmin" [ngIfElse]="second">
+                                            <button (click)="modalRefCreateUser.hide()" class="actionBtn  close-button"
+                                                type="button">{{stringValues?.CLOSE | uppercase}}</button>
+                                        </ng-template>
+
+                                        <ng-template #second>
+                                            <button class="button btn save-button btn-primary"
+                                                [disabled]="!isVerifySuccess">{{stringValues?.SAVE}}</button>
+                                            <button (click)="modalRefCreateUser.hide()"
+                                                class="actionBtn btn-outline-primary CancelBtn"
+                                                type="button">{{stringValues?.CANCEL | uppercase}}</button>
+                                        </ng-template>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ng-template>
+
+<!-- //is_userGroups -->
+<ng-template [ngIf]="is_userGroups">
+    <div class="users-groups-modal">
+        <div class="modal-body px-0 pt-0">
+            <div class="text-start" id="UsersGroupsPopup">
+                <div class="border-0 mt-4 pt-3 mb-4">
+                    <div class="modal-title" id="ModalLabel">{{stringValues?.GROUP_DETAILS}} </div>
+                    <button (click)="modalRefUserGroups.hide()" class="close btn-close user-groups-close-icon"
+                        type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            </div>
+
+            <div class="row user-header">
+                <div class="col-md-6 px-0 pt-0">
+                    <div class="">
+                        <label for="username" class="user-label">{{stringValues?.USER_NAME}}</label>
+                    </div>
+                    <div class="user-name">
+                        {{userInfo.firstname }} {{userInfo.lastName}}
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row user-groups-details">
+                <div class="col-md-12">
+                    <div class="table-responsive scroll-table">
+                        <table class="table">
+                            <thead class="table-header">
+                                <tr>
+                                    <th scope="col" class="px-5">{{stringValues?.GROUP_NAME}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let usergroup of userInfo.usergroups">
+                                    <td class="user-group-list"> {{usergroup.groupName}} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 modal-footer justify-content-center border-0 bg-white-100">
+                    <button (click)="modalRefUserGroups.hide()" class="actionBtn  close-button"
+                        type="button">{{stringValues?.CLOSE | uppercase}}</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</ng-template>

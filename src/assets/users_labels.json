@@ -1,0 +1,115 @@
+[
+    {
+        "ScreenName": "UsersAndGroups",
+        "StringResources": {
+            "NAME":"Users",
+            "SEARCH": "Search",
+            
+            "TABLE_LOGIN": "Login",
+            "TABLE_USER_NAME": "User Name",
+            "TABLE_GROUP_DETAILS":"Group Details",
+            "TABLE_ACTION":"Action",
+            "CREATE_USER_BTN":"Create User",
+
+            "DETAILS_POPUP_USERS_DETAILS":"User Details",
+            "DETAILS_POPUP_SSO_LOGIN": "SSO Login",
+            "DETAILS_POPUP_FIRST_NAME":"First Name",
+
+            "DETAILS_POPUP_USER_CATEGORY_LABEL": "User Category",
+            "DETAILS_POPUP_USER_CATEGORY_SSO_USER_RADIO_BTN":"SSO User",
+            "DETAILS_POPUP_USER_CATEGORY_CONTRACTOR_RADIO_BTN":"Contractor",
+
+            "DETAILS_POPUP_CONTRACTOR_LOGIN": "Contractor Login",
+            "DETAILS_POPUP_LINK_CHECK_AVAILABILITY": "Check Availability",
+
+
+            "DETAILS_POPUP_LAST_NAME":"Last Name",
+            "DETAILS_POPUP_INITIALS":"Initials",
+            "DETAILS_POPUP_EMAIL":"Email",
+            "DETAILS_POPUP_LANGUAGE":"Language",
+            "DETAILS_POPUP_BTN_SAVE":"Save",
+            "DETAILS_POPUP_BTN_CANCEL":"Cancel",
+            "DETAILS_POPUP_BTN_VERIFY": "Verify",
+            "DETAILS_POPUP_SELECT": "Select",
+
+            "DETAILS_POPUP_PLACE_HOLDER_SSO_LOGIN": "Enter SSO Login",
+            "DETAILS_POPUP_PLACE_HOLDER_CONTRACTOR_LOGIN": "Enter Contractor Login Details",
+            "DETAILS_POPUP_PLACE_HOLDER_FIRST_NAME": "Enter First Name",
+            "DETAILS_POPUP_PLACE_HOLDER_LAST_NAME": "Enter Last Name",
+            "DETAILS_POPUP_PLACE_HOLDER_INITIALS": "Enter Initials",
+            "DETAILS_POPUP_PLACE_HOLDER_EMAIL": "Enter Email",
+            
+            
+            "ROLE_POPUP_TITLE": "User Roles",
+            "ROLE_POPUP_USER_NAME" : "User Name",
+            "ROLE_POPUP_DIVISION": "Division",
+            "ROLE_POPUP_BUSINESS": "Business",
+            "ROLE_POPUP_FACILITY": "Facility",
+            "ROLE_POPUP_ROLE_NAME":"Role",
+            "ROLE_POPUP_ROLE_CLOSE":"Close",
+
+            "GROUPS_POPUP_DETAILS":"Groups Details",
+            "GROUPS_POPUP_USER_NAME":"User Name",
+            "GROUPS_POPUP_GROUP_NAME":  "Group Name",
+            "GROUPS_POPUP_BTN_CLOSE":"Close",
+            
+            "DELETE_CONFIRATION_BTN_YES" : "Yes",
+            "DELETE_CONFIRATION_BTN_NO":"No",
+            "DELETE_SUCCESS_BTN_CLOSE":"Close",
+
+            "GROUPS_NAME":"User Groups",
+            "GROUPS_SEARCH": "Search",
+            "GROUPS_CREATE_GROUPS_BTN":"Create Group",
+
+            "GROUPS_TABLE_GROUP_NAME_LABLE": "Group Name",
+            "GROUPS_TABLE_MEMBERS_DETAILS": "Members Details",
+            "GROUPS_TABLE_ACTION": "Action",            
+ 
+            "GROUPS_DETAILS_POPUP_USERS_GROUPS_TITLE":"User Group Roles",
+            "GROUPS_DETAILS_POPUP_GROUP_NAME_LABLE":"Group Name",
+            "GROUPS_DETAILS_POPUP_PLACE_HOLDER_GROUP_NAME":"Enter Group Name",
+            
+
+            "GROUPS_DETAILS_POPUP_MEMBERS_COUNT_LABLE":"Members Count",
+            "GROUPS_DETAILS_POPUP_MEMBERS_TITLE":"Members",
+            
+            "GROUPS_DETAILS_POPUP_BTN_SAVE":"Save",
+            "GROUPS_DETAILS_POPUP_BTN_CANCEL":"Cancel",
+            "GROUPS_DETAILS_POPUP_BTN_ADD_MEMBER":"Add Member",
+            "GROUPS_DETAILS_POPUP_SELECT_USER_LABLE":"Select User",
+            "GROUPS_DETAILS_POPUP_PLACE_HOLDER_SELECT": "Search And Select User",
+            "GROUPS_DETAILS_POPUP_TABLE_USER_NAME":"User Name",
+            "GROUPS_DETAILS_POPUP_TABLE_ACTION":"Action",    
+            
+            "GROUPS_POPUP_TITLE": "User GROUPS",
+            "GROUPS_POPUP_USER_NAME_LABEL" : "User Name",
+            "GROUPS_POPUP_DIVISION": "Division",
+            "GROUPS_POPUP_BUSINESS": "Business",
+            "GROUPS_POPUP_FACILITY": "Facility",
+            "GROUPS_POPUP_ROLE_NAME":"Role",            
+            
+
+            "GROUPS_MEMBERS_POPUP_DETAILS":"Members Details",
+            "GROUPS_MEMBERS_POPUP_GROUP_NAME_LABEL":  "Group Name",
+            "GROUPS_MEMBERS_POPUP_MEMBER_COUNT_LABEL":  "Members Count",
+            "GROUPS_MEMBERS_POPUP_TABLE_USER_NAME_TITLE": "User Name",
+            "GROUPS_MEMBERS_POPUP_BTN_CLOSE":"Close",
+
+            "GROUPS_DELETE_CONFIRATION_BTN_YES" : "Yes",
+            "GROUPS_DELETE_CONFIRATION_BTN_NO":"No",
+            "GROUPS_DELETE_SUCCESS_BTN_CLOSE":"Close"
+        }
+    },
+    {
+        "ScreenName": "Tabs",
+        "StringResources": {
+            "DASHBOARD": "Dashboard",
+            "INSPECTION": "Inspection",
+            "FACILITIES": "Facilities",
+            "USERS_AND_GROUPS": "Users & Groups",
+            "ROLE_ASSIGNMENT": "Role Assginment"
+        }
+    }
+   
+]
+	

@@ -1,0 +1,466 @@
+.inspections-info-card {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 6px 10px #00000024;
+    border-radius: 10px;
+    opacity: 1;
+    font-size: 14px;
+}
+
+.card-header-text {
+    font-family: "Montserrat-bold";
+}
+
+.refresh-btn {
+    background-color: #5AC8FA;
+    border-color: #5AC8FA;
+    font-family: "Montserrat-Medium";
+    font-size: 14px;
+    width: 8vw;
+}
+
+.circle {
+    height: 120px;
+    width: 120px;
+}
+
+.inspections-card {
+    flex: 1 1 auto;
+    padding: 1rem 2rem;
+}
+
+.inspections-due-circle {
+    background-color: #ff9f0a26;
+}
+
+.upcoming-inspections-circle {
+    background-color: #34C75933;
+}
+
+.dashboard-inspections-body-text {
+    font-family: 'Montserrat-Bold';
+    color: #ff9f0a;
+    font-size: 42px;
+}
+
+.dashboard-upcoming-inspections-body-text {
+    font-family: 'Montserrat-Bold';
+    color: #34c759;
+    opacity: 1;
+    font-size: 42px;
+}
+
+.dashboard-dot {
+    height: 10px;
+    width: 10px;
+    background-color: #ff453a;
+    border-radius: 50%;
+}
+
+.dashboard-card-heading {
+    font-family: 'Montserrat-Bold';
+    letter-spacing: 0px;
+    color: #131315;
+    opacity: 1;
+    font-size: 14px;
+}
+
+.dashboard-card-heading-font {
+    font-family: 'Montserrat-Bold';
+    font-size: 25px;
+    letter-spacing: 0px;
+    color: #ff453a;
+    opacity: 1;
+}
+
+.dashboard-card-heading-img {
+    background-color: #ff453a;
+    font-size: 20px;
+    height: 50px;
+    width: 52px
+}
+
+.inspections-list-card {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 6px 10px #00000024;
+    border-radius: 10px;
+    opacity: 1;
+    font-family: 'Montserrat-Regular';
+    font-size: 14px;
+}
+
+.inspectionDetails {
+    font-size: 14px;
+    font-family: Montserrat-Medium;
+    color: #131315;
+}
+
+.inspections-list-header {
+    background: #dfe5ee 0% 0% no-repeat padding-box;
+    text-align: left;
+    font-family: 'Montserrat-Medium';
+    color: #6c7b8a;
+    font-size: 14px;
+}
+
+.formTitle {
+    font-family: Montserrat-Bold;
+}
+
+.badge-notstarted {
+    background-color: #A8B3BE;
+}
+
+.badge-border-saved {
+    background-color: #5AC8FA !important;
+}
+
+.badge-submit {
+    background-color: #FF9F0A;
+}
+
+.badge-approved {
+    background-color: #34C759;
+}
+
+.export-btn {
+    border: 1px solid #5AC8FA;
+    height: 32px;
+    font-size: 14px;
+    font-family: "Montserrat-Medium";
+    width: 9.5vw;
+    max-width: 130px;
+}
+
+.export-icons {
+    height: 16.67px;
+    width: 16.67px;
+    margin-bottom: 2.5px;
+}
+
+.table> :not(caption)>*>* {
+    padding: 0.8rem 1.5rem;
+}
+
+.slider-width {
+    padding-left: 2px;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    margin: 9px 0;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #5AC8FA, 0px 0px 1px #5AC8FA;
+    background: #5AC8FA;
+    border-radius: 1.3px;
+    // border: 0.2px solid #010101;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    //box-shadow: 1px 1px 1px #5AC8FA, 0px 0px 1px #5AC8FA;
+    border: 2px solid #5AC8FA;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -7px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #5AC8FA;
+}
+
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    //box-shadow: 1px 1px 1px #5AC8FA, 0px 0px 1px #5AC8FA;
+    background: #5AC8FA;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+}
+
+input[type=range]::-moz-range-thumb {
+    //box-shadow: 1px 1px 1px #5AC8FA, 0px 0px 1px #5AC8FA;
+    border: 2px solid #5AC8FA;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+@mixin rangeThumb {
+    width: 18px;
+    height: 18px;
+    margin: -8px 0 0;
+    border-radius: 50%;
+    background: #5AC8FA;
+    cursor: pointer;
+    border: 0 !important;
+}
+
+.range-width {
+    accent-color: #5AC8FA;
+    height: 7px;
+    width: 96%;
+    cursor: pointer;
+}
+
+.upcoming-range-width {
+    accent-color: #5AC8FA;
+    height: 7px;
+    width: 96%;
+    cursor: pointer;
+}
+
+// Labels below slider
+.range-labels {
+    margin-top: 15px;
+    padding: 0;
+    list-style: none;
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none; // needed again for Chrome & Safari
+        @include rangeThumb;
+    }
+
+    &::-moz-range-thumb {
+        @include rangeThumb;
+    }
+
+    &::-ms-thumb {
+        @include rangeThumb;
+    }
+
+    &:focus {
+        // override outline/background on focus
+        background: none;
+        outline: none;
+    }
+
+    &::-ms-track {
+        // A little somethin' somethin' for IE
+        width: 100%;
+        cursor: pointer;
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+    }
+
+    li {
+        position: relative;
+        float: left;
+        // width: 72px;
+        width: 20%;
+        text-align: center;
+        color: #b2b2b2;
+
+        font-family: 'Montserrat-Medium';
+        font-size: 12px;
+        cursor: pointer;
+
+
+        &::before {
+            position: absolute;
+            top: -16px;
+            right: 0;
+            left: 0;
+            content: "";
+            margin: 0 auto;
+            width: 9px;
+            height: 9px;
+            background: #5AC8FA;
+            width: 2px;
+            height: 11px;
+        }
+    }
+
+    .active {
+        color: #37adbf;
+    }
+
+    .selected::before {
+        background: #37adbf;
+    }
+
+    .active.selected::before {
+        display: none;
+    }
+}
+
+.upcoming-range-labels {
+    // margin: 10px -47px 0 0;
+    margin-top: 15px;
+    padding: 0;
+    list-style: none;
+
+    @mixin upcoming-rangeThumb {
+        width: 18px;
+        height: 18px;
+        margin: -8px 0 0;
+        border-radius: 50%;
+        background: #5AC8FA;
+        cursor: pointer;
+        border: 0 !important;
+    }
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none; // needed again for Chrome & Safari
+        @include upcoming-rangeThumb;
+    }
+
+    &::-moz-range-thumb {
+        @include upcoming-rangeThumb;
+    }
+
+    &::-ms-thumb {
+        @include upcoming-rangeThumb;
+    }
+
+    &:focus {
+        // override outline/background on focus
+        background: none;
+        outline: none;
+    }
+
+    &::-ms-track {
+        // A little somethin' somethin' for IE
+        width: 100%;
+        cursor: pointer;
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+    }
+
+    li {
+        position: relative;
+        float: left;
+        width: 14%;
+        text-align: center;
+        color: #b2b2b2;
+        font-family: 'Montserrat-medium';
+        font-size: 12px;
+        cursor: pointer;
+
+        &::before {
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: -16px;
+            content: "";
+            margin: 0 auto;
+            width: 9px;
+            height: 9px;
+            background: #5AC8FA;
+            width: 2px;
+            height: 11px;
+        }
+    }
+
+    .active {
+        color: #5AC8FA;
+    }
+
+    .selected::before {
+        background: #5AC8FA;
+    }
+
+    .active.selected::before {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+
+    //For Big TV's (HD Screens) 
+    .circle {
+        height: 145px;
+        width: 145px;
+    }
+
+    .range-width {
+        width: 91% !important
+    }
+
+    .slider-width {
+        padding-left: 5px !important;
+    }
+
+    .upcoming-range-width {
+        width: 94% !important;
+    }
+}
+
+@media screen and (min-width: 1536px) {
+
+    //For Big TV's (HD Screens) 
+    .circle {
+        height: 145px;
+        width: 145px;
+    }
+
+    .range-width {
+        width: 89% !important
+    }
+
+    .slider-width {
+        padding-left: 2px !important;
+    }
+
+    .upcoming-range-width {
+        width: 91% !important;
+    }
+
+}
+
+@media screen and (min-width: 1920px) {
+
+    //For Projectors or Higher Resolution Screens (Full HD)
+    .circle {
+        height: 170px;
+        width: 170px;
+    }
+
+    .range-width {
+        width: 87% !important
+    }
+
+    .slider-width {
+        padding-left: 1px !important;
+    }
+
+    .upcoming-range-width {
+        width: 89% !important;
+    }
+
+}
+
+@media screen and (min-width: 3840px) {
+
+    //For 4K Displays (Ultra HD)
+    .circle {
+        height: 195px;
+        width: 195px;
+    }
+
+    .slider-width {
+        padding-left: 5px !important;
+        padding-right: 30px !important;
+    }
+
+    .upcoming-range-width {
+        width: 88% !important;
+    }
+
+}

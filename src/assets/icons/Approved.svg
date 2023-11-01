@@ -1,0 +1,13 @@
+<svg id="Approved" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <path id="_Elevation" data-name="⬆️ Elevation" d="M1.1,3.98A3.214,3.214,0,0,1,3.98,1.1L15,0,26.02,1.1A3.214,3.214,0,0,1,28.9,3.98L30,15,28.9,26.02A3.214,3.214,0,0,1,26.02,28.9L15,30,3.98,28.9A3.214,3.214,0,0,1,1.1,26.02L0,15Z" fill="rgba(255,255,255,0)"/>
+  <g id="_background" data-name="🎨background">
+    <path id="_background-2" data-name="🎨background" d="M1.1,3.98A3.214,3.214,0,0,1,3.98,1.1L15,0,26.02,1.1A3.214,3.214,0,0,1,28.9,3.98L30,15,28.9,26.02A3.214,3.214,0,0,1,26.02,28.9L15,30,3.98,28.9A3.214,3.214,0,0,1,1.1,26.02L0,15Z" fill="none"/>
+    <path id="_background-3" data-name="🎨background" d="M1.1,3.98A3.214,3.214,0,0,1,3.98,1.1L15,0,26.02,1.1A3.214,3.214,0,0,1,28.9,3.98L30,15,28.9,26.02A3.214,3.214,0,0,1,26.02,28.9L15,30,3.98,28.9A3.214,3.214,0,0,1,1.1,26.02L0,15Z" fill="#ebf0f7" style="mix-blend-mode: multiply;isolation: isolate"/>
+  </g>
+  <g id="_Icon_XS-placeholder" data-name="🖼 Icon/XS-placeholder" transform="translate(6 6)">
+    <rect id="bounds" width="18" height="18" fill="rgba(28,143,248,0.34)" opacity="0"/>
+    <g id="check" transform="translate(4.8 6.6)">
+      <path id="Shape" d="M9,0,2.812,6,0,3.273" fill="none" stroke="#6c7b8a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

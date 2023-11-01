@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Excel" transform="translate(-11537 -2810)">
+    <rect id="Rectangle_1331" data-name="Rectangle 1331" width="24" height="24" transform="translate(11537 2810)" fill="none"/>
+    <g id="icons8-microsoft-excel-2019" transform="translate(11533 2805.3)">
+      <path id="Path_14163" data-name="Path 14163" d="M22.917,6h-7.88A1.037,1.037,0,0,0,14,7.037v4.315h8.917Z" transform="translate(-4.056)" fill="#169154"/>
+      <path id="Path_14164" data-name="Path 14164" d="M14,33.054v4.281a1.037,1.037,0,0,0,1.036,1.037h7.881V33.054Z" transform="translate(-4.056 -10.972)" fill="#18482a"/>
+      <path id="Path_14165" data-name="Path 14165" d="M14,15h8.917v5.351H14Z" transform="translate(-4.056 -3.651)" fill="#0c8045"/>
+      <path id="Path_14166" data-name="Path 14166" d="M14,24h8.917v5.38H14Z" transform="translate(-4.056 -7.302)" fill="#17472a"/>
+      <g id="Group_3542" data-name="Group 3542" transform="translate(18.861 6)">
+        <path id="Path_14167" data-name="Path 14167" d="M36.88,6H29v5.352h8.917V7.037A1.037,1.037,0,0,0,36.88,6Z" transform="translate(-29 -6)" fill="#29c27f"/>
+        <path id="Path_14168" data-name="Path 14168" d="M29,33.054v5.318h7.881a1.037,1.037,0,0,0,1.036-1.036V33.055H29Z" transform="translate(-29 -16.972)" fill="#27663f"/>
+        <path id="Path_14169" data-name="Path 14169" d="M29,15h8.917v5.351H29Z" transform="translate(-29 -9.651)" fill="#19ac65"/>
+        <path id="Path_14170" data-name="Path 14170" d="M29,24h8.917v5.38H29Z" transform="translate(-29 -13.302)" fill="#129652"/>
+      </g>
+      <path id="Path_14171" data-name="Path 14171" d="M14.89,25.889H5a1,1,0,0,1-1-1V15a1,1,0,0,1,1-1h9.89a1,1,0,0,1,1,1v9.89A1,1,0,0,1,14.89,25.889Z" transform="translate(0 -3.244)" fill="#0c7238"/>
+      <path id="Path_14172" data-name="Path 14172" d="M9.693,19h1.418l1.151,2.232L13.478,19H14.8l-1.826,2.972,1.867,2.972h-1.4l-1.254-2.336-1.249,2.336H9.526l1.9-2.983Z" transform="translate(-2.241 -5.272)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,69 @@
+.frequencyLabel.titles {
+    letter-spacing: -0.15px;
+    color: #140F26;
+    opacity: 1;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Montserrat-Medium';
+}
+.common-message{   
+   
+    letter-spacing: 0px;
+    color: #6C7B8A;
+    opacity: 1;
+    font-size: 16px;   
+    font-weight: normal;
+}
+.close-button {
+    background: #5AC8FA 0% 0% no-repeat padding-box;
+    border-radius: 100px;
+    opacity: 1;
+    padding: 16px 86px;
+    color: #fff;
+    font-size: 14px;
+}
+.close {
+    float: right;
+    margin: -13px -15px 0 0;
+}
+button.btn.submit-button.d-flex.justify-content-center.align-items-center.submit-button-text {
+    text-align: center;
+    letter-spacing: 1.56px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    background: #5AC8FA 0% 0% no-repeat padding-box;
+    border-radius: 100px;
+    opacity: 1;
+    padding: 14px 40px;
+    margin-right: 10px;
+}
+
+.cancel-button-text {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 100px;
+    padding: 14px 40px;
+    text-align: center;
+    letter-spacing: 1.56px;
+    color: #5AC8FA;
+    text-transform: uppercase;
+    opacity: 1;
+    border: 1px solid #5ac8fa;
+    margin-left: 10px;
+}
+.thankyouText{
+    text-align: center;
+    letter-spacing: -0.15px;
+    color: #140F26;
+    opacity: 1;
+    font-size: 20px;
+    font-family: 'Montserrat-SemiBold';
+}
+
+.successMsg{
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 0px;
+    color: #6C7B8A;
+    opacity: 1;  
+    font-weight: normal;
+}

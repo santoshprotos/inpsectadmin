@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="Back" transform="translate(-2675 -1852.5)">
+    <rect id="bounds" width="30" height="30" transform="translate(2675 1852.5)" fill="rgba(28,143,248,0.34)" opacity="0"/>
+    <g id="arrow-left" transform="translate(2682.5 1861.875)">
+      <path id="Shape" d="M15.625,0H0" transform="translate(0 5.938)" fill="none" stroke="#140f26" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Shape-2" data-name="Shape" d="M5.859,11.875,0,5.938,5.859,0" fill="none" stroke="#140f26" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

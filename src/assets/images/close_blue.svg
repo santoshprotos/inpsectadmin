@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14" viewBox="0 0 14 14">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_1249" data-name="Rectangle 1249" width="14" height="14" transform="translate(-0.161 -0.242)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Close-_Blue" data-name="Close- Blue" transform="translate(0.161 0.242)" clip-path="url(#clip-path)" style="mix-blend-mode: normal;isolation: isolate">
+    <g id="Group_2360" data-name="Group 2360" transform="translate(3.107 3.026)">
+      <line id="Line_282" data-name="Line 282" x1="8.211" y2="8.211" transform="translate(0)" fill="none" stroke="#5ac8fa" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <line id="Line_283" data-name="Line 283" x2="8.211" y2="8.211" transform="translate(0)" fill="none" stroke="#5ac8fa" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

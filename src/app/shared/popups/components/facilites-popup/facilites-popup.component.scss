@@ -1,0 +1,1037 @@
+.manageScheduleModal, .modal-manage-schedule {
+  border: 1px solid transparent;
+  border-radius: 1rem;
+  font-family: 'Montserrat-medium';
+}
+
+.title {
+  color: #140f26;
+  font-size: 20px;
+  letter-spacing: -0.15px;
+  font-family: 'Montserrat-SemiBold';
+}
+
+.facilities-popup-label {
+  font-size: 14px;
+  color: #6c7b8a;
+  text-transform: capitalize;
+}
+
+.titles {
+  font-size: 14px;
+  color: #140F26;
+}
+
+.create-schedule-btn, .create-notification-btn  {
+  height: 32px;
+  font-size: 14px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  border: 1px solid #5ac8fa;
+  border-radius: 4px;
+  color: #5ac8fa;
+}
+
+.create-notification-btn  {
+  margin-left: 40px;
+}
+
+.facilities-table-style {
+  height: 66px;
+  background: #dfe5ee 0% 0% no-repeat padding-box;
+  vertical-align: middle;
+}
+
+.facilities-table-header {
+  text-align: left;
+  font-size: 14px;
+  color: #6c7b8a;
+  position: sticky;
+  top: 0;
+}
+
+.facilities-table-details {
+  font-size: 14px;
+}
+
+.facilities-popup-btn-close-style {
+  width: 180px;
+  height: 40px;
+  background: #5ac8fa 0% 0% no-repeat padding-box;
+  border-radius: 100px;
+  opacity: 1;
+  color: white;
+  font-size: 16px;
+}
+
+.schedulelist-table> :not(:first-child) {
+  border-top: 2px solid white;
+  border-bottom: white;
+}
+
+.facilities-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid transparent;
+  border-radius: 1rem;
+}
+
+.facilities-edit-icon {
+  color: #34C759;
+  padding-left: 15px;
+}
+
+.facilities-delete-icon {
+  color: #FF453A;
+  padding-left: 15px;
+}
+
+.table> :not(caption)>*>* {
+  padding: 1rem 1.5rem 1rem 1.5rem;
+}
+
+.icon-animation {
+  position: relative;
+}
+
+.iconSvg {
+  position: relative;
+}
+
+.animation {
+  position: absolute;
+  height: 82px;
+  width: 82px;
+}
+
+.modal-name {
+  font-size: 20px;
+  font-family: Montserrat-SemiBold;
+  color: #140F26
+}
+
+.validationMsg {
+  font-size: 16px;
+  font-family: Montserrat-SemiBold;
+  color: #140F26
+}
+
+.submit-button {
+  width: 225px;
+  height: 50px;
+  background-color: #5AC8FA;
+  border-radius: 25px;
+}
+
+.validation-ok-btn {
+  background-color: #5AC8FA;
+  border-radius: 25px;
+  height: 45px;
+  font-size: 16px;
+}
+
+.submit-button-text {
+  font-size: 14px;
+  color: #FFFFFF;
+  letter-spacing: 1.56px;
+}
+
+.cancel-button-text {
+  letter-spacing: 2.33px;
+  color: #5AC8FA;
+  cursor: pointer;
+}
+
+.confirmationAnimation {
+  position: absolute;
+  height: 128px;
+  width: 128px;
+}
+
+.validationAnimation {
+  height: 128px;
+  width: 128px;
+}
+
+.successAnimation {
+  height: 136px;
+}
+
+.thankyouText {
+  font-size: 20px;
+  color: #140F26;
+  letter-spacing: -0.15px;
+  line-height: 20px;
+  font-family: Montserrat-Regular;
+}
+
+.successMsg {
+  font-size: 16px;
+  color: #6C7B8A;
+  line-height: 22px;
+}
+
+.close-button {
+  width: 225px;
+  height: 50px;
+  border-radius: 100px;
+  color: #140F26;
+  letter-spacing: 1.56px;
+  filter: drop-shadow(0 0.5rem 0.75rem #3B4A7433);
+}
+
+.action-icons {
+  padding-left: 0px !important;
+  cursor: pointer;
+}
+
+.schedulelist-table-scrollbar {
+  position: relative;
+  height: 300px;
+  max-height: min-content;
+  overflow: auto;
+}
+
+.schedulelist-table-scrollbar-1 {
+  position: relative;
+  height: 150px;
+
+  overflow: auto;
+}
+
+.facilities-card .modal-body {
+  padding: 0rem;
+}
+
+.facilities-modal-body th:nth-child(2) {
+  width: 20%;
+}
+
+.facilities-modal-body th:nth-child(3) {
+  width: 15%;
+}
+
+.table> :not(:last-child)> :last-child>* {
+  border-bottom-color: white;
+}
+
+.schedule-inspection-header {
+  font-family: "Montserrat-SemiBold";
+  font-size: 20px;
+  color: #140F26;
+}
+
+.schedule-inspection-label {
+  font-family: 'Montserrat-medium';
+  font-size: 14px;
+  letter-spacing: 0px;
+  color: #6c7b8a;
+  text-transform: capitalize;
+}
+
+.schedule-inspection-details {
+  text-align: left;
+  font-family: 'Montserrat-medium';
+  font-size: 14px;
+  letter-spacing: 0px;
+  color: #140F26;
+  text-transform: capitalize;
+  margin-left: 26px;
+}
+
+.schedule-inspection-dropdown-reminder {
+  width: fit-content;
+  height: 18px;
+  border: 1px solid #E0E4EB;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: Montserrat-Medium;
+  color: #131315;
+  justify-content: space-between;
+  margin-left: 25px;
+}
+
+.schedule-inspection-btn-save,
+.schedule-inspection-btn-save:active {
+  height: 50px;
+  background: #5ac8fa 0% 0% no-repeat padding-box;
+  border-radius: 100px !important;
+  text-align: center;
+  letter-spacing: 1.56px;
+  color: #ffffff;
+  margin-right: 10px;
+  font-family: 'Montserrat-medium';
+  font-size: 14px;
+  width: 180px;
+}
+
+.schedule-inspection-btn-cancel,
+.schedule-inspection-btn-cancel:active {
+  height: 50px;
+  background: #ffffff 0% 0% no-repeat padding-box !important;
+  border: 1px solid #5ac8fa !important;
+  border-radius: 100px !important;
+  text-align: center;
+  letter-spacing: 1.56px;
+  color: #5ac8fa !important;
+  font-family: 'Montserrat-medium';
+  font-size: 14px;
+  width: 180px;
+}
+
+.schedule-inspection-before-due-label {
+  font-family: 'Montserrat-Medium';
+  font-size: 14px;
+  margin: 6px 0px 0px 10px;
+}
+
+.add-button-style {
+  float: right;
+  width: 85px;
+}
+
+.button-style {
+  background: #5ac8fa 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+  font-family: 'Montserrat-medium';
+  font-size: 14px;
+}
+
+.btn:active {
+  background: #5ac8fa 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+  font-family: 'Montserrat-medium';
+  font-size: 14px;
+  color: white;
+}
+
+.dropdown-title-style {
+  top: 208px;
+  left: 102px;
+  width: 180px;
+  height: 18px;
+  text-align: left;
+  font-family: 'Montserrat-medium';
+  font-size: 14px;
+  letter-spacing: 0px;
+  color: #6c7b8a;
+  opacity: 1;
+}
+
+.dropdown-style {
+  height: 32px;
+  background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+  border: 1px solid #e0e4eb;
+  border-radius: 4px;
+  color: black;
+  font-family: 'Montserrat-medium';
+  font-size: 14px;
+}
+
+.drop-toggle {
+  background-color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+  border: 1px solid #ccc;
+  width: 100%;
+  text-align: left;
+}
+
+.drop-toggle i {
+  float: right;
+}
+
+.drop-show {
+  padding: 6px;
+  width: 200px;
+  height: 150px;
+  background-color: #fff;
+  border: 1px solid #5ac8fa;
+  position: absolute;
+  z-index: 100;
+  margin-left: 1px;
+  color: black;
+  overflow-y: scroll
+}
+
+.drop-show-menu {
+  padding: 6px;
+  width: initial;
+  height: max-content;
+  background-color: #fff;
+  border: 2px solid #5ac8fa;
+  border-top: none;
+  position: absolute;
+  z-index: 100;
+  margin-left: 1px;
+  color: black;
+
+}
+
+.drop-show label {
+  display: block;
+  font-size: 14px;
+  font-family: "Montserrat-medium";
+  cursor: pointer;
+}
+
+.drop-show label span {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.datePickerUrl {
+  width: 180px;
+  height: 32px !important;
+  background-color: white;
+  font-family: 'Montserrat-medium';
+  font-size: 14px;
+}
+
+.schedule-inspection-date {
+  margin-left: 25px;
+}
+
+.datePickerContainer {
+  width: 180px;
+}
+
+.datePicker-input-box {
+  font-family: 'Montserrat-medium';
+  font-size: 14px;
+  width: 100%;
+}
+
+.datePicker-icon {
+  float: right;
+  margin-right: -15px;
+  margin-top: -25px;
+  color: #5AC8FA;
+}
+
+#gfg1 {
+  margin-top: -23px;
+  display: flex !important;
+}
+.timeZone {
+  padding-top: 28px;
+  white-space: nowrap;
+}
+
+::ng-deep .bs-timepicker-field {
+  width: 45px !important;
+  padding: auto;
+  height: 32px !important;
+  border: 1px solid #E0E4EB;
+  font-size: 14px;
+  font-family: Montserrat-Medium;
+}
+
+.img-margin {
+  margin-left: -1.8rem !important;
+  cursor: pointer;
+}
+
+select {
+  background-image: linear-gradient(45deg, transparent 50%, black 60%), linear-gradient(135deg, black 40%, transparent 50%) !important;
+  background-position: calc(100% - 16px) 12px, calc(100% - 10px) 12px, 100% 0;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 5px 10px;
+}
+
+i {
+  background-image: linear-gradient(45deg, transparent 50%, black 60%), linear-gradient(135deg, black 40%, transparent 50%) !important;
+  background-position: calc(100% - 5px) 7px, calc(100% - -1px) 7px, 100% 0;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 2px 1px;
+}
+
+.facility-option {
+  cursor: pointer;
+  // line-height: 30px;
+  line-height: 1.5em;
+  padding-left: 13px;
+  font-size: 14px;
+  font-family: Montserrat-Medium;
+}
+
+.select-facility-dropdown {
+  width: 100%;
+  height: 32px;
+  border: 1px solid #E0E4EB;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: Montserrat-Medium;
+  color: #131315;
+  justify-content: space-between;
+}
+
+.icon-animation {
+  position: relative;
+}
+
+.iconSvg {
+  position: relative;
+}
+
+.animation {
+  position: absolute;
+  height: 82px;
+  width: 82px;
+}
+
+
+.modal-name {
+  font-size: 20px;
+  font-family: Montserrat-SemiBold;
+  color: #140F26
+}
+
+.submit-button {
+  width: 225px;
+  height: 50px;
+  background-color: #5AC8FA;
+  border-radius: 25px;
+}
+
+.submit-button-text {
+  font-size: 14px;
+  color: #FFFFFF;
+  font-family: Montserrat-Medium;
+  letter-spacing: 1.56px;
+}
+
+.cancel-button-text {
+  font-size: 14px;
+  font-family: Montserrat-Medium;
+  letter-spacing: 2.33px;
+  color: #5AC8FA;
+  cursor: pointer;
+}
+
+.confirmationAnimation {
+  position: absolute;
+  height: 128px;
+  width: 128px;
+}
+
+.successAnimation {
+  height: 136px;
+}
+
+.thankyouText {
+  font-size: 20px;
+  color: #140F26;
+  letter-spacing: -0.15px;
+  line-height: 20px;
+}
+
+.successMsg {
+  font-size: 16px;
+  color: #6C7B8A;
+  line-height: 22px;
+  font-family: "Montserrat-Medium";
+}
+
+.close-button {
+  font-family: "Montserrat-Medium";
+  width: 225px;
+  height: 50px;
+  border-radius: 100px;
+  font-size: 14px;
+  color: #140F26;
+  letter-spacing: 1.56px;
+  filter: drop-shadow(0 0.5rem 0.75rem #3B4A7433);
+}
+
+.action-icons {
+  padding-left: 12px !important;
+}
+
+.reminderTable {
+  font-family: "Montserrat-Medium";
+  font-size: 14px;
+  text-align: center;
+}
+
+.scheduleInspection-table-style {
+  height: 66px;
+  background: #dfe5ee 0% 0% no-repeat padding-box;
+  opacity: 1;
+  font-family: 'Montserrat-medium';
+  font-size: 14px;
+}
+
+.scheduleInspection-table-header-style {
+  text-align: start;
+  vertical-align: middle;
+  font-family: 'Montserrat-medium';
+  font-size: 14px;
+  letter-spacing: 0px;
+  color: #6c7b8a;
+  opacity: 1;
+  position: sticky;
+  top: 0;
+  padding: 24px;
+}
+
+.scheduleInspection-table-style {
+  height: 66px;
+  background: #dfe5ee 0% 0% no-repeat padding-box;
+  vertical-align: middle;
+
+}
+
+.scheduleInspection-table-header {
+  text-align: left;
+  font-size: 14px;
+  color: #6c7b8a;
+  position: sticky;
+  top: 0;
+}
+
+.scheduleInspection-table-details {
+  font-size: 14px;
+  font-family: 'Montserrat-Medium';
+  color: #140F26;
+}
+
+.table> :not(:first-child) {
+  border-top: none;
+}
+
+.my-custom-scrollbar {
+  position: relative;
+  overflow: auto;
+  min-height: 40px;
+  max-height: 130px;
+}
+
+.error-message {
+  font-size: 12px;
+  font-family: 'Montserrat-Medium';
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.action-icons {
+  cursor: pointer;
+}
+
+.btn-check:focus+.btn,
+.btn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0rem rgb(70 80 221 / 25%);
+}
+
+.frequency-dropdown ul {
+  width: 100%;
+}
+
+.form-check-input:checked {
+  background-color: #5ac8fa;
+  border-color: #5ac8fa;
+}
+
+.checkbox-labels {
+  font-family: 'Montserrat-Medium';
+  color: #131315;
+  font-size: 14px;
+}
+
+.earlier-unit-dropdown ul,
+.earlier-submission-dropdown ul,
+.reminderWindow-dropdown ul,
+.reminderWindowUnits-dropdown ul {
+  min-width: 6.5rem;
+}
+
+.previewScheduleTable {
+  height: 210px;
+  overflow-y: auto;
+  border: 1px solid #dee2e6;
+}
+
+.previewScheduleTable thead {
+  text-align: left;
+  vertical-align: middle;
+  font-family: 'Montserrat-medium';
+  font-size: 12px;
+  letter-spacing: 0px;
+  color: #6c7b8a;
+  opacity: 1;
+  position: sticky;
+  top: 0;
+  height: 30px;
+  background: #dfe5ee 0% 0% no-repeat padding-box;
+
+}
+
+.previewScheduleTable thead>th {
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem
+}
+
+.previewScheduleTable tbody>tr {
+  height: 30px;
+}
+
+.previewScheduleTable tbody>tr>td {
+  font-size: 12px;
+  font-family: "Montserrat-Medium";
+  text-align: left;
+  color: #6c7b8a;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem
+}
+
+.preview-custom-scrollbar {
+  position: relative;
+  overflow: auto;
+  min-height: 60px;
+  max-height: 260px;
+}
+
+.earlier-submission-dropdown ul,
+.reminderWindow-dropdown ul {
+  max-height: 200px;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.schedule-preview-header {
+  font-family: "Montserrat-Medium";
+  font-size: 14px;
+  color: #6c7b8a;
+}
+
+.scrollable-menu {
+  height: auto;
+  max-height: 200px;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #6C7B8A;
+  border-right: none;
+  border-left: none;
+}
+
+.rowPadding {
+  padding-bottom: 32px;
+}
+
+.beforeDueDateText>p {
+  color: #140F26;
+  font-family: "Montserrat-Medium";
+  font-size: 14px;
+  padding-top: 5px;
+}
+
+.dropdown-menu {
+  min-width: inherit !important;
+}
+
+.form-control {
+  line-height: 1.2;
+  border: 1px solid #E0E4EB;
+}
+
+.dropdown-labels {
+  height: 18px;
+  font-family: "Montserrat-medium";
+  font-size: 14px;
+  letter-spacing: 0px;
+  color: #6c7b8a;
+  opacity: 1;
+}
+
+.dropdown-values {
+  width: 100%;
+  height: 32px;
+  border: 2px solid #e0e4eb;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: Montserrat-Medium;
+  color: #131315;
+  justify-content: space-between;
+  box-shadow: 0 0 0 0rem rgb(70 80 221 / 25%);
+}
+
+.dropdown-list {
+  height: auto;
+}
+
+.dropdown-value {
+  cursor: pointer;
+  line-height: 30px;
+  padding-left: 13px;
+}
+
+.btn:focus-visible {
+  background-color: #fff !important;
+  color: #5ac8fa !important;
+  border-color: #5ac8fa;
+}
+
+
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown ul {
+  border: 1px solid #5AC8FA !important;
+  border-block-start: 1px solid #E0E4EB !important;
+  border-radius: 0px 0px 8px 8px;
+  max-height: 306px;
+  overflow-y: auto;
+
+}
+
+
+
+.dropdown-toggle[aria-expanded="true"] {
+  border: 1px solid #5AC8FA !important;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.dropdown-toggle[aria-expanded="false"] {
+  border: 1px solid #E0E4EB !important;
+  border-radius: 4px;
+}
+
+.dropdown li:hover {
+  background: rgba($color: #9A9BA5, $alpha: 0.2)
+}
+
+.selectedEntity {
+  background-color: #DEF4FE;
+}
+
+input[type=checkbox] {
+  position: relative;
+  cursor: pointer;
+}
+
+input[type=checkbox]:before {
+  content: "";
+  position: absolute;
+  border: 1.5px #5AC8FA solid;
+  border-radius: 2px;
+  width: 18px;
+  height: 18px;
+  top: 0;
+  left: 0;
+  background-color: #FFFFFF;
+}
+
+input[type=checkbox]:checked:before {
+  content: "";
+  display: block;
+  position: absolute;
+  border: 1.5px #5AC8FA solid;
+  border-radius: 2px;
+  width: 18px;
+  height: 18px;
+  top: 0;
+  left: 0;
+  background-color: #1E80EF;
+}
+
+input[type=checkbox]:checked:after {
+  content: "";
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-radius: 2px;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 4px;
+  left: 6px;
+}
+
+.beforeDueDateDropdown {
+  width: 100px;
+  height: 32px;
+  border: 2px solid #e0e4eb;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: Montserrat-Medium;
+  color: #131315;
+  justify-content: space-between;
+  box-shadow: 0 0 0 0rem rgb(70 80 221 / 25%);
+}
+
+::ng-deep .modal-lg {
+  max-width: 987px !important;
+  width: auto;
+}
+
+
+.th-center {
+  text-align: center;
+}
+
+.th-left {
+  text-align: left;
+  padding-left: 32px;
+  margin-right: 32px;
+}
+
+.th-right {
+  text-align: right;
+  padding-right: 32px;
+  margin-right: 32px;
+}
+
+.datePicker-input-box {
+  background-color: white;
+  border: 1px solid #E0E4EB;
+}
+
+#gfg1 .btn {
+  padding-left: 0px !important;
+  font-family: Montserrat-Medium !important;
+  font-size: 14px !important;
+}
+
+
+.myFlex {
+  width: max-content;
+  display: flex;
+  padding-right: 0;
+}
+
+.myFlex>div:not(:last-child) {
+  margin-right: 20px;
+}
+
+.last-item {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.classNexttoTimeP {
+  margin-right: 0px !important;
+}
+
+.innerContent {
+  position: absolute;
+  right: 35px;
+}
+
+.myOuterDiv {
+  position: relative;
+}
+
+
+
+.btn-preview {
+  background: #5ac8fa 0% 0% no-repeat padding-box;
+  border-radius: 4px;
+  font-family: "Montserrat-medium";
+  font-size: 14px;
+  border-color: #5ac8fa;
+}
+
+.earliest-submission-allowed .col-md-4 {
+  width: 100px !important;
+}
+
+// .earliest-submission-allowed .col-md-4 .btn{
+//   width: 80% !important;
+// }
+.frequency .col-md-2 {
+  width: 120px !important;
+}
+
+.frequency .col-md-3 {
+  width: 140px !important;
+}
+
+.days .dropdown {
+  width: 140px;
+}
+
+.datePicker {
+  width: 180px;
+}
+
+.modal-manage-schedule {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+ng-select.select_dropdown {
+  border: 1px solid #e1dbdb;
+  border-radius: 3px;
+  z-index: 2;
+  position: relative;
+  bottom: 30px;
+  right: 4px;
+}
+
+.error-message {
+  color: #dc3545;
+}
+
+.table-responsive {
+  max-height: 400px;
+  /* Adjust the height as needed */
+  overflow-y: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #f2f2f2;
+  /* Header background color */
+}
+
+th,
+td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  background-color: #f2f2f2;
+  /* Header background color */
+  z-index: 1;
+}
+
+.linkManageNotification {
+  text-decoration: none;
+}
+
+.select-user {
+  width: 200px;
+}
+.before-due-date {
+  margin-top: 35px;
+}

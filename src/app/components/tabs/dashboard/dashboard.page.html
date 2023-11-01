@@ -1,0 +1,239 @@
+<ion-content class="context">
+
+  <div class="row mx-5 mt-4">
+    <div class="px-3">
+      <button class="refresh-btn float-end btn d-flex align-items-center justify-content-around">
+        <img src="assets/icons/refresh.svg" />
+        <span class="text-white"> {{stringValues?.REFRESH}} </span>
+      </button>
+    </div>
+  </div>
+
+  <div class="px-3 mt-4">
+    <app-facility-filter (faclilityFilterData)="receiveFacilityFilterData($event)"></app-facility-filter>
+  </div>
+
+  <div class="row px-5 mx-1 mt-3">
+    <div class="col-md-4">
+      <div class="card h-100 inspections-info-card">
+        <div class="card-header d-flex justify-content-between">
+          <div class="d-flex align-items-center card-header-text pe-2">{{stringValues?.INSPECTIONS_DUE_TODAY}}</div>
+          <img src="assets/icons/inspections-due-today.svg" />
+        </div>
+        <div class="inspections-card">
+          <div class="circle mx-auto text-center inspections-due-circle rounded-circle">
+            <div class="d-flex justify-content-center align-items-center h-100 dashboard-inspections-body-text">
+              18
+            </div>
+          </div>
+
+        </div>
+        <div class="card-footer bg-white col-md-12">
+          <div class="row text-center">
+            <div class="range">
+              <input id="hoursSlider" type="range" min="1" max="5" steps="2" value="1" class="range-width">
+            </div>
+            <ul class="range-labels text-black">
+              <li>
+                1 hr
+              </li>
+              <li>
+                2 hr
+              </li>
+              <li>
+                3 hr
+              </li>
+              <li>
+                4 hr
+              </li>
+              <li>
+                5 hr
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="card h-100 inspections-info-card">
+        <div class="card-header border-bottom-white">
+          <div class="d-flex justify-content-between">
+            <div class="d-flex align-items-center card-header-text">{{stringValues?.UPCOMING_INSPECTIONS}}</div>
+            <img src="assets/icons/upcoming-inspections.svg" />
+          </div>
+        </div>
+        <div class="inspections-card">
+          <div class="circle mx-auto text-center upcoming-inspections-circle rounded-circle">
+            <div
+              class="card-title d-flex justify-content-center align-items-center h-100 dashboard-upcoming-inspections-body-text">
+              08
+            </div>
+          </div>
+        </div>
+        <div class="card-footer bg-white col-md-12">
+          <div class="row text-center">
+            <div class="range slider-width">
+              <input type="range" min="1" max="7" steps="1" value="1" class="upcoming-range-width">
+            </div>
+            <ul class="upcoming-range-labels text-black">
+              <li>
+                1
+              </li>
+              <li>
+                2
+              </li>
+              <li>
+                3
+              </li>
+              <li>
+                4
+              </li>
+              <li>
+                5
+              </li>
+              <li>
+                6
+              </li>
+              <li>
+                7
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 h-100">
+      <div class="mb-4">
+        <div class="card-widget h-100">
+          <div class="card-widget-body">
+            <div class="dot me-3 dashboard-dot"></div>
+            <div class="text">
+              <h6 class="mb-2 dashboard-card-heading">{{stringValues?.MISSED_INSPECTIONS}}</h6>
+              <span class="dashboard-card-heading-font">58</span>
+            </div>
+          </div>
+          <div class="icon dashboard-card-heading-img"><img src="assets/icons/missed-inspections.svg"></div>
+        </div>
+      </div>
+      <div class="mb-4 pt-2 dashboard-col-card-margin">
+        <div class="card-widget h-100">
+          <div class="card-widget-body">
+            <div class="dot me-3 dashboard-dot"></div>
+            <div class="text">
+              <h6 class="mb-2 dashboard-card-heading">{{stringValues?.PARAMETER_EXCEEDENCE}}</h6>
+              <span class="dashboard-card-heading-font">9</span>
+            </div>
+          </div>
+          <div class="icon dashboard-card-heading-img"><img src="assets/icons/parameter-exceedence.svg">
+          </div>
+        </div>
+      </div>
+      <div class="pt-2 dashboard-col-card-margin">
+        <div class="card-widget h-100">
+          <div class="card-widget-body">
+            <div class="dot me-3 dashboard-dot"></div>
+            <div class="text">
+              <h6 class="mb-2 dashboard-card-heading">{{stringValues?.NON_OPERATIVE_ASSETS}}</h6>
+              <span class="dashboard-card-heading-font">52</span>
+            </div>
+          </div>
+          <div class="icon dashboard-card-heading-img"><img src="assets/icons/non-operative-assets.svg">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row px-5 mx-1 mt-3 mb-4">
+    <div class="col-md-6">
+      <div class="card h-100 inspections-list-card">
+        <div>
+          <div class="d-flex align-items-center mt-4 justify-content-between">
+            <label class="inspectionDetails ms-4 ion-margin-start">{{stringValues?.INSPECTIONS_DUE_TODAY}}</label>
+            <div class="me-4">
+              <button type="button" class="btn export-btn mx-2 p-0">
+                <img src="assets/icons/pdf.svg" class="export-icons p-0 me-2"/>
+                <span>{{stringValues?.EXPORT_PDF}}</span>
+              </button>
+              <button type="button" class="btn export-btn p-0">
+                <img src="assets/icons/excel.svg"  class="export-icons p-0 me-2"/>
+                <span>{{stringValues?.EXPORT_XLS}}</span>
+              </button>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table mt-4">
+              <thead class="inspections-list-header">
+                <tr>
+                  <th width="40%">{{stringValues?.FORM_NAME}}</th>
+                  <th width="20%">{{stringValues?.DUE_DATE}}</th>
+                  <th width="20%">{{stringValues?.INSPECTOR}}</th>
+                  <th width="20%">{{stringValues?.STATUS}}</th>
+                </tr>
+              </thead>
+              <tbody class="align-middle">
+                <tr class="inspectionDetails">
+                  <td class="formTitle">Air Visible Emissions Observation</td>
+                  <td>16-07-1998</td>
+                  <td>Kaustubh Toro</td>
+                  <td><span class="badge badge-notstarted">Not Started</span></td>
+                </tr>
+                <!-- <tr *ngIf="!inspectionsDueToday || inspectionsDueToday.length <= 0">
+                  <td>{{stringValues.ADMINDASHBOARD_MESSAGE_NO_RECORD_FOUND}}</td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card h-100 inspections-list-card">
+        <div>
+          <div class="d-flex align-items-center mt-4 justify-content-between">
+            <label class="tableTitle inspectionDetails ms-4 ion-margin-start">Inspections Completed Today</label>
+            <div class="me-4">
+              <button type="button" class="btn export-btn mx-2 p-0">
+                <img src="assets/icons/pdf.svg"  class="export-icons p-0 me-2"/>
+                <span>{{stringValues?.EXPORT_PDF}}</span>
+              </button>
+              <button type="button" class="btn export-btn p-0">
+                <img src="assets/icons/excel.svg"  class="export-icons p-0 me-2"/>
+                <span>{{stringValues?.EXPORT_XLS}}</span>
+              </button>
+            </div>
+          </div>
+  
+          <div class="table-responsive">
+            <table class="table mt-4">
+              <thead class="inspections-list-header">
+                <tr>
+                  <th width="40%">{{stringValues?.FORM_NAME}}</th>
+                  <th width="20%">{{stringValues?.DUE_DATE}}</th>
+                  <th width="20%">{{stringValues?.INSPECTOR}}</th>
+                  <th width="20%">{{stringValues?.STATUS}}</th>
+                </tr>
+              </thead>
+              <tbody class="align-middle">
+                <tr class="inspectionDetails">
+                  <td class="formTitle">Air Visible Emissions Observation</td>
+                  <td>16-07-1998</td>
+                  <td>Kaustubh Toro</td>
+                  <td><span class="badge badge-submit">Submitted</span></td>
+                </tr>
+                <!-- <tr *ngIf="!inspectionsCompletedToday || inspectionsCompletedToday.length <= 0">
+                  <td>{{stringValues.ADMINDASHBOARD_MESSAGE_NO_RECORD_FOUND}}</td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

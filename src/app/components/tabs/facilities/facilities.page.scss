@@ -1,0 +1,92 @@
+.forms-card {
+    font-family: 'Montserrat-medium';
+    font-size: 14px;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 6px 10px #00000024;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+.searchtextbox {
+    float: right;
+    border: 1px solid #e0e4eb;
+    border-radius: 4px;
+    color: #6C7B8A;
+}
+
+.card-title {
+    font-size: 18px;
+    color: #131315 !important;
+    font-family: "Montserrat-SemiBold";
+}
+
+.searchIcon {
+    position: absolute;
+
+}
+
+.search input[type="text"] {
+    padding-left: 42px;
+}
+
+.forms-table-header {
+    text-align: left;
+    color: #6c7b8a;
+    background: #dfe5ee 0% 0% no-repeat padding-box;
+}
+
+.table> :not(:last-child)> :last-child>* {
+    border-bottom-color: white;
+}
+
+.table > :not(:first-child) {
+    border-top: 2px solid white;
+    border-bottom: white;
+  }
+
+.table> :not(caption)>*>* {
+    padding: 1.2rem 1rem 1.2rem 2rem;
+}
+
+.manageScehduleLink {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.custom-pagination-controls {
+    font-size: 12px;
+}
+
+.page-number-text {
+    width: 32px;
+    height: 32px;
+    font-size: 12px;
+    font-family: 'Montserrat-Medium';
+}
+
+.select-rows {
+    width: 102px;
+    padding-right: 0px !important;
+}
+
+.row-input {
+    width: 75%;
+    font-size: 12px;
+}
+
+.chevronIcon {
+    cursor: pointer;
+}
+
+.form-title {
+    font-family: "Montserrat-Bold";
+    font-size: 14px;
+    color: #140F26;
+}
+
+.user-icon {
+    cursor: pointer;
+}
+
+
+

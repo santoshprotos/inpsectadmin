@@ -1,0 +1,278 @@
+.forms-card {
+    font-family: 'Montserrat-medium';
+    font-size: 14px;
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 6px 10px #00000024;
+    border-radius: 10px;
+    opacity: 1;
+}
+.dropdown-labels {
+    height: 18px;
+    font-family: "Montserrat-medium";
+    font-size: 14px;
+    letter-spacing: 0px;
+    color: #6c7b8a;
+    opacity: 1;
+  }
+  .dropdown-value {
+    width: 100%;
+    font-size: 14px;
+    font-family: Montserrat-Medium;
+    color: #131315;
+    justify-content: space-between;
+    box-shadow: 0 0 0 0rem rgb(70 80 221 / 25%);
+  }
+  
+  .dropdown-list {
+    height: auto;
+  }
+//   .dropdown-toggle::after {
+//     display: none;
+//   }
+  
+  .dropdown ul {
+    border: 1px solid #5AC8FA !important;
+    border-block-start: 1px solid #E0E4EB !important;
+    border-radius: 0px 0px 4px 4px;
+    max-height: 306px;
+    overflow-y: auto;
+  }
+  
+  .dropdown-toggle[aria-expanded="true"] {
+    border: 1px solid #5AC8FA !important;
+    border-radius: 4px 4px 0px 0px;
+  }
+  
+  .dropdown-toggle[aria-expanded="false"] {
+    border: 1px solid #E0E4EB !important;
+    border-radius: 4px;
+  }
+  .dropdown li:hover {
+    // background-color: #9A9BA5;
+    // opacity: 0.2;
+    background: rgba($color: #9A9BA5, $alpha: 0.2)
+  }
+  .dropdown-values {
+    width: 100%;
+    height: 32px;
+    border: 1px solid #e0e4eb;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: Montserrat-Medium;
+    color: #131315;
+    justify-content: space-between;
+    box-shadow: 0 0 0 0rem rgb(70 80 221 / 25%);
+  }
+  .dropdown-value {
+    cursor: pointer;
+    line-height: 30px;
+    padding-left: 6px;
+  }
+  .date-label-wrapper{
+    margin-top: 5px;
+  }
+  .date-type {
+    font-family: 'Montserrat-Medium';
+    font-size: 14px;
+    color: #131315;
+  }
+
+  .datePicker-input-box{
+    font-family: 'Montserrat-medium';
+    font-size: 14px;
+  }
+  .row.datePicker_container {
+    padding-top: 35px;
+}
+.clear-date {
+    display: flex;
+    align-items: center;
+    color: #5AC8FA;
+    font-family: 'Montserrat-Medium';
+    font-size: 14px;
+    min-width: 30px;
+    cursor: pointer;
+  }
+  .form-check-box {
+    font-family: "Montserrat-medium";
+    font-size: 14px;
+    padding-left: 8px;
+    padding-top: 5px
+  }
+  .form-check-input:checked {
+    background-color: #5ac8fa;
+    border-color: #5ac8fa;
+  }
+  .form-check-input:focus{
+    box-shadow: 0 0 0 0rem rgb(70 80 221 / 25%)
+  }
+  .form-check-input[type="radio"] {
+    border-color: #5ac8fa;
+    border-radius: 50%;
+  }
+  .form-check {
+    display: block;
+    min-height: 1.35rem;
+    padding-left: 2.5em;
+    margin-bottom: 0.125rem;
+}
+.search-icon {
+    position: absolute;
+    z-index: 1;
+    top: 5px;
+  }
+  .search-text {
+    font-family: 'Montserrat-Medium';
+    font-size: 14px;
+    letter-spacing: 0px;
+    color: #6C7B8A;
+    opacity: 1;
+  }
+  .input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    margin-left: -1px;
+    padding-left: 34px;
+    border-radius: 4px;
+}
+.row.Select_date_conatiner {
+    padding-top: 15px;
+}
+label.table_title.mb-1 {
+    font-size: 18px;
+    font-family: 'Montserrat-Medium';
+    padding-left: 35px
+}
+.searchIcon {
+  padding-right: 27px;
+}
+.table-design-style {
+    height: 66px;
+    background: #dfe5ee 0% 0% no-repeat padding-box;
+    border-bottom-color: white;
+  }
+  .table-header-style {
+    text-align: left;
+    letter-spacing: 0px;
+    color: #6c7b8a;
+     
+  }
+  .search-button-style {
+    background: #5ac8fa 0% 0% no-repeat padding-box;
+    letter-spacing: 1.56px;
+    color: #ffffff;
+    font-family: "Montserrat-medium";
+    font-size: 14px;
+    border-radius: 100px;
+    width: 100%;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  
+  .clear-button-style {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border: 1px solid #5ac8fa;
+    letter-spacing: 1.56px;
+    color: #5ac8fa;
+    font-family: "Montserrat-medium";
+    font-size: 14px;
+    border-radius: 100px;
+    width: 100%;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  .button_container{
+    padding-top: 15px;
+  }
+  .table > :not(:last-child) > :last-child > * {
+     border-bottom-color: transparent;
+  }
+  .table_card .mx-3{
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .badge-notstarted{
+    background-color:#140F2626;
+    color:#333;
+  }
+  .badge-border-saved{
+    background-color: #FF9F0A26;
+    color:#FF9F0A;
+  }
+  .badge-submit{
+    background-color:#0A84FF26;
+    color:#0A84FF;
+  }
+  .badge-approved{
+    background-color:#34C75926;
+    color: #34C759;
+  }
+  .input-group > .form-control:focus, .input-group > .form-select:focus {
+    z-index: 0;
+}
+
+.select-dropdown {
+  width: 100%;
+  height: auto;
+  border: 1px solid #E0E4EB;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: Montserrat-Medium;
+  color: #131315;
+  justify-content: space-between;
+  min-height: 35px;
+}
+.drop-show {
+  padding: 6px;
+  background-color: #fff;
+  border: 1px solid #5ac8fa;
+  position: absolute;
+  z-index: 100;
+  margin-left: 1px;
+  color: black;
+}
+.drop-show label {
+  display: block;
+  font-size: 14px;
+  font-family: "Montserrat-medium";
+  cursor: pointer;
+}
+.drop-show label span {
+  display: inline-block;
+  margin-left: 5px;
+  padding-top: 5px;
+}
+.clear-date.earli_clear_button {
+  padding-top: 6px;
+}
+.clear-date.last_clear_button {
+  padding-top: 38px;
+}
+.clear-date.submission_clear_button {
+  padding-top: 35px;
+}
+.clear-date.approve_clear_button {
+  padding-top: 35px;
+}
+.clear-date.certi_clear_button {
+  padding-top: 35px;
+}
+.error-message{
+  font-size: 12px;
+  font-family: 'Montserrat-Medium';
+  padding-top: 2.5px;
+  padding-bottom: 2.5px;
+}
+.form-check-input{
+  height: 20px;
+  width: 20px;
+}
+td.facility_name {
+  font-family: 'Montserrat-bold';
+  padding-left: 35px
+}
+th.facility {
+  padding-left: 35px;
+}
+span.badge{
+  font-size: 12px;
+  font-family: 'Montserrat-Medium' ;
+}

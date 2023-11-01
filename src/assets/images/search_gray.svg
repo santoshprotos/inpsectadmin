@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Search_grey" data-name="Search grey" transform="translate(-2680 -1911)">
+    <rect id="bounds" width="24" height="24" transform="translate(2680 1911)" fill="rgba(28,143,248,0.34)" opacity="0"/>
+    <g id="search" transform="translate(2685 1916)">
+      <circle id="Oval" cx="5.833" cy="5.833" r="5.833" transform="translate(0 0)" fill="none" stroke="#6c7b8a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Shape" d="M4.044,4.044,0,0" transform="translate(9.956 9.956)" fill="none" stroke="#6c7b8a" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

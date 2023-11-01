@@ -1,0 +1,131 @@
+<div *ngIf="(stringValues | json) !== ({} | json) && shouldLoginScreenDisplay">
+    <div class="page-holder align-items-center bg-gray-100 vh-100">
+        <div class="container">
+            <div class="row align-items-center vh-100">
+                <div class="col-md-6 col-sm-12 mx-auto">
+                    <div class="card bg-white">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-center mt-4 mb-4">
+                                <div>
+                                    <img src="assets/icons/Inspect logo.svg" alt="Inspect logo">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mt-3">
+                                <div class=" text-black hello title1">{{stringValues.TITLE}}</div>
+                            </div>
+                            <div class="d-flex justify-content-center ">
+                                <div class="text-black title2">{{stringValues.TITLE_1}}</div>
+                            </div>
+                            <div class="container mt-4 pt-2">
+                                <form *ngIf="loginForm" [formGroup]="loginForm" (submit)="nonSSOUserLogin()">
+                                    <div class="row d-flex justify-content-center align-items-center">
+                                        <div class="col-md-12 text-center d-flex justify-content-center">
+                                            <div class="form-group col-md-12">
+                                                <div class="form-floating">
+                                                    <input type="text"
+                                                        class="form-control email-password-textbox ps-3 mb-0 text-lowercase"
+                                                        formControlName="email"
+                                                        [placeholder]="stringValues.LOGIN_USERNAME_PLACEHOLDER">
+                                                    <label for="floatingInput"
+                                                        class="m-1 label-text">{{stringValues.EMAIL_ID_PLACEHOLDER}}</label>
+                                                    <img *ngIf="loginForm.get('email').valid"
+                                                        src="assets/icons/Approved.svg"
+                                                        class="approved-image icons my-n5" alt="">
+                                                </div>
+
+                                                <div *ngIf="loginForm.get('email').touched && loginForm.get('email').errors?.pattern"
+                                                    class="text-start validation-message d-flex mt-1">
+                                                    <small
+                                                        class="validation-msg-text">{{stringValues.MSG_VALID_EMAIL}}</small>
+                                                </div>
+
+                                                <div *ngIf="submitted && form.email.errors"
+                                                    class="text-start validation-message d-flex mt-1">
+                                                    <small *ngIf="form.email.errors.required"
+                                                        class="validation-msg-text">{{stringValues.MSG_EMAIL_ID_REQUIRED}}</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row d-flex justify-content-center align-items-center mt-3">
+                                        <div class="col-md-12 text-center d-flex justify-content-center">
+                                            <div class="form-group col-md-12">
+                                                <div class="form-floating">
+                                                    <input class="form-control email-password-textbox ps-3 mb-0"
+                                                        formControlName="password"
+                                                        [placeholder]="stringValues.LOGIN_PASSWORD_PLACEHOLDER"
+                                                        [type]="showPassword ? 'text' : 'password'">
+                                                    <label for="floatingPassword"
+                                                        class="m-1 label-text">{{stringValues.PASSWORD_PLACEHOLDER}}</label>
+
+                                                    <a (click)="toggleShow()" class="showHidePwd-image icons my-n5">
+                                                        <img src="assets/icons/ShowPassword.svg" [hidden]="showPassword"
+                                                            alt="">
+                                                        <img src="assets/icons/HidePassword.svg"
+                                                            [hidden]="!showPassword" alt="">
+                                                    </a>
+                                                </div>
+                                                <div *ngIf="submitted && form.password.errors"
+                                                    class="text-start validation-message d-flex mt-1">
+                                                    <small *ngIf="form.password.errors.required"
+                                                        class="validation-msg-text">{{stringValues.MSG_PASSWORD_REQUIRED}}</small>
+                                                </div>
+
+                                                <!-- <div class="mt-2 d-flex">
+                                                    <span class="forgot-password" (click)="forgotPassword()" (keydown.enter)="forgotPassword()" tabindex="4">{{stringValues?.FORGOT_PASSWORD_TEXT}} </span>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row d-flex justify-content-center align-items-center mt-4 pt-2">
+                                        <div class="col-md-12 text-center mt-2">
+                                            <div class="form-group d-flex justify-content-center">
+                                                <button class="col-md-7 sign-on-button custom-sign-on-btn text-white"
+                                                    [ngClass]="loginForm.invalid ? 'blurButton' : '' "
+                                                    type="submit">{{stringValues.BTN_SIGN_ON}}</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="divider mt-4 pt-1"><span
+                                            class="divider-text ">{{stringValues.OR_TEXT}}</span></div>
+                                </form>
+
+                                <div class="row d-flex justify-content-center align-items-center mt-4 pt-2">
+                                    <div class="col-md-12 text-center mt-2">
+                                        <div class="form-group d-flex justify-content-center">
+                                            <button class="col-md-7 sign-on-button sso-sign-on-btn text-white"
+                                                (click)="this.authService.login()">{{stringValues.BTN_SSO_SIGN_ON}}</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row d-flex justify-content-center align-items-center mt-4 pt-2">
+                                    <div class="col-md-12 text-center mt-2">
+                                        <div class="form-group d-flex justify-content-center">
+                                            <label for="from" class="login-from">{{stringValues.FROM_TEXT}}</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row d-flex justify-content-center align-items-center mb-4 mt-1">
+                                    <div class="col-md-12 text-center pt-1">
+                                        <div class="form-group d-flex justify-content-center">
+                                            <img src="assets/icons/Georgia-Pacific-stack-logoTransparent.png"
+                                                alt="Inspect logo">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

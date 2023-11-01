@@ -1,0 +1,32 @@
+.role-assignment-radio-btns{
+    padding-left: 10px;
+    text-align: left;
+    letter-spacing: 0px;
+    color: #140F26;
+    opacity: 1;
+    font-size: 14px;
+    font-family: 'Montserrat-Medium';
+}
+.form-label {
+    text-align: left;
+    letter-spacing: 0px;
+    color: #6C7B8A;
+    opacity: 1;
+    font-size: 14px;
+    font-family: 'Montserrat-Medium';
+    font-weight: normal;
+}
+.form-check-input:checked {
+    background-color: #5AC8FA;
+    border-color: #5AC8FA;
+}
+
+.under-construction {
+    font-family: Montserrat-SemiBold;
+    font-size: 30px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+}

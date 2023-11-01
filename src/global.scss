@@ -1,0 +1,73 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import '@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+.input-group-text {
+    padding: 0.75rem 0.75rem !important;
+}
+@font-face {
+    font-family: Montserrat-Medium;
+    src: url(assets/fonts/Montserrat-Medium.otf) format("opentype");
+  }
+
+  @font-face {
+    font-family: Montserrat-Regular;
+    src: url(assets/fonts/Montserrat-Regular.otf) format("opentype");
+  }
+
+  @font-face {
+    font-family: Montserrat-Light;
+    src: url(assets/fonts/Montserrat-Light.otf) format("opentype");
+  }
+
+  @font-face {
+    font-family: Montserrat-Bold;
+    src: url(assets/fonts/Montserrat-Bold.otf) format("opentype");
+  }
+  @font-face {
+    font-family: Montserrat-Black;
+    src: url(assets/fonts/Montserrat-Black.otf) format("opentype");
+  }
+  @font-face {
+    font-family: Montserrat-SemiBold;
+    src: url(assets/fonts/Montserrat-SemiBold.otf) format("opentype");
+  }
+
+  .bs-datepicker-body table td.week span
+  {
+    color: #5AC8FA !important;
+  }
+   
+  .bs-datepicker-body table td span.selected,
+  .bs-datepicker-head,
+  .bs-datepicker-head, .bs-datepicker button:active,
+  .bs-datepicker-body table td.selected span,
+  .bs-datepicker-body table td span[class*="select-"]:after,
+  .bs-datepicker-body table td[class*="select-"] span:after,
+  .bs-datepicker-body table td.active-week span:hover
+  {
+    background-color: #5AC8FA !important;
+  }

@@ -1,0 +1,69 @@
+.header
+{
+    justify-content: space-between;
+}
+.user-info{
+    display: inline-flex;
+    justify-content: flex-end;
+}
+.user-name {
+    align-self: center;
+    color: #140F26;
+    font-family: Montserrat-Medium;
+    font-size: 12px;
+    white-space: nowrap;
+    cursor: default;
+}
+.badge {
+    text-align: left;
+}
+
+.user-info .dropdown li:hover{
+    background: none !important;
+}
+
+.user-info .dropdown ul:hover{
+    background-color: #5AC8FA!important;
+    color:#ffffff!important;;
+}
+
+.hide{
+    display: none;
+}
+.show{
+    display: flex !important;
+}
+.form-name{
+    color: #140F26;
+    font-family: "Montserrat-SemiBold";
+    font-size: 18px;
+    width: max-content;
+    max-width: 50vw;
+    text-align: left;
+    line-height: normal;
+}
+.section-name {
+    font-family: "Montserrat-Medium";
+    font-size: 12px;
+    text-align: left;
+}
+
+.mentionTitle {
+    font-family: Montserrat-Medium;
+    font-size: 14px;
+} 
+.headershadow{
+    box-shadow: 0 0.1rem 0 rgb(0 0 0 / 5%);
+}
+
+.vertical-ruler {
+    height: 30px;
+}
+
+.logout-icon {
+    cursor: pointer;
+}
+
+.avatar {
+    cursor: default !important;
+}

@@ -1,0 +1,541 @@
+<div class=" manageScheduleModal">
+  <div class="modal-body px-1 pt-3 modal-manage-schedule">
+    <div class="modal-body px-1 pt-3">
+
+      <div class="col-md-12 mt-4">
+        <button (click)="hideModal()" class="close btn-close float-end me-4" type="button" data-bs-dismiss="modal"
+          aria-label="Close"></button>
+      </div>
+
+      <div class="col-md-12">
+        <div class="title text-center pt-4" id="exampleModalLabel">{{stringValues?.MANAGE_SCHEDULE}}</div>
+      </div>
+
+    </div>
+    <div class="col-md-12 mt-3 mb-3 ">
+      <div class="facilities-popup-label ms-4">{{stringValues?.FACILITY}}</div>
+      <div class="facilityName titles ms-4">{{facilityName}}</div>
+    </div>
+    <div class="col-md-12 d-flex mt-3 mb-3 ">
+      <div class="col-md-9">
+        <div class="facilities-popup-label ms-4" id="formName">{{stringValues?.FORMS}}</div>
+        <div class="formName titles ms-4">{{formDetails?.formtitle}}</div>
+      </div>
+      <div class="col-md-3 float-end myOuterDiv">
+        <button class="create-schedule-btn w-75 innerContent"
+          (click)="openScheduleInspectionModal( scheduleInspection,'C', null)">{{stringValues?.CREATE_NEW_SCHEDULE}}</button>
+      </div>
+    </div>
+    <div class="facilities-modal-body">
+      <div class="col-md-12">
+        <div class="table-responsive">
+          <table class="table schedulelist-table">
+            <thead class="facilities-table-style facilities-table-header">
+              <tr>
+                <th>{{stringValues?.FREQUENCY}}</th>
+                <th>{{stringValues?.START_DATE}}</th>
+                <th>{{stringValues?.END_DATE}}</th>
+                <th>{{stringValues?.START_DATE_TIME}}</th>
+                <th></th>
+                <th class="acitonHeading action-icons text-center">{{stringValues?.ACTION}}</th>
+              </tr>
+            </thead>
+            <tbody class="facilities-table-details">
+              <tr *ngFor="let schedule of formScheduleList; let i = index">
+                <td>{{schedule.frequency === 'ONE_TIME' ? 'ONE TIME' : schedule.frequency}}</td>
+                <td>{{schedule.startDate}}</td>
+                <td>{{schedule.endDate}}</td>
+                <td class="dueTime">{{schedule.dueDateTime}}</td>
+                <td class="dueTime">
+                  <a href="javascript:" class="linkManageNotification"
+                    (click)="openNotificationModal(manageNotification, schedule?.scheduleId)">{{stringValues?.MANAGE_NOTIFICATION}}</a>
+                </td>
+                <td class="action-icons text-center justify-content-center">
+                  <!-- <img src="assets/icons/EditGreen.svg" (click)="openScheduleInspectionModal(scheduleInspection,'U', schedule)" /> -->
+                  <img src="assets/icons/Delete.svg" (click)="delete(schedule)" />
+              </tr>
+              <tr *ngIf="formScheduleList?.length === 0">
+                <td colspan="6">
+                  <div class="text-center">{{stringValues?.NO_DATA_FOUND }}</div>
+                </td>
+              </tr>
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row mx-4" *ngIf="formScheduleList.length>0">
+      <app-pagination [paginationName]="paginationName" [totalRecords]="totalFormRecords" [row]="scheduleRows"
+        [pageNumber]="pageNumber" [pageSizes]="pageSizes"
+        (callParentMethod)="triggerFromPaginationEmit($event)"></app-pagination>
+    </div>
+    <div class="my-2 bg-white mt-2 mx-5">
+      <div class="col-md-12 text-center">
+        <button (click)="hideModal()" class="facilities-popup-btn-close-style mb-3" type="button">{{stringValues?.CLOSE
+          | uppercase}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--*********************** Schedule Inspection Modal **************************-->
+
+<ng-template #scheduleInspection>
+  <div class="modal-body px-1 pt-3">
+    <div class="container-fluid">
+      <div class="row d-flex justify-content-end pt-2">
+        <button type="button" class="close btn-close pe-3" aria-label="Close" (click)="closeModal()">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+
+      <div class="row rowPadding">
+        <div class="schedule-inspection-header text-center mb-3">{{stringValues?.SCHEDULE_AN_INSPECTION}}</div>
+      </div>
+
+      <div class="row rowPadding">
+        <div class="col">
+          <label class="schedule-inspection-label ms-4">{{stringValues?.FACILITY}}</label> <br>
+          <label class="schedule-inspection-details ms-4">{{facilityName}}</label>
+        </div>
+      </div>
+
+      <div class="row rowPadding">
+        <div class="col">
+          <label class="schedule-inspection-label ms-4">{{stringValues?.FORMS}}</label> <br>
+          <label class="schedule-inspection-details ms-4">{{formDetails?.formtitle}}</label><br>
+        </div>
+      </div>
+
+      <div class="row rowPadding">
+        <div class="col-md-12 d-flex mx-4 pb-2 frequency">
+          <div class="col-md-2 me-4">
+            <label class="schedule-inspection-label pb-2">{{stringValues.FREQUENCY}}</label><br>
+            <div class="dropdown" dropdown>
+              <button id="frequencyDropdownMenuButton" data-bs-toggle="dropdown" type="button"
+                class="btn bg-white dropdown-toggle dropdown-values  d-flex align-items-center"
+                aria-controls="dropdown-basic" [(ngModel)]="selectedFrequency" ngDefaultControl
+                (show.bs.dropdown)="onDropdownOpen('frequency')" (hide.bs.dropdown)="onDropdownClose('frequency')"
+                title="{{selectedFrequency}}" aria-haspopup="true" aria-expanded="false">
+                <span>{{selectedFrequency}} </span>
+                <img [src]="freqArrowIcon" class="" />
+              </button>
+              <ul id="dropdown-basic " class="dropdown-menu dropdown-values dropdown-list mt-n1 pt-0 pb-1" role="menu"
+                aria-labelledby="frequencyDropdownMenuButton">
+                <li class="facility-option" *ngFor="let frequency of frequencies" ngDefaultControl
+                  (click)="setSelectFrequency(frequency)"
+                  [ngClass]="selectedFrequency === frequency.name ? 'selectedEntity' : '' ">
+                  {{frequency.name}}
+                </li>
+
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-3"
+            *ngIf="selectedFrequency===stringValues?.WEEKLY||selectedFrequency===stringValues?.MONTHLY">
+            <label class="schedule-inspection-label pb-2"
+              *ngIf="selectedFrequency===stringValues?.WEEKLY">{{stringValues?.DAYS}}</label>
+            <label class="schedule-inspection-label pb-2"
+              *ngIf="selectedFrequency===stringValues?.MONTHLY">{{stringValues?.DUE_DATE}}</label><br>
+
+            <div *ngIf="selectedFrequency===stringValues?.WEEKLY" class="dropdown">
+              <button id="weekDayMenuButton" data-bs-toggle="dropdown"
+                class="btn bg-white dropdown-toggle dropdown-values  d-flex align-items-center"
+                [(ngModel)]="weekDayCheckedList" ngDefaultControl (show.bs.dropdown)="onDropdownOpen('weekDay')"
+                (hide.bs.dropdown)="onDropdownClose('weekDay')" aria-haspopup="true" aria-expanded="false">
+                <span *ngIf="weekDayCheckedList.length<=0">{{stringValues?.SELECT}}</span>
+                <span *ngIf="weekDayCheckedList.length>0">{{weekDayCheckedList.toString()|daysWrapper:9}}</span>
+                <img [src]="weekDayArrowIcon" class="" />
+              </button>
+              <ul class="dropdown-menu dropdown-values dropdown-list mt-n1 pt-0 pb-1" role="menu"
+                aria-labelledby="weekDayMenuButton">
+                <li *ngFor="let a of WeekDayList">
+                  <div class="d-flex gap-3 pb-1 pt-1" style="padding-left: 14px;"
+                    [ngClass]="a.checked?'selectedEntity':''">
+                    <input type="checkbox" [(ngModel)]="a.checked"
+                      (change)="getSelectedValue(a.checked,a.name,stringValues.WEEKLY)" />
+                    <span>{{a.name}}</span>
+                  </div>
+                </li>
+              </ul>
+              <div class="error-message" *ngIf="isDayOfWeekSelected">{{stringValues?.REQUIRED}}</div>
+            </div>
+
+            <div *ngIf="selectedFrequency===stringValues?.MONTHLY" class="dropdown">
+              <button id="monthDayMenuButton" data-bs-toggle="dropdown"
+                class="btn bg-white dropdown-toggle dropdown-values  d-flex align-items-center"
+                (click)="showDropDown=!showDropDown" [(ngModel)]="monthDayCheckList" ngDefaultControl
+                (show.bs.dropdown)="onDropdownOpen('monthDay')" (hide.bs.dropdown)="onDropdownClose('monthDay')"
+                aria-haspopup="true" aria-expanded="false">
+                <span *ngIf="monthDayCheckList.length<=0">{{stringValues?.SELECT}}</span>
+                <span *ngIf="monthDayCheckList.length>0">{{monthDayCheckList.toString()|daysWrapper:15}}</span>
+                <img [src]="monthDayArrowIcon" class="" />
+              </button>
+              <ul class="dropdown-menu dropdown-values dropdown-list mt-n1 pt-0 pb-1" role="menu"
+                aria-labelledby="monthDayMenuButton">
+                <li *ngFor="let a of MonthDayList">
+                  <div class="d-flex gap-3 pb-1 pt-1" style="padding-left: 14px;"
+                    [ngClass]="a.checked?'selectedEntity':''">
+                    <input type="checkbox" [(ngModel)]="a.checked"
+                      (change)="getSelectedValue(a.checked,a.value,stringValues.MONTHLY)" />
+                    <span>{{a.value}}</span>
+                  </div>
+                </li>
+              </ul>
+              <div class="error-message" *ngIf="isDayOfMonthSelected">{{stringValues?.REQUIRED}}</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ONE_TIME -->
+      <div class="oneTime mx-4 pb-2">
+        <div class="row  pb-3">
+
+          <div class="daily pb-2">
+            <div class="row">
+              <div class="col-md-5">
+                <div class="row rowPadding">
+                  <label
+                    class="schedule-inspection-label pb-2">{{stringValues.EARLIEST_SUBMISSION_ALLOWED_BEFORE}}</label><br>
+                  <div class="d-flex col-md-12 earliest-submission-allowed">
+                    <div class="col-md-4 me-4">
+                      <input type="number" [(ngModel)]="earliestSubmissionAllowedBeforeDueDate" min="1"
+                        class="form-control" />
+                    </div>
+                    <div class="col-md-4 me-1">
+                      <div class="dropdown" dropdown>
+                        <button id="frequencyDropdownMenuButton" data-bs-toggle="dropdown" type="button"
+                          class="btn bg-white dropdown-toggle dropdown-values  d-flex align-items-center"
+                          aria-controls="dropdown-basic" [(ngModel)]="earlySubmitUnit" ngDefaultControl
+                          (show.bs.dropdown)="onDropdownOpen('frequency')"
+                          (hide.bs.dropdown)="onDropdownClose('frequency')" title="{{earlySubmitUnit}}"
+                          aria-haspopup="true" aria-expanded="false">
+                          <span>{{earlySubmitUnit}} </span>
+                          <img [src]="freqArrowIcon" class="" />
+
+                        </button>
+                        <ul id="dropdown-basic " class="dropdown-menu dropdown-values dropdown-list mt-n1 pt-0 pb-1"
+                          role="menu" aria-labelledby="frequencyDropdownMenuButton">
+                          <li class="facility-option" *ngFor="let option of ['Days','Hours']" ngDefaultControl
+                            (click)="selectSubmissionUnit(option)">
+                            {{option}}
+                          </li>
+                        </ul>
+                      </div>
+
+                    </div>
+
+                    <div class="col-md-4" style="display: none;">
+                      <button type="button" class="btn btn-sm btn-primary btn-preview"
+                        (click)="previewSchedule()">{{stringValues?.PREVIEW}}</button>
+                    </div>
+                  </div>
+                  <div class="error-message col-md-12"
+                    *ngIf="isEarliestSubmission && earliestSubmissionAllowedBeforeDueDate <= 0">
+                    {{stringValues?.EARLY_SUBMIT_WINDOW_ERROR_MESSAGE}}</div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-3 datePicker" *ngIf="selectedFrequency === stringValues?.ONE_TIME">
+            <label class="schedule-inspection-label pb-2">{{stringValues?.DUE_BY}}</label><br>
+            <div class="form-group d-flex">
+              <input type="text" placeholder="MM/DD/YYYY" class="form-control datePicker-input-box" #dp="bsDatepicker"
+                bsDatepicker [minDate]="minEndDate" [bsValue]="endDate" placement="top"
+                (bsValueChange)="onDateChange($event, 'endDate')" [value]="endDate | date: 'MM-dd-yyyy'" readonly>
+              <img class="img-margin" (click)="dp.toggle()" [attr.aria-expanded]="dp.isOpen"
+                src="assets/icons/Calendar.svg">
+            </div>
+            <div class="error-message" *ngIf="isEndDateRequired">{{stringValues?.REQUIRED}}</div>
+          </div>
+
+          <div class="col-md-3 datePicker" *ngIf="selectedFrequency !== stringValues?.ONE_TIME">
+            <label class="schedule-inspection-label pb-2">{{stringValues.START_DATE}}</label><br>
+            <div class="form-group d-flex">
+              <input type="text" placeholder="MM/DD/YYYY" class="form-control datePicker-input-box" #sd="bsDatepicker"
+                bsDatepicker [minDate]="minStartDate" [bsValue]="startDate" placement="top"
+                (bsValueChange)="onDateChange($event, 'startDate')" [value]="startDate | date: 'MM-dd-yyyy'" readonly>
+              <img class="img-margin" (click)="sd.toggle()" [attr.aria-expanded]="sd.isOpen"
+                src="assets/icons/Calendar.svg">
+            </div>
+            <div class="error-message" *ngIf="isStartDateRequired">{{stringValues?.REQUIRED}}</div>
+          </div>
+
+          <div class="col-md-3 datePicker" *ngIf="selectedFrequency !== stringValues?.ONE_TIME">
+            <label class="schedule-inspection-label pb-2">{{stringValues.END_DATE}}</label><br>
+            <div class="form-group d-flex">
+              <input type="text" placeholder="MM/DD/YYYY" class="form-control datePicker-input-box" #ep="bsDatepicker"
+                bsDatepicker [minDate]="minEndDate" [bsValue]="endDate" placement="top"
+                (bsValueChange)="onDateChange($event, 'endDate')" [value]="endDate | date: 'MM-dd-yyyy'" readonly>
+              <img class="img-margin" (click)="ep.toggle()" [attr.aria-expanded]="ep.isOpen"
+                src="assets/icons/Calendar.svg">
+            </div>
+            <div class="error-message" *ngIf="isEndDateRequired">{{stringValues?.REQUIRED}}</div>
+          </div>
+
+          <div class="col-md-3 datePicker">
+            <label class="schedule-inspection-label pb-2">{{stringValues?.DUE_TIME}}</label>
+            <div id="gfg1" class="d-flex">
+              <timepicker ngDefaultControl [(ngModel)]="timeSchedule"></timepicker>
+              <div class="timeZone">({{facilityTimeZone}})</div>
+            </div>
+          </div>
+
+        </div>
+
+
+
+
+
+
+        <!-- Reminder -->
+        <div class="row rowPadding" style="display: none;">
+          <div class="table-responsive table-wrapper-scroll-y schedulelist-table-scrollbar-1">
+            <table class="table schedulelist-table">
+              <thead class="scheduleInspection-table-style scheduleInspection-table-header">
+                <tr>
+                  <th>{{stringValues?.REMINDER}}</th>
+                  <th class="th-right">{{stringValues?.ACTION}}</th>
+                </tr>
+
+              </thead>
+              <tbody class="scheduleInspection-table-details">
+                <tr>
+                  <td colspan="2" class="th-center"> {{stringValues?.NO_DATA_FOUND}}</td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-md-12 text-center">
+        <button type="button" class="btn schedule-inspection-btn-save" (click)="saveSchedule()">{{saveBtnText |
+          uppercase}}</button>
+        <button type="button" class="btn schedule-inspection-btn-cancel" (click)="closeModal()">{{stringValues?.CANCEL |
+          uppercase}}</button>
+      </div>
+
+
+
+    </div>
+  </div>
+</ng-template>
+
+
+
+
+
+
+
+
+
+
+<!--*********************** Manage Notification Modal **************************-->
+
+
+<ng-template #manageNotification>
+  <div class="modal-body px-1 pt-3 modal-manage-schedule">
+    <div class="modal-body px-1 pt-3">
+
+      <div class="col-md-12">
+        <button (click)="hideManageNotificationModal()" class="close btn-close float-end me-4" type="button"
+          data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="col-md-12">
+        <div class="title text-center pt-4" id="exampleModalLabel">{{stringValues?.MANAGE_NOTIFICATION}}</div>
+      </div>
+    </div>
+    <div class="col-md-12 d-flex mt-3 mb-3 ">
+      <div class="offset-md-9 col-md-3 float-end myOuterDiv">
+        <button class="create-notification-btn w-75"
+          (click)="openCreateNotificationModal(createNotification)">{{stringValues?.CREATE_NEW_NOTIFICATION}}</button>
+      </div>
+    </div>
+    <div class="facilities-modal-body">
+      <div class="col-md-12">
+        <div class="table-responsive">
+          <table class="table schedulelist-table">
+            <thead class="facilities-table-style facilities-table-header">
+              <tr>
+                <th>{{stringValues?.NOTIFICATION_DETAILS}}</th>
+                <th>{{stringValues?.NOTIFY_FACILITY_ADMIN}}</th>
+                <th>{{stringValues?.OBSERVERS}}</th>
+                <th class="acitonHeading action-icons text-center">{{stringValues?.ACTION}}</th>
+              </tr>
+            </thead>
+            <tbody class="facilities-table-details">
+              <tr *ngFor="let notification of notificationList; let i = index">
+                <td>{{notification.notificationDetails}}</td>
+                <td>{{notification.notifyfacilityadmin === true ? 'Yes' : 'No'}}</td>
+                <td>{{notification.observers}}</td>
+                <td class="action-icons text-center justify-content-center gap-2">
+                  <img src="assets/icons/EditGreen.svg" class="me-2" title="Edit"
+                    (click)="editNotification(notification, createNotification)" />
+                  <img src="assets/icons/Delete.svg" title="Delete" (click)="deleteNotification(notification)" />
+                </td>
+              </tr>
+              <tr *ngIf="notificationList?.length === 0">
+                <td colspan="4">
+                  <div class="text-center">{{stringValues?.NO_DATA_FOUND }}</div>
+                </td>
+              </tr>
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row me-3" *ngIf="notificationList.length>0">
+      <app-pagination [paginationName]="paginationName" [totalRecords]="totalNotification" [row]="notificationRows"
+        [pageNumber]="notificationPageNumber" [pageSizes]="pageSizes"
+        (callParentMethod)="triggerNotificationPaginationEmit($event)"></app-pagination>
+    </div>
+    <div class="my-2 bg-white mt-2 mx-5">
+      <div class="col-md-12 text-center">
+        <button (click)="hideManageNotificationModal()" class="facilities-popup-btn-close-style mb-3"
+          type="button">{{stringValues?.CLOSE
+          | uppercase}}</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+
+<!--*********************** Create Notification Modal **************************-->
+
+<ng-template #createNotification>
+  <div class="modal-body px-1 pt-3">
+    <div class="container-fluid">
+      <div class="row d-flex justify-content-end pt-2">
+        <button type="button" class="close btn-close pe-3" aria-label="Close" (click)="hideCreateNotificationModal()">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+
+      <div class="row rowPadding">
+        <div class="schedule-inspection-header text-center mb-3">{{stringValues?.CREATE_NOTIFICATION}}</div>
+      </div>
+
+      <div class="row d-flex">
+        <div class="col-md-7">
+          <label class="schedule-inspection-label pb-2">{{stringValues?.NOTIFICATION_TYPE}}</label>
+          <div class="dropdown" dropdown>
+            <button id="frequencyDropdownMenuButton" data-bs-toggle="dropdown" type="button"
+              class="btn bg-white dropdown-toggle dropdown-values  d-flex align-items-center"
+              aria-controls="dropdown-basic" [(ngModel)]="selectedNotification" ngDefaultControl
+              (show.bs.dropdown)="onDropdownOpen('frequency')" (hide.bs.dropdown)="onDropdownClose('frequency')"
+              title="{{selectedNotification}}" aria-haspopup="true" aria-expanded="false">
+              <span>{{selectedNotification}} </span>
+              <img [src]="freqArrowIcon" class="" />
+            </button>
+            <ul id="dropdown-basic " class="dropdown-menu dropdown-values dropdown-list mt-n1 pt-0 pb-1" role="menu"
+              aria-labelledby="frequencyDropdownMenuButton">
+              <li class="facility-option" *ngFor="let notificationType of notificationTypes" ngDefaultControl
+                (click)="setSelectNotification(notificationType)"
+                [ngClass]="selectedNotification === notificationType.name ? 'selectedEntity' : '' ">
+                {{notificationType.name}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row d-flex pt-4" *ngIf="selectedNotification !== 'overdue' && selectedNotification !== 'parameter exceedance'">
+        <div class="col-md-7">
+          <label class="schedule-inspection-label pb-2">{{stringValues?.SEND_NOTIFICATION}}</label>
+          <div class="row">
+            <div class="col-md-6">
+              <input type="number" placeholder={{stringValues?.ENTER_NO}} [(ngModel)]="reminderWindow" min="0" max="365"
+                class="form-control" />
+              <div class="error-message" *ngIf="isReminderWindowRequired">{{stringValues?.REQUIRED1_VALUE}}</div>
+            </div>
+            <div class="col-md-6">
+              <div class="dropdown" dropdown>
+                <button id="frequencyDropdownMenuButton" data-bs-toggle="dropdown" type="button"
+                  class="btn bg-white dropdown-toggle dropdown-values  d-flex align-items-center"
+                  aria-controls="dropdown-basic" [(ngModel)]="earlySubmitUnit" ngDefaultControl
+                  (show.bs.dropdown)="onDropdownOpen('frequency')" (hide.bs.dropdown)="onDropdownClose('frequency')"
+                  title="{{earlySubmitUnit}}" aria-haspopup="true" aria-expanded="false">
+                  <span>{{earlySubmitUnit}} </span>
+                  <img [src]="freqArrowIcon" class="" />
+
+                </button>
+                <ul id="dropdown-basic " class="dropdown-menu dropdown-values dropdown-list mt-n1 pt-0 pb-1" role="menu"
+                  aria-labelledby="frequencyDropdownMenuButton">
+                  <li class="facility-option" *ngFor="let option of ['Hours','Days']" ngDefaultControl
+                    (click)="selectSubmissionUnit(option)">
+                    {{option}}
+                  </li>
+                </ul>
+              </div>
+             
+            </div>
+          </div>
+
+        </div>
+
+        <div  class="col-md-5 position-relative ps-0">
+          <label class="schedule-inspection-label pb-2 position-absolute before-due-date">({{stringValues?.BEFORE_DUE_DATE}})</label>
+        </div>
+
+      </div>
+
+      <div class="row d-flex pt-4">
+        <div class="col-md-10">
+          <label class="schedule-inspection-label pb-2">{{stringValues?.DEFAULT_AUDIENCE}} : </label>
+          {{stringValues?.DEFAULT_AUDIENCE_STRING}}
+        </div>
+      </div>
+
+      <div class="row d-flex pt-2">
+        <div class="col-md-7">
+          <label class="schedule-inspection-label pb-2">{{stringValues?.ADDITIONAL_AUDIENCE}}</label>
+          <div class="d-flex gap-3 pb-1 pt-1">
+            <input type="checkbox" [(ngModel)]="isFacilityAdmin" />
+            <span class="schedule-inspection-label">{{stringValues?.FACILITY_ADMIN}}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row d-flex pt-1">
+        <div class="col-md-7 d-flex">
+          <div class="d-flex gap-3 pb-1 pt-1">
+            <input type="checkbox" [(ngModel)]="isObserver" (change)="getUsers()">
+            <span class="schedule-inspection-label">{{stringValues?.OBSERVERS}}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row d-flex pt-1" *ngIf="isObserver">
+        <div class="col-md-7">
+          <app-multi-select-dropdown [list]="userList" (roleBasedFilterData)="receiveData($event)" [selectedItems]="selectedListItems"
+            [placeHolder]="userListPlaceHolder"></app-multi-select-dropdown>
+          <div class="error-message" *ngIf="isListOfAssignment">{{stringValues?.PLEASE_SELECT_USERS}}</div>
+        </div>
+      </div>
+
+      <div class="col-md-12 text-center mt-4">
+        <button type="button" class="btn schedule-inspection-btn-save"
+          (click)="saveScheduleNotification()">{{saveBtnText |
+          uppercase}}</button>
+        <button type="button" class="btn schedule-inspection-btn-cancel"
+          (click)="hideCreateNotificationModal()">{{stringValues?.CANCEL |
+          uppercase}}</button>
+      </div>
+
+    </div>
+  </div>
+</ng-template>

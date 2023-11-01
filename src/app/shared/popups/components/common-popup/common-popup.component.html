@@ -1,0 +1,90 @@
+ <!-- ***************delete user modal************** -->
+
+
+  <div class="modal-body pb-2 mx-2 px-2">
+    <div class="container-fluid">
+      <div class="row d-flex justify-content-end">
+        <button type="button" class="btn-close close pull-right justify-content: space-between" aria-label="Close"
+          (click)="modalRef?.hide()" data-bs-dismiss="modal">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+
+      <div class="row pt-4">
+        <div class="col-sm-12 d-flex justify-content-center icon-animation">
+          <!-- <img class="iconSvg" src="assets/icons/SubmitPopUp.svg" /> -->
+          <lottie-player class="confirmationAnimation me-3 mt-1" src="/assets/animations/confirm.json"
+            background="transparent" speed="1" loop autoplay>
+          </lottie-player>
+        </div>
+      </div>
+
+      <div class="row mt-5 mb-2">
+        <div class="col-sm-12 ">          
+          <div class="frequencyLabel titles ms-2">{{common_title}}</div>
+        </div>
+      </div>
+
+      <div class="row mt-5 mb-2">
+        <div class="col-sm-12">
+          <div class="modal-name text-center common-message">{{message}}</div>
+        </div>
+      </div>
+
+      <div class="row pt-4">
+        <div class="col-sm-12 d-flex justify-content-center">
+          <button class="btn submit-button d-flex justify-content-center align-items-center submit-button-text"
+            (click)="confirmDelete(deleteSuccessModal,modalType)"> yes   </button>
+          <div class="btn cancel-button-text" (click)="modalRef?.hide()">
+            No
+         </div>
+
+        </div>
+      </div>
+
+      <div class="row pt-3">
+        <div class="col-sm-12 text-center mt-2 mb-3">
+          <!-- <div class="cancel-button-text" (click)="modalRef?.hide()">
+           No
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+
+
+
+ <!-- ***************third modal (success modal)************** -->
+
+<ng-template #deleteSuccessModal>
+  <div class="modal-body pb-2 mx-2 px-2">
+    <div class="container-fluid">
+
+      <div class="row d-flex justify-content-end">
+        <button type="button" class="close btn-close pe-1" aria-label="Close" data-dismiss="modal"
+          (click)="modalRef1?.hide()">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="row">
+        <div class="d-flex justify-content-center mt-3">
+          <img class="iconSvg" src="assets/icons/SubmitPopUp.svg" />
+          <lottie-player class="confirmationAnimation me-3 mt-1" src="assets/animations/confirm.json"
+            background="transparent" speed="1" loop autoplay>
+          </lottie-player>
+        </div>
+      </div>
+      <div class="row">
+        <div class="text-center mt-4 thankyouText">{{successTitle}}</div>
+      </div>
+
+      <div class="row">
+        <div class="text-center  mt-4 successMsg">{{successMessage}}  </div>
+      </div>
+      <div class="row d-flex justify-content-center mt-4 pt-2 mb-4">
+        <button class="btn  close-button " (click)="modalRef1?.hide()"
+          type="button">CLOSE</button>
+      </div>
+    </div>
+  </div>
+</ng-template> 

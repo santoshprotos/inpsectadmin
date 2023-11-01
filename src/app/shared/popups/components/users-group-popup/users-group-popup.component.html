@@ -1,0 +1,298 @@
+<!-- Modal user group  roles -->
+<ng-template [ngIf]="is_usersGroupRoles">
+    <div class="user-role-modal">
+        <div class="modal-body px-0 pt-0">
+            <div class="text-start" id="userRolePopup">
+                <div class="border-0 bg-white-100 mt-5 mb-4">
+                    <button (click)="modalRef.hide()" class="close btn-close usersrole-close-icon" type="button"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="title modal-title" id="ModalLabel">User Groups</div>
+                </div>
+            </div>
+            <div class="row user-header">
+                <div class="col-md-6">
+                    <div class="">
+                        <label for="username" class="user-label">{{stringValues?.GROUP_NAME}}</label>
+                    </div>
+                    <div class="user-name">
+                        {{groupInfo.usergroupname }}
+                    </div>
+                </div>
+            </div>
+            <div class="row user-details">
+                <div class="col-md-12">
+                    <div class="table-responsive scroll-table">
+                        <table class="table user-role-facility">
+                            <thead class="table-header">
+                                <tr>
+                                    <th scope="col" class="px-5">{{stringValues?.DIVISION}}</th>
+                                    <th scope="col" class="px-5">{{stringValues?.BUSINESS}}</th>
+                                    <th scope="col" class="px-5">{{stringValues?.FACILITY}} </th>
+                                    <th scope="col" class="px-5 text-center">{{stringValues?.ROLE_NAME}}
+                                    </th>
+                                </tr>
+                            </thead>
+                            <ng-container *ngIf="(groupInfo.userrolesfordivision.length > 0) || (groupInfo.userrolesforbusiness.length > 0) || (groupInfo.userrolesforfacility.length > 0)">
+                                <tbody>
+                                    <tr *ngFor="let userGroupRole of groupInfo.userrolesfordivision">
+                                        <td class="user-role-table-td">{{ userGroupRole.divisionname }}</td>
+                                        <td class="user-role-table-td">{{ userGroupRole.businessname }}</td>
+                                        <td class="user-role-table-td">{{ userGroupRole.facilityname }}</td>
+                                        <td class="user-role-table-td">{{ userGroupRole.rolecode }}</td>
+                                    </tr>
+                                    <tr *ngFor="let userGroupRole of groupInfo.userrolesforbusiness">
+                                        <td class="user-role-table-td">{{ userGroupRole.divisionname }}</td>
+                                        <td class="user-role-table-td">{{ userGroupRole.businessname }}</td>
+                                        <td class="user-role-table-td">{{ userGroupRole.facilityname }}</td>
+                                        <td class="user-role-table-td">{{ userGroupRole.rolecode }}</td>
+                                    </tr>
+                                    <tr *ngFor="let userGroupRole of groupInfo.userrolesforfacility">
+                                        <td class="user-role-table-td">{{ userGroupRole.divisionname }}</td>
+                                        <td class="user-role-table-td">{{ userGroupRole.businessname }}</td>
+                                        <td class="user-role-table-td">{{ userGroupRole.facilityname }}</td>
+                                        <td class="user-role-table-td">{{ userGroupRole.rolecode }}</td>
+                                    </tr>
+                                </tbody>
+                            </ng-container>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 modal-footer justify-content-center border-0 bg-white-100">
+                    <button (click)="modalRef.hide()" class="actionBtn  close-button"
+                        type="button">{{stringValues?.CLOSE | uppercase}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ng-template>
+
+<!-- Create group modal -->
+<ng-template [ngIf]="is_groupDetails">
+    <div class="create-users-modal ">
+        <div class="modal-body">
+            <div class="text-start" id="CreateEditGroupPopup">
+                <div class="border-0 ">
+                    <div class="modal-title" id="ModalLabel">
+                        {{stringValues?.USER_GROUP_DETAILS}}
+                    </div>
+                    <button (click)="modalRefCreateEdit.hide()" class="close btn-close create-user-close-icon"
+                        type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="row user-details">
+                    <div class="col-md-12">
+                        <form [formGroup]="registerUser" (ngSubmit)="Save()">
+                            <div class="row section-group-name">
+                                <div class="col-md-4">
+                                    <label class="form-label">
+                                        {{stringValues?.GROUP_NAME}}
+                                        <span class="mandatory">*</span></label>
+                                    <input type="text" class="form-control" formControlName="userGroupName"
+                                        id="groupName" [ngModel]="uGroupName" [ngClass]="{ 'is-invalid':submitted && f.userGroupName.errors }">
+                                    <div *ngIf="submitted && f.userGroupName.errors" class="invalid-feedback">
+                                        <div *ngIf="f.userGroupName.errors.required">required</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <label class="form-label">
+                                        {{stringValues?.MEMBER_COUNT}}
+                                    </label>
+                                    <div class="MemberCount">{{selectedItemCount}}</div>
+                                </div>
+                            </div>
+
+
+                            <!-- Roles block start -->
+                            <ng-template [ngIf]="!is_editUser">
+                                <div class="row section-group-name pt-3">
+                                    <div class="col-md-12">
+                                        <div class="roles-level-title" id="ModalLabel1">
+                                            {{stringValues?.ROLE_AND_LEVEL}}</div>
+                                    </div>
+                                    <div class="row pt-3">
+                                        <div class="col-md-6">
+                                            <app-manage-role [stringValues]="stringValues" [registerUser]="registerUser" [userCategory]="categoryCode" [f]="f"></app-manage-role>
+                                        </div>
+                                        <div class="col-md-6 user_group_search">
+                                            <ng-container *ngIf="isStringValues">
+                                                <app-role-level-multi-facility-filter [stringValues]="stringValues"
+                                                    [registerUser]="registerUser" [f]="f" [submitted]="submitted"
+                                                    [loginUserRole]="loginUserRole"
+                                                    [is_superAdmin]="is_superAdmin"></app-role-level-multi-facility-filter>
+                                            </ng-container>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+
+                            <hr>
+                            <div class="row">
+                                <div class="col-md-5"></div>
+                                <div class="col-md-7">
+                                    <label class="form-label">{{stringValues?.SELECT_USER }}</label>
+                                </div>
+                            </div>
+                            <div class="row section-group-name">
+                                <div class="col-md-5">
+                                    <h6 class="roles-level-title">{{stringValues?.MEMBERS }}</h6>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <img title="search"
+                                                class="fa-search filter-search-division filter-search-facility"
+                                                src="assets/icons/SearchGrey.svg" />
+                                            <ng-select [items]="members" [multiple]="true" [clearable]="false" [bindLabel]="'userid'" [clearSearchOnAdd]="true"
+                                                labelForId="memberDetails"  [selectableGroup]="true" formControlName="members"
+                                                class="select_search_dropdown" (change)="onMemberSelectionChange($event)"
+                                                [placeholder]="stringValues?.SEARCH_AND_SELECT_USER" 
+                                                [closeOnSelect]="false"
+                                                [searchFn]="searchMemberDropdown"
+                                                [(ngModel)]="selectedMembers">
+                                                <ng-template ng-header-tmp>
+                                                    <input type="checkbox" class="all-input"
+                                                        [checked]="memberAllChecked"
+                                                        (change)="toggleCheckAll($event)" />
+                                                    <span class="checkbox-name">{{stringValues?.ALL}}</span>
+                                                </ng-template>
+                                                <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                                                    <input id="item-{{index}}" class="checkbox-list" type="checkbox" [disabled]="item.disabled" 
+                                                        [ngModel]="item$.selected" [ngModelOptions]="{standalone: true}" />
+                                                    <span class="option-list"> {{item['fullName']}} </span>
+                                                </ng-template>
+                                                <!-- Remove selected items  -->
+                                                <ng-template ng-multi-label-tmp let-items="items" >
+                                                    <div *ngFor="let item of items | slice:0:2">
+                                                        <!-- {{item['fullName']}} -->
+                                                        <!-- <span class="ng-value-icon right"  aria-hidden="true"></span> -->
+                                                    </div>
+                                                    <div *ngIf="items.length > 2">
+                                                        <!-- <span class="ng-value-label">{{items.length - 2}} {{stringValues?.MORE}}</span> -->
+                                                    </div>
+                                                </ng-template>
+
+                                            </ng-select>
+                                        </div>
+                                        <div class="col-md-4 add_button_section">
+                                            <button class="btn add_button" (click)="onAddMember()" [disabled]="!is_addMember" type="button">{{stringValues?.ADD_MEMBER}}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12" *ngIf="selectedItems.length > 0">
+                                <div class="table-responsive table-addMember">
+                                    <table class="table user-list ">
+                                        <thead>
+                                            <tr>
+                                                <th class="user-group-th">
+                                                    {{stringValues?.USER_NAME }}
+                                                </th>
+                                                <th class="user-group-th ">
+                                                    {{stringValues?.ACTION}}
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let item of selectedItems">
+                                                <td class="user-group-td"><a>{{item['fullName']}}</a></td>
+                                                <td class="user_actions">
+                                                    <span class="edit_icon  cursor-pointer">                                                        
+                                                            <button type="button" (click)="removeUserFromGroup(item)"><img src="assets/icons/delete.png" /></button>                                                       
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row mt-4 pt-2">
+                                <div class="col-md-12">
+                                    <div class="modal-footer justify-content-center border-0 bg-white-100">
+                                        <ng-template [ngIf]="loginUserRole === viewOnlyAdmin" [ngIfElse]="second">
+                                            <button (click)="modalRefCreateEdit.hide()" class="close-button"
+                                                type="button">{{stringValues?.CLOSE | uppercase}}</button>
+                                        </ng-template>
+                                        <ng-template #second>
+                                            <button class="save-button" type="submit"
+                                                [disabled]="!isVerifySuccess">{{stringValues?.SAVE | uppercase}}</button>
+                                            <button (click)="hideModal()"
+                                                class="btn-outline-primary cancelBtn"
+                                                type="button">{{stringValues?.CANCEL | uppercase}}</button>
+                                        </ng-template>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ng-template>
+
+<!-- //is_groupMembers -->
+<ng-template [ngIf]="is_groupMembers">
+    <div class="users-groups-modal">
+        <div class="modal-body px-0 pt-0">
+            <div class="text-start" id="UsersGroupsPopup">
+                <div class="border-0 mt-4 pt-3 mb-4">
+                    <div class="modal-title member_details_title" id="ModalLabel">Member Details</div>
+                    <button (click)="modalRefMembersDetails.hide()" class="close btn-close user-groups-close-icon"
+                        type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            </div>
+
+            <div class="row user-header">
+                <div class="col-md-6">
+                    <div class="">
+                        <label for="username" class="form-label"> {{stringValues?.GROUP_NAME}}</label>
+                    </div>
+                    <div class="user-name">
+                         {{groupInfo.usergroupname }}
+                       
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="">
+                        <label for="username" class="form-label"> {{stringValues?.MEMBER_COUNT}}</label>
+                    </div>
+                    <div class="user-name">
+                        {{groupInfo.userGroupMenbers.length}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row user-groups-details">
+                <div class="col-md-12">
+                    <div class="table-responsive scroll-table">
+                        <table class="table">
+                            <thead class="table-header">
+                                <tr>
+                                    <th scope="col" class="px-5">{{stringValues?.USER_NAME}}</th>
+                                </tr>
+                            </thead>
+                            <tbody class="memberDetailsList">
+                                <tr *ngFor="let memberDetails of groupInfo.userGroupMenbers">
+                                    <td class="user-group-list"> {{memberDetails.firstName}} {{memberDetails.lastName}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 modal-footer justify-content-center border-0 bg-white-100">
+                    <button (click)="modalRefMembersDetails.hide()" class="actionBtn  close-button"
+                        type="button">{{stringValues?.CLOSE}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ng-template>

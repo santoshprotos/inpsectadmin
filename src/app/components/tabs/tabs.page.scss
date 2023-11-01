@@ -1,0 +1,70 @@
+.display-content {
+    display: contents;
+}
+
+.tabs {
+    //box-shadow: 0 0 10px;
+    position: relative;
+    z-index: 10;
+}
+
+.hide {
+    display: none;
+}
+
+.active {
+    background-color: #F4F6F9;
+    border-radius: 10px 10px 0px 0px;
+    // box-shadow: inset 0px 4px 5px #00000024 !important;
+    box-shadow: inset 0px 4px 10px #00000024, 0px 10px 30px 0px #F4F6F9 !important
+}
+
+.display-content ion-button {
+    padding: 0px;
+    margin: 0px;
+    text-transform: none;
+    height: 48px;
+    width: 160px;
+}
+.display-content ion-button:hover {
+    background: #ffffff !important;
+}
+.display-content ion-col {
+    padding: 0px;
+    margin: 0px;
+}
+
+.tabs-button {
+    width: 16%;
+    box-shadow: 0 4px 5px -10px rgb(0 0 0 / 14%);
+}
+
+.tabs-title {
+    letter-spacing: 0px;
+    color: #6C7B8A;
+    opacity: 1;
+    font-family: 'Montserrat-Medium';
+    font-size: 16px;
+}
+
+.tabs-shadow {
+    box-shadow: 0 12px 6px -8px #00000024;
+}
+
+.pwd-policy-link {
+    font-size: 16px;
+    font-family: 'Montserrat-Medium';
+    color: #181C1E;
+    cursor: pointer;
+}
+
+.pwd-policy-btn {
+    box-shadow: 0px 3px 24px #00000014;
+    background-color: #ffffff;
+    color: #6C7B8A !important;
+    font-family: 'Montserrat-Medium';
+    font-size: 16px;
+    margin-left: -10px !important;
+    border-radius: 8px;
+    height: 53px;
+}

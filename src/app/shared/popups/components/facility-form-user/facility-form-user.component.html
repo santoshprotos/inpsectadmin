@@ -1,0 +1,201 @@
+<ng-template [ngIf]="is_facilityFormUser">
+    <div class="user-role-modal">
+        <div class="modal-body px-0 pt-0">
+            <div class="text-start" id="userRolePopup">
+                <div class="border-0 bg-white-100 mt-5 mb-4">
+                    <button (click)="modalRef.hide()" class="close btn-close usersrole-close-icon" type="button"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="title modal-title" id="ModalLabel">
+                        {{stringValues?.FORM_USERS}}
+                    </div>
+                </div>
+            </div>
+            <div class="row user-header">
+                <div class="col-md-4">
+                    <div class="">
+                        <label for="username" class="group-lable"> {{stringValues?.BUSINESS}}</label>
+                    </div>
+                    <div class="group-member-name">
+                        {{business?.businessname ? this.business.businessname:stringValues?.ALL}}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="">
+                        <label for="username" class="group-lable"> {{stringValues?.DIVISION}}</label>
+                    </div>
+                    <div class="group-member-name">
+                        {{division?.divisionName ? this.division.divisionName : stringValues?.ALL}}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="">
+                        <label for="username" class="group-lable"> {{stringValues?.FACILITY}}</label>
+                    </div>
+                    <div class="group-member-name">
+                        {{facility?.facilityName ? this.facility.facilityName : stringValues?.ALL}}
+                    </div>
+                </div>
+            </div>
+            <div class="row user-header">
+                <div class="col-md-7">
+                    <div class="">
+                        <label for="username" class="group-lable"> {{stringValues?.FORM}}</label>
+                    </div>
+                    <div class="group-member-name">
+                        {{form?.formtitle}}
+                    </div>
+                </div>
+                <div class="col-md-5 text-end">
+                    <button [disabled]="facilityId === 0" class="actionBtn btn-outline-primary assignUserBtn"
+                        (click)="assignUserOrUserGroup(assignUserGroupOrUserGroup)">
+                        {{stringValues?.ASSIGN_USER_USER_GROUP}} </button>
+                </div>
+            </div>
+            <div class="row user-details">
+                <div class="col-md-12">
+                    <div class="table-responsive table-assign-user">
+                        <table class="table user-role-facility">
+                            <thead>
+                                <tr class="form-header">
+                                    <th scope="col">{{stringValues?.USER_GROUP_NAME}}</th>
+                                    <th scope="col">{{stringValues?.ASSIGNED_AS}}</th>
+                                    <th scope="col">{{stringValues?.ACTION}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="centerIcon" *ngFor="let item of userFormAssignments">
+                                    <td>{{ item.userOrGroup }}</td>
+                                    <td class="text-center"><img title="{{item.assignedUserGroupId ? stringValues?.USER_GROUP: stringValues?.USERS}}"
+                                            [src]="item.assignedUserGroupId ? 'assets/icons/groups_details_dark.svg' : 'assets/icons/user_dark.svg'">
+                                    </td>
+                                    <td class="text-center"><img title="{{stringValues?.DELETE}}"
+                                            (click)="onDeleteFormAssignmentClick(item)" class="user-icon"
+                                            src="assets/icons/delete.png"></td>
+                                </tr>
+                                <tr *ngIf="userFormAssignments?.length ===0 && !isLoading">
+                                    <td colspan="3">
+                                        <div class="text-center">{{stringValues?.NO_DATA_FOUND }}</div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 modal-footer justify-content-center border-0 bg-white-100">
+                    <button (click)="modalRef.hide()" class="actionBtn  close-button"
+                        type="button">{{stringValues?.CLOSE | uppercase}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #assignUserGroupOrUserGroup>
+    <div class="user-role-modal" [formGroup]="userAssignment">
+        <div class="modal-body px-0 pt-0">
+            <div class="text-start" id="userRolePopup">
+                <div class="border-0 bg-white-100 mt-5 mb-4">
+                    <button (click)="modalRefAssignUser.hide()" class="close btn-close usersrole-close-icon"
+                        type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="title modal-title" id="ModalLabel">
+                        {{stringValues?.ASSIGN_USER_USER_GROUP}}
+                    </div>
+                </div>
+            </div>
+            <div class="row user-header">
+                <div class="col-md-12">
+                    <div class="">
+                        <label for="username" class="group-lable">{{stringValues?.FORM}}</label>
+                    </div>
+                    <div class="group-member-name">
+                        {{form?.formtitle}}
+                    </div>
+                </div>
+            </div>
+            <div class="select-entity-divider">
+                <hr>
+            </div>
+
+            <div class="select-entity">
+                <div class="row entity-radio-btn">
+                    <div class="col-md-2 form-check">
+                        <input class="form-check-input" type="radio" [value]="users" name="role_assigned" id="user"
+                            [(ngModel)]="selectedEntity" [ngModelOptions]="{standalone: true}"
+                            [checked]="selectedEntity === users" (change)="radioChangeUser()" />
+                        <label class="form-check-label" for="user">
+                            {{stringValues?.USERS}}
+                        </label>
+                    </div>
+
+                    <div class="col-md-2 form-check">
+                        <input class="form-check-input" type="radio" [value]="userGroups" name="role_assigned"
+                            id="userGrp" [(ngModel)]="selectedEntity" [ngModelOptions]="{standalone: true}"
+                            [checked]="selectedEntity === userGroups" (change)="radioChangeUser()" />
+                        <label class="form-check-label" for="userGrp">
+                            {{stringValues?.USER_GROUP}}
+                        </label>
+                    </div>
+                </div>
+
+                <div class="col-md-8 search">
+                    <div style="width: 400px; margin-top: 25px;">
+                        <app-multi-select-dropdown [list]="multiSelectList" (roleBasedFilterData)="receiveData($event)" [placeHolder]="placeHolder"></app-multi-select-dropdown>
+                    </div>                    <!-- Checkbox selection code -->
+                    <!-- <img title="search" class="fa-search filter-search-division filter-search-facility"
+                        src="assets/icons/SearchGrey.svg" /> -->
+
+                    <!-- <ng-select class="form-control selected-users" [items]="selectedEntity === users ? user : userGroup"
+                        [clearable]="false" [closeOnSelect]="false" labelForId="Entity" [multiple]="true"
+                        [placeholder]="stringValues?.SELECT_AND_SEARCH + ' ' +(selectedEntity === users ? stringValues?.USERS : stringValues?.USER_GROUP)"
+                        formControlName="entitySelection"  [searchFn]="searchAsignUserGroup" [selectableGroup]="true" [bindLabel]="'entityName'"
+                        (change)="onEntitySelectionChange($event)"> -->
+                        <!-- <ng-template ng-header-tmp>
+                            <input type="checkbox" class="all-input" [checked]="EntityAllChecked"
+                                (change)="toggleCheckAll($event)" />
+                            <span class="checkbox-name">{{stringValues?.ALL}}</span>
+                        </ng-template> -->
+
+                        <!-- <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                            <input id="item-{{index}}" class="checkbox-list" type="checkbox" [ngModel]="item$.selected"
+                                [ngModelOptions]="{standalone: true}" />
+                            <span class="checkbox-name">{{item['displayName']}}</span> <br>
+                        </ng-template> -->
+                        <!-- <ng-template ng-multi-label-tmp let-items="items">
+                            <div class="ng-value" *ngFor="let item of items | slice:0:2"> -->
+                                <!-- {{item['displayName']}}
+                                <span class="ng-value-icon right" (click)="clear(item,'entity')"
+                                    aria-hidden="true">x</span> -->
+                            <!-- </div> -->
+                            <!-- <div class="ng-value" *ngIf="items.length > 2">
+                                <span class="ng-value-label">{{items.length - 2}} {{stringValues?.MORE}}</span>
+                            </div> -->
+                        <!-- </ng-template>
+                    </ng-select> -->
+
+                    <!-- <div class="selected-entity-filter-preview">
+                        <div class="entity-list" *ngFor="let entity of userAssignment.value.entitySelection">
+                            {{entity.displayName |textWrap:25}} <span class="ng-value-icon right "
+                                (click)="removeItems(entity)" aria-hidden="true"><img src="assets/icons/CloseBlue.svg"
+                                    alt="close icon" /></span> <br>
+                        </div>
+                    </div> -->
+                    <div *ngIf="submitted && f.entitySelection.errors" class="user-required">
+                        <div *ngIf="f.entitySelection.errors.required">
+                            {{stringValues?.USER_OR_USERGROUP_IS_REQUIRED}}
+                        </div>
+                    </div>
+                    <!-- Checkbox selection code end -->
+
+                </div>
+                <div class="modal-footer justify-content-center border-0 bg-white-100">
+                    <button (click)="assignUserOrGroup()" class="actionBtn  close-button"
+                        type="button">{{stringValues?.ASSIGN}}</button>
+                    <button (click)="cancelAssignUserPopup()" class="actionBtn  btn-outline-primary CancelBtnAssignUser"
+                        type="button">{{stringValues?.CANCEL}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

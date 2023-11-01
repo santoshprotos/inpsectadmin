@@ -1,0 +1,134 @@
+{
+    "accessToken": "TgZca/Jlyk6Laatdzrv/Lg==",
+    "myDetails": {
+      "userId": 3,
+      "loginname": "sonora\\smerukar",
+      "firstName": "Admin",
+      "lastName": "Three",
+      "shortName": "A3",
+      "email": "a3@s.com",
+      "categoryId": null,
+      "passwordexpirydateepoch": 1686910152
+    },
+    "basicroles": [
+      {
+        "roleId": 2,
+        "rolename": "Admin",
+        "isactive": true
+      }
+    ],
+    "rolemaster": [
+      {
+        "id": 1,
+        "rolename": "SuperAdmin",
+        "isactive": true
+      },
+      {
+        "id": 3,
+        "rolename": "Inspector",
+        "isactive": true
+      },
+      {
+        "id": 4,
+        "rolename": "Supervisor",
+        "isactive": true
+      },
+      {
+        "id": 5,
+        "rolename": "Approver",
+        "isactive": true
+      },
+      {
+        "id": 6,
+        "rolename": "ViewOnlyAdmin",
+        "isactive": true
+      },
+      {
+        "id": 2,
+        "rolename": "Admin",
+        "isactive": true
+      }
+    ],
+    "inspectionstatusmaster": [
+      {
+        "id": 8,
+        "statuscode": "NOTSTARTED",
+        "statusname": "Not Started",
+        "statusrank": null
+      },
+      {
+        "id": 9,
+        "statuscode": "SAVED",
+        "statusname": "Saved",
+        "statusrank": null
+      },
+      {
+        "id": 10,
+        "statuscode": "SUBMITTED",
+        "statusname": "Submitted For Approval",
+        "statusrank": null
+      },
+      {
+        "id": 11,
+        "statuscode": "APPROVED",
+        "statusname": "Approved",
+        "statusrank": null
+      },
+      {
+        "id": 12,
+        "statuscode": "LOCKED",
+        "statusname": "Locked",
+        "statusrank": null
+      },
+      {
+        "id": 13,
+        "statuscode": "DISCARDED",
+        "statusname": "Discarded",
+        "statusrank": null
+      },
+      {
+        "id": 14,
+        "statuscode": "RESUBMITTED",
+        "statusname": "Re-Submitted",
+        "statusrank": null
+      }
+    ],
+    "languagemaster": [
+      {
+        "id": 1,
+        "languagecode": "EN",
+        "languagename": "English",
+        "isactive": true
+      },
+      {
+        "id": 2,
+        "languagecode": "FR",
+        "languagename": "French",
+        "isactive": true
+      }
+    ],
+    "schedulefrequencymaster": [
+      {
+        "id": 5,
+        "frequencycode": "One Time",
+        "isactive": true
+      },
+      {
+        "id": 6,
+        "frequencycode": "Daily",
+        "isactive": true
+      },
+      {
+        "id": 7,
+        "frequencycode": "Weekly",
+        "isactive": true
+      },
+      {
+        "id": 8,
+        "frequencycode": "Monthly",
+        "isactive": true
+      }
+    ],
+    "screenmaster": [],
+    "stringresourcemaster": []
+  }

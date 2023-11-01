@@ -1,0 +1,32 @@
+[
+    {
+      "name": "Facility 1",
+      "facility_id": 1,
+      "bu_id": 1,
+      "division_id": 1
+    },
+    {
+      "name": "Facility 2",
+      "facility_id": 2,
+      "bu_id": 1,
+      "division_id": 1
+    },
+    {
+      "name": "Facility 3",
+      "facility_id": 3,
+      "bu_id": 2,
+      "division_id": 1
+    },
+    {
+      "name": "Facility 4",
+      "facility_id": 4,
+      "bu_id": 2,
+      "division_id": 1
+    },
+    {
+      "name": "Facility 5",
+      "facility_id": 5,
+      "bu_id": 3,
+      "division_id":2
+    }
+  ]

@@ -1,0 +1,265 @@
+<ion-content class="context">
+    <div class="container-fluid mt-5 ">
+        <!-- facility filter card start -->
+        <app-facility-filter [is_userGroupsScreen]="is_userGroupsScreen"
+            (faclilityFilterData)="receiveFacilityFilterData($event)"></app-facility-filter>
+        <!-- facility filter card end -->
+        <!-- users card start  -->
+        <div class="card user-card mx-5 mt-3 pt-1">
+            <div class="card-body-style">
+                <div class="row  mb-4 mt-4 pt-2 ">
+                    <div class="col-md-12">
+                        <div class="row px-3 mx-2">
+                            <div class="col-md-2 mt-2 px-2">
+                                <h6> {{stringValues?.USERS }}</h6>
+                            </div>
+                            <div class=""
+                                [ngClass]="{'col-md-5 offset-md-5': loginUserRole !== viewOnlyAdmin, 'col-md-4 offset-md-6': loginUserRole === viewOnlyAdmin}">
+                                <div class="input-group search">
+                                    <img title="search" class="fa-search" src="assets/icons/SearchGrey.svg" />
+                                    <input class="form-control border" type="search" value="" [(ngModel)]="searchText"
+                                        (keyup)="getSearchResult('U')" placeholder="{{stringValues?.SEARCH }}"
+                                        id="user-search-input">
+                                    <div class="text-end " [ngClass]="{ 'hidden': loginUserRole === viewOnlyAdmin }">
+                                        <button type="button" (click)="usersDetailsModal(userDetailsTemplate,0)"
+                                            class="btn btn-outline-primary create-user-btn ms-4">{{stringValues?.CREATE_USER}}</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table user-list">
+                                <thead class="user-role-thead">
+                                    <tr>
+                                        <th scope="col" class="user-role-th">{{stringValues?.LOGIN }}</th>
+                                        <th scope="col" class="user-role-th">{{stringValues?.USER_NAME }}
+                                        </th>
+                                        <th scope="col" class="">{{stringValues?.GROUP_DETAILS }}</th>
+                                        <th scope="col" class="user-role-th ">{{stringValues?.ACTION }}
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let user of users  let i = index ">
+                                        <td class="user-role-td" title={{user.loginname}}><a
+                                                class="cursor-pointer user-table-details"
+                                                [ngClass]="{'super-admin-tag': user.isSuperaAdmin === true}"
+                                                (click)="(user.isSuperaAdmin)? null :openUserRoleModal(userRoles,user.userid)">{{user.loginname|textWrap:25}}</a>
+                                        </td>
+
+                                        <td class="user-role-td user-table-details"
+                                            title="{{user.firstname}} {{user.lastName}}">{{user.firstname+"
+                                            "+user.lastName|textWrap:25}}
+                                            <span class="super-admin-flag "> {{(user.isSuperaAdmin)? '(Super Admin)':
+                                                ''}}</span>
+                                        </td>
+                                        <td class="user-group-icon">
+                                            <a *ngIf="user.usergroups.length>0"
+                                                class="cursor-pointer user-table-details"
+                                                [ngClass]="{'super-admin-tag': user.isSuperaAdmin === true }"
+                                                (click)="(user.isSuperaAdmin)? null :usersGroupDetailsModal(userGroupDetailsTemplate,user.userid)">
+                                                <img title="Groups" src="assets/icons/icon_groups_details.png" /></a>
+
+                                            <a *ngIf="user.usergroups.length === 0"
+                                                class="cursor-disable user-table-details"
+                                                [ngClass]="{'super-admin-tag': user.isSuperaAdmin === true }"
+                                                (click)="(user.isSuperaAdmin)? null :usersGroupDetailsModal(userGroupDetailsTemplate,user.userid)">
+                                                <img title="Groups"
+                                                    src="assets/icons/Icon-groups-details-disable.svg" /></a>
+                                        </td>
+                                        <td
+                                            [ngClass]="(loginUserRole !== viewOnlyAdmin) ? 'user_actions' : 'view-only-edit-user' ">
+                                            <span class="edit_icon cursor-pointer"><a
+                                                    title="{{ (loginUserRole !== viewOnlyAdmin) ? 'Edit' : 'View'}}"
+                                                    (click)="usersDetailsModal(userDetailsTemplate,user.userid)"> <img
+                                                        src="assets/icons/edit_green.png" /></a> </span>
+
+                                            <ng-container *ngIf="loginUserRole !== viewOnlyAdmin">
+                                                <span class="delete_icon cursor-pointer" style="display: none;">
+                                                    <a
+                                                        (click)="deleteUsersGroupModal(deleteUsersTemplate,'user',false)"><img
+                                                            title="Delete" src="assets/icons/delete.png" /></a></span>
+                                            </ng-container>
+                                            <ng-container *ngIf="loginUserRole !== viewOnlyAdmin">
+                                                <span class="reset-password-icon cursor-pointer"
+                                                    style="display: none;"><a title='Reset password'
+                                                        (click)="usersDetailsModal(userDetailsTemplate,user.userid)">
+                                                        <img src="assets/icons/reset_password.png" /></a> </span>
+                                            </ng-container>
+                                        </td>
+                                    </tr>
+                                    <tr *ngIf="users?.length ===0 && isDataLoading">
+                                        <td colspan="4">
+                                            <div class="text-center">{{stringValues?.NO_DATA_FOUND }}</div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row my-3 mx-4 border-top pt-4 " *ngIf="users?.length>0">
+                            <app-pagination [paginationName]="'U'" [totalRecords]="totalUserRecords" [row]="userRow" [pageNumber]="userPageNumber" [pageSizes]="pageSizes" (callParentMethod)="triggerFromPaginationEmit($event)"></app-pagination>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- users card end -->
+
+        <!-- Groups card start  -->
+        <div class="card user-group-card mx-5 mt-3 pt-1 mb-3 pb-1" style="display: none;">
+            <div class="card-body-style">
+                <div class="row  mb-4 mt-4 pt-2 ">
+                    <!-- <div class="col-md-12">
+                        <div class="row  px-4 mx-2">
+                            <div class="col-md-2 mt-2 px-0">
+                                <h6>User Groups</h6>
+                            </div>
+                            <div class="col-md-5"></div>
+                            <div class="col-md-5">
+                                <div class="common-user-search">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="input-group search">
+                                                <img title="search" class="fa-search"
+                                                    src="assets/icons/SearchGrey.svg" />
+                                                <input class="form-control border" type="search" value=""
+                                                    [(ngModel)]="userGroupsearchText"
+                                                    placeholder="{{stringValues?.GROUPS_SEARCH }}"
+                                                    id="user-search-input">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="create_user">
+                                                <button type="button" (click)="groupDetailsModal(groupDetailsTemplate,0)"
+                                            class="btn btn-outline-primary create-groups-btn">Create Group</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="col-md-12">
+                        <div class="row px-3 mx-2">
+                            <div class="col-md-2 mt-2 px-2">
+                                <h6> {{stringValues?.USER_GROUPS }}</h6>
+                            </div>
+                            <div class=""
+                                [ngClass]="{'col-md-5 offset-md-5': loginUserRole !== viewOnlyAdmin, 'col-md-4 offset-md-6': loginUserRole === viewOnlyAdmin}">
+                                <div class="input-group search">
+                                    <img title="search" class="fa-search" src="assets/icons/SearchGrey.svg" />
+                                    <input class="form-control border" type="search" value="" [(ngModel)]="userGroupSearchText"
+                                        (keyup)="getSearchResult('UG')" placeholder="{{stringValues?.SEARCH }}"
+                                        id="user-group-search-input">
+                                    <div class="text-end " [ngClass]="{ 'hidden': loginUserRole === viewOnlyAdmin }">
+                                        <button type="button" (click)="openUserGroupModal(groupDetailsTemplate,0)"
+                                            class="btn btn-outline-primary create-user-btn ms-4">{{stringValues?.CREATE_GROUP}}</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table user-list">
+                                <thead>
+                                    <tr class="use-list-header">
+                                        <th scope="col" class="user-group-th">
+                                            {{stringValues?.GROUP_NAME}}
+                                        </th>
+                                        <th scope="col" class="user-group-th ">
+                                            {{stringValues?.MEMBER_DETAILS}}
+                                        </th>
+                                        <th scope="col" class="user-group-th ">
+                                            {{stringValues?.ACTION}} 
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let group of userGroupsData | freetextSearch:userGroupSearchText">
+                                        <td class="user-group-td"><a class="cursor-pointer"
+                                                (click)="userGroupOpenModal(userGroups,group.usergroupid)">{{group.usergroupname |textWrap:25}}</a>
+                                        </td>
+                                        <td class="members-icon">
+                                            <a (click)="groupMembersDetailsModal(groupMembersDetailsTemplate, group.usergroupid)">
+                                                <img src="assets/icons/MembersDetails.png" /></a>
+                                        </td>
+                                        <td class="user_actions">
+                                            <span class="edit_icon  cursor-pointer">
+                                                <a (click)="openUserGroupModal(groupDetailsTemplate, group.usergroupid)">
+                                                    <img src="assets/icons/edit_green.png" />
+                                                </a>
+                                            </span>
+                                            <!-- <span class="delete_icon cursor-pointer">
+                                                <a (click)="deleteUsersGroupModal(deleteGroupsTemplate,'group',false)">
+                                                    <img src="assets/icons/delete.png" />
+                                                </a>
+                                            </span> -->
+                                        </td>
+                                    </tr>                                    
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row my-3 mx-4 border-top pt-4 " *ngIf="userGroupsData?.length>0">
+                            <app-pagination  [paginationName]="'UG'" [totalRecords]="totalGroupRecords" [row]="userGroupRow" [pageNumber]="userGroupPageNumber" [pageSizes]="pageSizes" (callParentMethod)="triggerFromPaginationEmit($event)"></app-pagination>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Groups card end -->
+    </div>
+
+
+    <ng-template #userRoles>
+        <app-users-popup [modalRefFromUserComp]="modalRef" [userDetails]="userDetails"></app-users-popup>
+    </ng-template>
+
+    <ng-template #userDetailsTemplate>
+        <app-users-popup [modalRefFromCreateUsers]="modalRef" [userId]="userId"
+            [userDetails]="userDetails"></app-users-popup>
+    </ng-template>
+
+    <ng-template #deleteUsersTemplate>
+        <app-common-popup [modalRefFromDeleteUser]="modalRef" [message]="message" [common_title]="common_title"
+            [skipSuccess]="skipSuccess" [modalType]="modalType"></app-common-popup>
+    </ng-template>
+
+    <ng-template #userGroupDetailsTemplate>
+        <app-users-popup [modalRefFromUserGroups]="modalRef" [userDetails]="userDetails"></app-users-popup>
+    </ng-template>
+
+    <!-- Groups Popup template [groupsDetails]="groupsDetails" -->
+    <ng-template #userGroups>
+        <app-users-group-popup [modalRefFromUserComp]="modalRef" [groupDetails]="groupDetails"></app-users-group-popup>
+    </ng-template>
+    <!-- new group create and edit modal popup  -->
+    <ng-template #groupDetailsTemplate>
+        <app-users-group-popup [modalRefFromGroupCreateEdit]="modalRef" [groupId]="userGroupId" [groupDetails]="groupDetails" [accessLevel]="accessLevel"></app-users-group-popup>
+    </ng-template>
+
+    <!-- user groups members details modal popup  -->
+    <ng-template #groupMembersDetailsTemplate>
+        <app-users-group-popup [modalRefFromGroupMembersDetails]="modalRef"
+            [groupDetails]="groupDetails"></app-users-group-popup>
+    </ng-template>
+
+    <!-- delete groups modal popup  -->
+    <ng-template #deleteGroupsTemplate>
+        <app-common-popup [modalRefFromDeleteUser]="modalRef" [message]="message" [common_title]="common_title"
+            [skipSuccess]="skipSuccess" [modalType]="modalType"></app-common-popup>
+    </ng-template>
+
+
+</ion-content>

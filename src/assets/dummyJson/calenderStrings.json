@@ -1,0 +1,47 @@
+{   
+    "CalendarStrings": [
+        {
+            "StringType": "W",
+            "value": 0,
+            "name": "Monday",
+            "checked": false
+        },
+        {
+            "StringType": "W",
+            "value": 1,
+            "name": "Tuesday",
+            "checked": false
+        },
+        {
+            "StringType": "W",
+            "value": 2,
+            "name": "Wednesday",
+            "checked": false
+        },
+        {
+            "StringType": "W",
+            "value": 3,
+            "name": "Thursday",
+            "checked": false
+        },
+        {
+            "StringType": "W",
+            "value": 4,
+            "name": "Friday",
+            "checked": false
+        },
+        {
+            "StringType": "W",
+            "value": 5,
+            "name": "Saturday",
+            "checked": false
+        },
+        {
+            "StringType": "W",
+            "value": 6,
+            "name": "Sunday",
+            "checked": false
+        }
+    ]
+   
+}

@@ -1,0 +1,48 @@
+<div class="modal-body pb-2 mx-2 px-2">
+  <div class="container-fluid">
+    <div class="row d-flex justify-content-end">
+      <button type="button" class="btn-close close pull-right justify-content: space-between" aria-label="Close"
+      (click)="onClose()"  data-bs-dismiss="modal">
+        <span aria-hidden="true" class="visually-hidden" >&times;</span>
+      </button>
+    </div>
+
+    <div class="row pt-1">
+      <div class="col-sm-12 d-flex justify-content-center icon-animation">
+        <app-animation [animationPath]="animationPath" [height]="height" [width]="width"></app-animation>
+      </div>
+    </div>
+
+    <div class="row mb-2">
+      <div class="col-sm-12 ">
+        <div class="commonMsg titles mt-4 mb-2">{{modalTitle}}</div>
+      </div>
+    </div>
+
+    <div class="row mt-md-2 mb-2">
+        <div class="modal-name text-center common-message p-0">{{message}}</div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+
+    <!-- <div *ngIf="!(modalType === 'CONFIRMATION')">
+      <button type="button" class="btn btn-secondary close-button" (click)="onClose()" data-bs-dismiss="modal">{{stringValues?.CLOSE  | uppercase}}</button>
+    </div> -->
+    <div *ngIf="(modalType === 'FORGOT_PASSWORD')" class="text-center pb-4 pt-4">
+        <button type="button" class="btn btn-secondary close-button" (click)="onClose()" data-bs-dismiss="modal">{{ stringValues?.CLOSE   | uppercase}}</button>
+    </div>
+
+    <div *ngIf="(modalType === 'SUCCESS')" class="text-center pb-4 pt-4">
+      <button type="button" class="btn btn-secondary close-button" (click)="onClose()" data-bs-dismiss="modal">{{ stringValues?.CLOSE   | uppercase}}</button>
+    </div>
+
+    <div *ngIf="modalType === 'CONFIRMATION'" class="d-flex justify-content-around col-md-12">
+      <button type="button" class="btn confirmation-modal-btn yes-btn me-2" (click)="confirmOk()" data-bs-dismiss="modal">{{stringValues?.YES  | uppercase}}</button>
+      <button type="button" class="btn confirmation-modal-btn no-btn ms-2" (click)="onClose()" data-bs-dismiss="modal">{{stringValues?.NO  | uppercase}}</button>
+    </div>
+
+  </div>
+
+
+</div>

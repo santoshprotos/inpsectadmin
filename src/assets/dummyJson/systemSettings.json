@@ -1,0 +1,21 @@
+{
+    "OIDC_Settings": {
+        "authority": "https://ad.sonorasoftware.com/adfs",
+        "client_id": "ee41eecf-5fc2-4da5-8573-cedd5b4b2673",
+        "redirect_uri": "http://localhost:4200/silent-callback",
+        "post_logout_redirect_uri": "http://localhost:4200/",
+        "silent_redirect_uri": "http://localhost:4200/silent-callback.html",
+        "metadata" : {
+          "authorization_endpoint" : "https://ad.sonorasoftware.com/adfs/oauth2/authorize/",
+          "end_session_endpoint" : "https://ad.sonorasoftware.com/adfs/oauth2/logout",
+          "token_endpoint": "https://ad.sonorasoftware.com/adfs/oauth2/token/"
+        },
+        "clientScope": "openid profile email",
+        "apiRoot": "https://demo.identityserver.io/api/",
+        "response_type": "code",
+        "scope": "openid profile email",
+        "issuer": "https://ad.sonorasoftware.com/adfs",
+        "audience": "ee41eecf-5fc2-4da5-8573-cedd5b4b2673"
+    }
+
+}

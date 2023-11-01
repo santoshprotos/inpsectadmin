@@ -1,0 +1,83 @@
+<div class="card facility-filter mx-5">
+    <div class="container-fluid mx-2">
+        <div class="row my-4 py-2">
+            <div class="col-md-12 d-flex">
+
+                <div class="col-md-2 me-4" *ngIf="business?.length>0">
+                    <div class="dropdown">
+                        <label class="dropdown-labels mb-1">{{stringValues?.BUSINESS}}</label>
+                        <button class="btn bg-white dropdown-toggle dropdown-values  d-flex align-items-center"
+                            type="button" data-bs-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true"
+                            aria-expanded="false" [(ngModel)]="selectedBuName" ngDefaultControl
+                            [disabled]="!business?.length" (show.bs.dropdown)="onDropdownOpen('BUSINESS')"
+                            (hide.bs.dropdown)="onDropdownClose('BUSINESS')" title="{{selectedBuName}}">
+                            <span>{{selectedBuName | textWrap: 18}}</span>
+                            <img [src]="businessArrowIcon" />
+                        </button>
+                        <ul class="dropdown-menu dropdown-values dropdown-list mt-n1 pt-0 pb-1"
+                            aria-labelledby="dropdownMenuButton">
+                            <li class="dropdown-value" *ngFor="let bu of business" (click)="selectBusiness(bu)"
+                                data-toggle="tooltip" title="{{bu.businessname}}"
+                                [ngClass]="bu.businessname === selectedBuName ? 'selectedEntity' : '' ">
+                                {{bu.businessname | textWrap: 20}}
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="col-md-2 me-4" *ngIf="divisions.length>0">
+                    <div class="dropdown">
+                        <label class="dropdown-labels mb-1">{{stringValues?.DIVISION}}</label>
+                        <button class="btn bg-white dropdown-toggle dropdown-values  d-flex align-items-center"
+                            type="button" data-bs-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true"
+                            aria-expanded="false" [(ngModel)]="selectedDivisionName" ngDefaultControl
+                            (show.bs.dropdown)="onDropdownOpen('DIVISION')"
+                            (hide.bs.dropdown)="onDropdownClose('DIVISION')" title="{{selectedDivisionName}}">
+                            <span>{{selectedDivisionName | textWrap: 18 }}</span>
+                            <img [src]="divisionArrowIcon" class="" />
+                        </button>
+                        <ul class="dropdown-menu dropdown-values dropdown-list mt-n1 pt-0 pb-1"
+                            aria-labelledby="dropdownMenuButton">
+                            <li class="dropdown-value" *ngFor="let division of divisions" data-toggle="tooltip"
+                                title="{{division.divisionName}}" (click)="selectDivision(division)"
+                                [ngClass]="division.divisionName === selectedDivisionName ? 'selectedEntity' : '' ">
+                                {{division.divisionName | textWrap: 20 }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+       
+                <div class="col-md-2 me-4">
+                    <div class="dropdown">
+                        <label class="dropdown-labels mb-1">{{stringValues?.FACILITY}}</label>
+                        <button class="btn bg-white dropdown-toggle dropdown-values  d-flex align-items-center"
+                            type="button" data-bs-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true"
+                            aria-expanded="false" [(ngModel)]="selectedFacilityName" ngDefaultControl
+                            (show.bs.dropdown)="onDropdownOpen('FACILITY')"
+                            (hide.bs.dropdown)="onDropdownClose('FACILITY')" title="{{selectedFacilityName}}">
+                            <span>{{selectedFacilityName | textWrap: 18}}</span>
+                            <img [src]="facilityArrowIcon" class="" />
+                        </button>
+                        <ul class="dropdown-menu dropdown-values dropdown-list mt-n1 pt-0 pb-1"
+                            aria-labelledby="dropdownMenuButton">
+                            <li class="dropdown-value" *ngFor="let facility of facilities"
+                                (click)="selectFacility(facility)" data-toggle="tooltip"
+                                title="{{facility.facilityName}}"
+                                [ngClass]="facility.facilityName === selectedFacilityName ? 'selectedEntity' : '' ">
+                                {{facility.facilityName | textWrap: 20 }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 me-4 my-3">
+                    <button (click)="getSearchResult()"
+                        class="button btn show-button btn-primary mt-1">{{stringValues?.SHOW}}</button>
+                    <button (click)="facilityFilterReset()"
+                        class="button btn clear-button btn-outline-primary mt-1">{{stringValues?.CLEAR}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

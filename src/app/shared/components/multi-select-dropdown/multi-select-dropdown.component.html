@@ -1,0 +1,60 @@
+<div class="multiSelectMainContainer">
+  <div class="dropdown" dropdown [insideClick]="true" (isOpenChange)="onOpenChange($event)">
+  <button
+    id="multiSelectButton"
+    type="button"
+    dropdownToggle
+    ngDefaultControl
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-controls="multiSelectButton"
+    class="btn bg-white dropdown-toggle dropdown-values d-flex align-items-center"
+  >
+    <div class="d-flex gap-2 inputContainer">
+      <img src="../../../../assets/images/search_gray.svg" />
+      <input
+        class="searchInput"
+        type="text"
+        [placeholder]="placeHolder"
+        [(ngModel)]="searchValue"
+      />
+      <img [src]="arrowIcon" class="" />
+    </div>
+  </button>
+  <ul
+    class="dropdown-menu  multiselectDropdown mt-n1 pt-0 pb-1"
+    role="menu"
+    aria-labelledby="multiSelectButton"
+    *dropdownMenu
+  >
+    <ng-container *ngIf="list | searchFilter : searchValue as result">
+      <li *ngFor="let item of result">
+        <div
+          class="d-flex gap-3 pb-1 pt-1"
+          style="padding: 7px 10px"
+          [ngClass]="item.checked ? 'selectedEntity' : ''"
+        >
+          <input
+            type="checkbox"
+            [checked]="item.checked"
+            (change)="getSelectedValue(item.checked, item.name)"
+          />
+          <span>{{ item.name }}</span>
+        </div>
+      </li>
+      <p *ngIf="result.length === 0">No Result</p>
+    </ng-container>
+  </ul>
+</div>
+<div class="outerContainer">
+  <div *ngFor="let value of checkBoxValue">
+    <div class="container">
+      <p>{{ value }}</p>
+      <span class="removeItemButton"><img (click)="getSelectedValue(null, value)"
+          src="../../../../assets/images/close_blue.svg" class="removeItemButton" /></span>
+    </div>
+  </div>
+</div>
+ 
+</div>
+

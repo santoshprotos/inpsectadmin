@@ -1,0 +1,17 @@
+[
+    {
+      "name": "Business 1",
+      "bu_id": 1,
+      "division_id": 1
+    },
+    {
+      "name": "Business 2",
+      "bu_id": 2,
+      "division_id": 1
+    },
+    {
+      "name": "Business 3",
+      "bu_id": 3,
+      "division_id": 2
+    }
+  ]

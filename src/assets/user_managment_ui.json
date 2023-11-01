@@ -1,0 +1,293 @@
+ [
+    {
+        "UserId": 1,
+        "LoginName": "smita@sonorasoftware.com",
+        "FirstName": "smita",
+        "LastName": "kothimbire",
+        "AssignedGroup": [
+            {
+                "Id": 1,
+                "GroupName": "group1"
+            },
+            {
+                "Id": 2,
+                "GroupName": "group2"
+            },
+            {
+                "Id": 4,
+                "GroupName": "group3"
+            }
+        ],
+        "Email": "smita@sonorasoftware.com",
+        "Initials": "smita",
+        "LanguageId": 1,
+        "SsoId": "234324sdffsd",
+        "VerifyId": "3432dfsd433",
+        "usercategorycode":"SSOUSER",
+        "UserRoles": [
+            {
+                "RoleId": 1,
+                "RoleName": "admin",
+                "FacilityInfo": [
+                    {
+						"DivisionId": 1,
+						"DivisionName": "division 1",
+						"BusinessId": 1,
+						"BusinessName": "business 1",
+						"FacilityId": 1,
+						"FacilityName": "facility 1"
+					},	
+                    {
+						"DivisionId": 1,
+						"DivisionName": "division 1",
+						"BusinessId": 1,
+						"BusinessName": "business 1",
+						"FacilityId": 2,
+						"FacilityName": "facility 2"
+					},
+                    {
+						"DivisionId": 1,
+						"DivisionName": "division 1",
+						"BusinessId": 2,
+						"BusinessName": "business 2",
+						"FacilityId": 3,
+						"FacilityName": "facility 3"
+					},{
+						"DivisionId": 1,
+						"DivisionName": "division 1",
+						"BusinessId": 2,
+						"BusinessName": "business 2",
+						"FacilityId": 4,
+						"FacilityName": "facility 4"
+					},
+                    {
+						"DivisionId": 2,
+						"DivisionName": "division 2",
+						"BusinessId": 3,
+						"BusinessName": "business 3",
+						"FacilityId": 5,
+						"FacilityName": "facility 5"
+					}
+                ]
+
+            },
+            {
+                "RoleId": 2,
+                "RoleName": "supervisor",
+                "FacilityInfo": [
+                    {
+                        "DivisionId": 2,
+                        "DivisionName": "division 2",
+                        "BusinessId": 3,
+                        "BusinessName": "business 3",
+                        "FacilityId": 5,
+                        "FacilityName": "facility 5"
+                    }
+                   
+                    	
+                ]
+            },
+            {
+                "RoleId": 3,
+                "RoleName": "inspector",
+                "FacilityInfo": [
+                    {
+                        "DivisionId": 2,
+                        "DivisionName": "division 2",
+                        "BusinessId": 3,
+                        "BusinessName": "business 3",
+                        "FacilityId": 5,
+                        "FacilityName": "facility 5"
+                    }
+                   
+                    	
+                ]
+            }
+        ]
+    },
+    {
+        "UserId": 2,
+        "LoginName": "vinay.soman@protossoft.com",
+        "FirstName": "riya",
+        "LastName": "patil",
+        "AssignedGroup": [
+            {
+                "Id": 1,
+                "GroupName": "group 1"
+            },
+            {
+                "Id": 2,
+                "GroupName": "group 2"
+            },
+            {
+                "Id": 4,
+                "GroupName": "group 4"
+            }
+        ],
+        "Email": "vinay.soman@protossoft.com",
+        "Initials": "riya",
+        "LanguageId": "en",
+        "SsoId": "2343ww24sdffsd",
+        "VerifyId": "343ee2dfsd433",
+        "usercategorycode":"CONTRACTOR",
+        "UserRoles": [
+            {
+                "RoleId": 1,
+                "RoleName": "admin",
+                "FacilityInfo": [
+                    {
+						"DivisionId": 3,
+						"DivisionName": "division 3"
+					},
+                    {
+						"DivisionId": 3,
+						"DivisionName": "division 3"
+						
+					}
+                ]
+            }
+        ]
+    },
+    {
+        "UserId": 3,
+        "LoginName": "lisalee@gmail.com",
+        "FirstName": "lisa",
+        "LastName": "lee",
+        "AssignedGroup": [
+            {
+                "Id": 5,
+                "GroupName": "group 5"
+            },
+            {
+                "Id": 2,
+                "GroupName": "group 2"
+            },
+            {
+                "Id": 4,
+                "GroupName": "group 4"
+            }
+        ],
+        "Email": "lisalee@gmail.com",
+        "Initials": "lisa",
+        "LanguageId": "en",
+        "SsoId": "2343224sdffsd",
+        "VerifyId": "345432dfsd433",
+        "usercategorycode":"CONTRACTOR",
+        "UserRoles": [
+            {
+                "RoleId": 2,
+                "RoleName": "supervisor",
+                "FacilityInfo": [
+                    {
+                        "DivisionId": 3,
+                        "DivisionName": "division 3"
+                    },
+                    {
+                        "DivisionId": 2,
+                        "DivisionName": "division 2",
+                        "BusinessId": 3,
+                        "BusinessName": "business 3",
+                        "FacilityId": 5,
+                        "FacilityName": "facility 5"
+                    }	
+                    	
+                ]
+            }
+        ]
+    },
+    {
+        "UserId": 4,
+        "LoginName": "suchilee@gmail.com",
+        "FirstName": "suchi",
+        "LastName": "lee",
+        "AssignedGroup": [
+            {
+                "Id": 2,
+                "GroupName": "group 2"
+            },
+            {
+                "Id": 3,
+                "GroupName": "group 3"
+            },
+            {
+                "Id": 5,
+                "GroupName": "group 5"
+            }
+        ],
+        "Email": "suchilee@gmail.com",
+        "Initials": "suchi",
+        "language": "en",
+        "SsoId": "234321224sdffsd",
+        "VerifyId": "34521432dfsd433",
+        "usercategorycode":"SSOUSER",
+        "UserRoles": [
+            {
+                "RoleId": 1,
+                "RoleName": "admin",
+                "FacilityInfo": [
+                    {
+                        "DivisionId": 2,
+                        "DivisionName": "division 2",
+                        "BusinessId": 3,
+                        "BusinessName": "business 3",
+                        "FacilityId": 5,
+                        "FacilityName": "facility 5"
+                    }	 
+                ]
+            }
+          
+        ]
+    },
+    {
+        "UserId": 5,
+        "LoginName": "jameshopes@gmail.com",
+        "FirstName": "james",
+        "LastName": "hopes",
+        "AssignedGroup": [],
+        "Email": "jameshopes@gmail.com",
+        "Initials": "james",
+        "language": "en",
+        "SsoId": "234321224sdffsd23",
+        "VerifyId": "34521432dfsd43323",
+        "usercategorycode":"CONTRACTOR",
+        "UserRoles": [
+            {
+                "RoleId": 3,
+                "RoleName": "Inspector",
+                "FacilityInfo": [
+                    {
+                        "DivisionId": 3,
+                        "DivisionName": "division 3"
+                    }	
+                ]
+
+            }
+        ]
+    },
+    {
+        "UserId": 6,
+        "LoginName": "kaustubh@gmail.com",
+        "FirstName": "Kaustubh",
+        "LastName": "Toro",
+        "AssignedGroup": [],
+        "Email": "kaustubh@gmail.com",
+        "Initials": "Kaustubh",
+        "language": "en",
+        "SsoId": "234321224sdffxdsd23",
+        "VerifyId": "34521432dfsdsd43323",
+        "usercategorycode":"SSOUSER",
+        "UserRoles": [
+            {
+                "RoleId": 3,
+                "RoleName": "Inspector",
+                "FacilityInfo": [
+                    {
+                        "DivisionId": 3,
+                        "DivisionName": "division 3"
+                    }	
+                ]
+
+            }
+        ]
+    }
+]

@@ -1,0 +1,9 @@
+<svg id="user_group" data-name="user group" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <rect id="Rectangle_1116" data-name="Rectangle 1116" width="20" height="20" fill="#fff" opacity="0"/>
+  <g id="Group_2256" data-name="Group 2256" transform="translate(0.471 0.471)">
+    <circle id="Ellipse_99" data-name="Ellipse 99" cx="3.125" cy="3.125" r="3.125" transform="translate(3.625 0.5)" fill="none" stroke="#5ac8fa" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <path id="Path_7368" data-name="Path 7368" d="M6.056,14.82H.5V12.736A6.265,6.265,0,0,1,9.529,7.18" transform="translate(0 2.349)" fill="none" stroke="#5ac8fa" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <line id="Line_228" data-name="Line 228" y2="8.334" transform="translate(14.39 10.223)" fill="none" stroke="#5ac8fa" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <line id="Line_229" data-name="Line 229" x2="8.334" transform="translate(10.223 14.39)" fill="none" stroke="#5ac8fa" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+  </g>
+</svg>

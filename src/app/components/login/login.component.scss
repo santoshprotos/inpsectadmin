@@ -1,0 +1,166 @@
+.context {
+    height: 100vh;
+}
+
+.title1 {
+    font-family: "Montserrat-SemiBold";
+    font-size: 30px;
+}
+
+.title2 {
+    font-family: "Montserrat-SemiBold";
+    font-size: 18px;
+}
+
+.email-password-textbox {
+    font-family: "Montserrat-Medium";
+    font-size: 16px;
+    height: 60px;
+    background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+    border: 1px solid #5ac8fa;
+    border-radius: 4px;
+}
+
+.label-text {
+    font-family: "Montserrat-Medium";
+    position: absolute;
+    color: #6c7b8a;
+}
+
+.note {
+    font-family: "Montserrat-Regular";
+    height: 19px;
+    font-size: 16px;
+}
+
+.sign-on-button {
+    font-family: "Montserrat-Medium";
+    height: 50px;
+    border-radius: 25px;
+    font-size: 14px;
+    letter-spacing: 1.56px;
+}
+
+.custom-sign-on-btn {
+    background-color: #5ac8fa;
+}
+
+.sso-sign-on-btn {
+    background-color: #FFFFFF;
+    border: 1.5px solid #006ca0;
+    color: #006CA0 !important;
+}
+
+.validation-msg-text {
+    color: #ff453a;
+    font-size: 12px;
+    font-family: "Montserrat-Medium";
+}
+
+.form-control.ng-touched.ng-invalid {
+    border: 2px solid #ff453a;
+}
+
+.icons {
+    position: absolute;
+    right: 10px
+}
+
+.page-holder {
+    padding-top: 0px;
+}
+
+.forget-password-link {
+    height: 19px;
+    text-align: center;
+    font-size: 16px;
+    font-family: "Montserrat-Medium";
+    color: #5ac8fa;
+    opacity: 1;
+}
+
+.login-from {
+    width: 40px;
+    height: 15px;
+    text-align: center;
+    letter-spacing: 1.33px;
+    color: #6c7b8a;
+    font-size: 12px;
+    font-family: "Montserrat-Medium";
+}
+
+a {
+    cursor: pointer;
+}
+
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+    color: gray !important;
+}
+
+.forgot-password-msg {
+    font-size: 20px;
+    font-family: Montserrat-SemiBold;
+    color: #140f26;
+}
+
+.close-button {
+    font-family: "Montserrat-Medium";
+    width: 225px;
+    height: 50px;
+    border-radius: 100px;
+    font-size: 14px;
+    color: #140F26;
+    letter-spacing: 1.56px;
+    filter: drop-shadow(0 0.5rem 0.75rem #3B4A7433);
+}
+.forgot-password {
+    font-size: 16px;
+    font-family: "Montserrat-Medium";
+    color: #5ac8fa;
+    cursor: pointer;
+}
+.forgot-password-animation {
+    position: absolute;
+    height: 128px;
+    width: 128px;
+}
+
+.divider {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #00000024;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+    color: #6C7B8A;
+}
+
+
+.divider span {
+    background: #fff;
+    padding: 0 10px;
+
+}
+
+.divider-text {
+    font-size: 14px;
+    font-family: 'Montserrat-Medium';
+}
+
+.email-password-textbox.form-control.ng-touched.ng-invalid {
+    border: 1px solid #5ac8fa !important;
+}
+
+.blurButton{
+    opacity: 0.75;
+}
+
+input:focus+label,
+.form-control:not(:placeholder-shown)~label {
+    font-size: 12px;
+}
+
+::-ms-reveal {
+    display: none;
+}

@@ -1,0 +1,66 @@
+<ion-tabs (ionTabsDidChange)="tabClicked($event)" class="tabs">
+
+  <ion-tab-bar slot="top" class="display-content">
+    <ion-row class="tabs ion-align-items-center ion-text-left">
+      <ion-col size="12">
+        <div class="ps-5 tabs-shadow d-flex">
+          <ion-button class="tabs-button ms-3"  [ngClass]="{active: selectedTab==='dashboard'}"  tab="dashboard" fill="clear"
+          routerLink="/tabs/dashboard" routerDirection="root" routerLinkActive="active-link">
+            <div>
+              <div class="mt-2 mb-2 tabs-title" [ngClass]="(selectedTab==='dashboard')?'button_active':'button_inactive'" > {{stringValues?.DASHBOARD}}
+              </div>
+            </div>
+          </ion-button>
+
+          <ion-button tab="inspections" [ngClass]="{active: selectedTab==='inspections'}" fill="clear"
+          routerLink="/tabs/inspections" routerDirection="root" routerLinkActive="active-link">           
+            <div>
+              <div class="mt-2 mb-2 tabs-title" [ngClass]="(selectedTab==='inspections')?'button_active':'button_inactive'">{{stringValues?.INSPECTION}}
+              </div>
+            </div>
+          </ion-button>
+
+          <ion-button tab="facilities" [ngClass]="{active: selectedTab==='facilities'}" class="tabs-button"  fill="clear"
+          routerLink="/tabs/facilities" routerDirection="root" routerLinkActive="active-link">        
+            <div>
+              <div class="mt-2 mb-2 tabs-title" [ngClass]="(selectedTab==='facilities')?'button_active':'button_inactive'">
+                {{stringValues?.FACILITIES}}</div>
+            </div>         
+          </ion-button>
+
+          <ion-button tab="users-groups" class="tabs-button" [ngClass]="{active: selectedTab==='users-groups'}" fill="clear"
+          routerLink="/tabs/users-groups" routerDirection="root" routerLinkActive="active-link">            
+          <div>
+            <div class="mt-2 mb-2 tabs-title" [ngClass]="(selectedTab==='users-groups')?'button_active':'button_inactive'">
+                {{stringValues?.USERS_AND_GROUP}}</div>
+          </div>  
+          </ion-button>
+
+          <ion-button tab="role-assignment" class="tabs-button" [ngClass]="{active: selectedTab==='role-assignment'}" fill="clear"
+          routerLink="/tabs/role-assignment" routerDirection="root" routerLinkActive="active-link">
+          <div>
+            <div class="mt-2 mb-2 tabs-title" [ngClass]="(selectedTab==='role-assignment')?'button_active':'button_inactive'">
+                {{stringValues?.ROLE_ASSIGNMENT}}</div>
+            </div>  
+          </ion-button>
+          
+          <div class="dropdown ms-4 ps-2 mt-2">
+            <div class="nav-link pe-0" class="pwd-policy-link" id="showPwdPolicy" data-bs-toggle="dropdown" aria-expanded="false">
+              ...
+            </div>
+            <div class="dropdown-menu pwd-policy-btn mt-3" aria-labelledby="showPwdPolicy" data-bs-popper="none">
+              <div class="dropdown-item ">Password Policy Rules</div>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-tab-bar>
+
+</ion-tabs>
+
+
+<!-- <div *ngIf="httpService.processing()">
+  <app-progress-indicator></app-progress-indicator>
+</div> -->

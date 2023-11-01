@@ -1,0 +1,175 @@
+[
+    {
+        "listModel": {
+            "RuleText": "Test",
+            "StartDate": "01/01/2023",
+            "EndDate": "01/05/2023",
+            "DueTime": "12:00 AM"
+        },
+        "scheduleModel": {
+            "Frequency": "One Time",
+            "StartDate": {
+                "Year": 2023,
+                "Month": 1,
+                "Date": 1
+            },
+            "Time": {
+                "Hour": 6,
+                "Minute": 30
+            },
+            "units": {
+                "earliestSubmissionUnits": "Hours",
+                "earliestSubmissionValue": 2
+            },
+            "reminders": [{
+                "reminderUnit": "Days",
+                "reminderValue": 8
+            }]           
+        },
+
+        "form_id": 1
+    },
+    {
+        "listModel": {
+            "RuleText": "Test 2",
+            "StartDate": "16/07/2023",
+            "EndDate": "25/08/2023",
+            "DueTime": "6:00 PM"
+        },
+        "scheduleModel": {
+            "Frequency": "Weekly",
+            "StartDate": {
+                "Year": 2023,
+                "Month": 1,
+                "Date": 1
+            },
+            "EndDate": {
+                "Year": 2023,
+                "Month": 8,
+                "Date": 25
+            },
+            "Time": {
+                "Hour": 6,
+                "Minute": 30
+            },
+            "days": [1,4],
+            "units": {
+                "earliestSubmissionUnits": "Days",
+                "earliestSubmissionValue": 2
+            },
+            "reminders": [{
+                "reminderUnit": "Hours",
+                "reminderValue": 8
+            } ]
+        },
+
+        "form_id": 1
+    },
+    {
+        "listModel": {
+            "RuleText": "Test 2",
+            "StartDate": "16/07/2023",
+            "EndDate": "25/08/2023",
+            "DueTime": "6:00 PM"
+        },
+        "scheduleModel": {
+            "Frequency": "Monthly",
+            "StartDate": {
+                "Year": 2023,
+                "Month": 1,
+                "Date": 1
+            },
+            "EndDate": {
+                "Year": 2023,
+                "Month": 8,
+                "Date": 25
+            },
+            "Time": {
+                "Hour": 6,
+                "Minute": 30
+            },
+            "days": [1,5,9,14,18,23,27],
+            "units": {
+                "earliestSubmissionUnits": "Days",
+                "earliestSubmissionValue": 2
+            },
+            "reminders": [{
+                "reminderUnit": "Hours",
+                "reminderValue": 8
+            }] 
+        },
+
+        "form_id": 2
+    },
+    {
+        "listModel": {
+            "RuleText": "Test 2",
+            "StartDate": "16/07/2023",
+            "EndDate": "25/08/2023",
+            "DueTime": "6:00 PM"
+        },
+        "scheduleModel": {
+            "Frequency": "Monthly",
+            "StartDate": {
+                "Year": 2023,
+                "Month": 7,
+                "Date": 16
+            },
+            "EndDate": {
+                "Year": 2023,
+                "Month": 8,
+                "Date": 25
+            },
+            "Time": {
+                "Hour": 6,
+                "Minute": 30
+            },
+            "days": [2,15,27],
+            "units": {
+                "earliestSubmissionUnits": "Hours",
+                "earliestSubmissionValue": 2
+            },
+            "reminders": [{
+                "reminderUnit": "Days",
+                "reminderValue": 2
+            }]
+        },
+        "form_id": 2
+    },
+    {
+        "listModel": {
+            "RuleText": "Test 2",
+            "StartDate": "16/07/2023",
+            "EndDate": "25/08/2023",
+            "DueTime": "6:00 PM"
+        },
+        "scheduleModel": {
+            "Frequency": "Daily",
+            "StartDate": {
+                "Year": 2023,
+                "Month": 7,
+                "Date": 16
+            },
+            "EndDate": {
+                "Year": 2023,
+                "Month": 8,
+                "Date": 25
+            },
+            "Time": {
+                "Hour": 6,
+                "Minute": 30
+            },
+            "days": [2,15,27],
+            "units": {
+                "earliestSubmissionUnits": "Hours",
+                "earliestSubmissionValue": 2
+            },
+            "reminders": [{
+                "reminderUnit": "Hours",
+                "reminderValue": 4
+            }]
+        },
+
+        "form_id": 3
+    }
+]

@@ -1,0 +1,72 @@
+<ion-content class="context">
+
+  <!-- <ng-template #facilityModals>
+    <app-facilites-popup [modalRef]="modalRef" [formDetails]="formDetails"></app-facilites-popup>
+  </ng-template> -->
+  <!-- <ng-template #groupDetailsTemplate>
+    <app-users-group-popup [modalRefFromGroupCreateEdit]="modalRef" [groupId]="groupId"></app-users-group-popup>
+ </ng-template> -->
+
+<ng-template #facilityFormUser>
+  <app-facility-form-user [facilityFormUserCom]="modalRef"
+  [businessId]="businessId"
+  [divisionId]="divisionId"
+  [facilityId]="facilityId"
+  [form] = "form"
+  ></app-facility-form-user>
+</ng-template>
+
+  <div class="px-3 mt-5">
+    <app-facility-filter (faclilityFilterData)="receiveFacilityFilterData($event)"></app-facility-filter>
+  </div>
+
+  <div class="div px-5 mt-4">
+    <div class="card forms-card bg-white mx-3">
+      <div class="card-body">
+        <div class="col-md-12 d-flex justify-content-between align-items-center">
+          <div class="card-title mb-0">{{stringValues?.FORMS}}</div>
+          <div class="col-md-3 search">
+            <input type="text" name="FormContains" [(ngModel)]="searchText" (keyup)="getSearchResult()" class="form-control searchtextbox"
+              placeholder="Search" />
+            <img src="assets/icons/Search grey.svg" class="searchIcon pt-1 ps-2" />
+          </div>
+        </div>
+      </div>
+      <div class="facilities-card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="align-middle forms-table-header">
+              <tr>
+                <th width="60%" class="form-name-header">{{stringValues?.FORM_NAME}}</th>
+                <th width="20%" class="action-header text-center">{{stringValues?.FORM_USERS}}</th>
+                <th width="20%" class="action-header text-center">{{stringValues?.ACTION}}</th>
+              </tr>
+            </thead>
+            <tbody class="align-middle">
+              <tr *ngFor="let form of forms">
+                <td class="form-title">{{form.formtitle}}</td>
+                <td class="text-center"> <img [src]="userGroupIcon" title="{{stringValues?.ASSIGN_USER_USER_GROUP}}" (click)="FacilityUserForm(facilityFormUser, form)" class="user-icon" alt="user-icon" />
+                </td>
+                <td class="text-center"><a class="text-md link manageScehduleLink" (click)="openModal(form)">{{stringValues?.MANAGE_SCHEDULE}}</a></td>
+              </tr>
+              <tr *ngIf="forms?.length ===0">
+                <td colspan="4">
+                    <div class="text-center">{{stringValues?.NO_DATA_FOUND }}</div>
+                </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+      <!-- pagination -->
+      <div class="row my-3 mx-4 border-top pt-4 "  *ngIf="forms?.length>0">
+        <app-pagination [paginationName]="paginationName" [totalRecords]="totalRecords" [row]="row" [pageNumber]="pageNumber" [pageSizes]="pageSizes" (callParentMethod)="triggerFromPaginationEmit($event)"></app-pagination>
+      </div>
+
+
+    </div>
+  </div>
+  
+</ion-content>

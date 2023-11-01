@@ -1,0 +1,275 @@
+[
+    {
+        "ScreenName": "UsersAndGroups",
+        "StringResources": {
+            "NAME":"Users",
+            "SEARCH": "Search",
+            
+            "TABLE_LOGIN": "Login",
+            "TABLE_USER_NAME": "User Name",
+            "TABLE_GROUP_DETAILS":"Group Details",
+            "TABLE_ACTION":"Action",
+            "CREATE_USER_BTN":"Create User",
+
+            "DETAILS_POPUP_USERS_DETAILS":"User Details",
+            "DETAILS_POPUP_SSO_LOGIN": "SSO Login",
+            "DETAILS_POPUP_FIRST_NAME":"First Name",
+
+            "DETAILS_POPUP_ROLE_LABLE":"Role",
+
+            "DETAILS_POPUP_ROLE_INSPECTOR":"Inspector",
+            "DETAILS_POPUP_ROLE_SUPERVISOR":"Supervisor",
+            "DETAILS_POPUP_ROLE_APPROVER":"Approver/Certifier",
+            "DETAILS_POPUP_ROLE_ADMIN":"Admin",
+            "DETAILS_POPUP_ROLE_SUPER_ADMIN":"Super Admin",
+            "DETAILS_POPUP_ROLE_VIEW_ONLY_ADMIN":"View-Only Admin",
+
+
+            "DETAILS_POPUP_USER_CATEGORY_LABEL": "User Category",
+            "DETAILS_POPUP_USER_CATEGORY_SSO_USER_RADIO_BTN":"SSO User/GP User",
+            "DETAILS_POPUP_USER_CATEGORY_CONTRACTOR_RADIO_BTN":"Contractor",
+
+            "DETAILS_POPUP_CONTRACTOR_LOGIN": "Contractor Login",
+            "DETAILS_POPUP_LINK_CHECK_AVAILABILITY": "Check Availability",
+
+            "DETAILS_POPUP_FILTER_DIVISION_LABEL": "Division",
+            "DETAILS_POPUP_FILTER_FACILITY_LABEL": "Facility",
+            "DETAILS_POPUP_FILTER_BUSINESS_LABEL": "Business",
+
+
+            "DETAILS_POPUP_LAST_NAME":"Last Name",
+            "DETAILS_POPUP_INITIALS":"Short Name",
+            "DETAILS_POPUP_EMAIL":"Email",
+            "DETAILS_POPUP_LANGUAGE":"Language",
+            "DETAILS_POPUP_BTN_SAVE":"Save",
+            "DETAILS_POPUP_BTN_CANCEL":"Cancel",
+            "DETAILS_POPUP_BTN_VERIFY": "Verify",
+            "DETAILS_POPUP_SELECT": "Select",
+
+            "DETAILS_POPUP_PLACE_HOLDER_SSO_LOGIN": "Enter SSO Login Details",
+            "DETAILS_POPUP_PLACE_HOLDER_CONTRACTOR_LOGIN": "Enter Contractor Login Details",
+            "DETAILS_POPUP_PLACE_HOLDER_FIRST_NAME": "Enter First Name",
+            "DETAILS_POPUP_PLACE_HOLDER_LAST_NAME": "Enter Last Name",
+            "DETAILS_POPUP_PLACE_HOLDER_INITIALS": "Enter Initials",
+            "DETAILS_POPUP_PLACE_HOLDER_EMAIL": "Enter Email",
+           
+            "DETAILS_POPUP_VALIDATION_ERROR_MESSAGE_DIVISION" : "Division is required.",
+            "DETAILS_POPUP_VALIDATION_ERROR_MESSAGE_FIRST_NAME" : "First Name is required.",
+            "DETAILS_POPUP_VALIDATION_ERROR_MESSAGE_LAST_NAME" : " Last Name is required.",
+            "DETAILS_POPUP_VALIDATION_ERROR_MESSAGE_SSO_LOGIN" : "SSO login is required.",
+            "DETAILS_POPUP_VALIDATION_ERROR_MESSAGE_CONTRACTOR_LOGIN" : " Contractor login is required.",
+            "DETAILS_POPUP_VALIDATION_ERROR_MESSAGE_EMAIL" : "Email is required",
+            
+            "ROLE_POPUP_TITLE": "User Roles",
+            "ROLE_POPUP_USER_NAME" : "User Name",
+            "ROLE_POPUP_DIVISION": "Division",
+            "ROLE_POPUP_BUSINESS": "Business",
+            "ROLE_POPUP_FACILITY": "Facility",
+            "ROLE_POPUP_ROLE_NAME":"Role",
+            "ROLE_POPUP_ROLE_CLOSE":"Close",
+
+            "GROUPS_POPUP_DETAILS":"Groups Details",
+            "GROUPS_POPUP_USER_NAME":"User Name",
+            "GROUPS_POPUP_GROUP_NAME":  "Group Name",
+            "GROUPS_POPUP_BTN_CLOSE":"Close",
+            
+            "DELETE_CONFIRATION_BTN_YES" : "Yes",
+            "DELETE_CONFIRATION_BTN_NO":"No",
+            "DELETE_SUCCESS_BTN_CLOSE":"Close",
+
+            "GROUPS_NAME":"User Groups",
+            "GROUPS_SEARCH": "Search",
+            "GROUPS_CREATE_GROUPS_BTN":"Create Group",
+
+            "GROUPS_TABLE_GROUP_NAME_LABLE": "Group Name",
+            "GROUPS_TABLE_MEMBERS_DETAILS": "Members Details",
+            "GROUPS_TABLE_ACTION": "Action",            
+ 
+            "GROUPS_DETAILS_POPUP_USERS_GROUPS_TITLE":"User Group Details",
+            "GROUPS_DETAILS_POPUP_GROUP_NAME_LABLE":"Group Name",
+            "GROUPS_DETAILS_POPUP_PLACE_HOLDER_GROUP_NAME":"Enter Group Name",
+            
+
+            "GROUPS_DETAILS_POPUP_MEMBERS_COUNT_LABLE":"Members Count",
+            "GROUPS_DETAILS_POPUP_MEMBERS_TITLE":"Members",
+            
+            "GROUPS_DETAILS_POPUP_BTN_SAVE":"Save",
+            "GROUPS_DETAILS_POPUP_BTN_CANCEL":"Cancel",
+            "GROUPS_DETAILS_POPUP_BTN_ADD_MEMBER":"Add Member",
+            "GROUPS_DETAILS_POPUP_SELECT_USER_LABLE":"Select User",
+            "GROUPS_DETAILS_POPUP_PLACE_HOLDER_SELECT": "Search And Select User",
+            "GROUPS_DETAILS_POPUP_TABLE_USER_NAME":"User Name",
+            "GROUPS_DETAILS_POPUP_TABLE_ACTION":"Action",    
+            
+            "GROUPS_POPUP_TITLE": "User GROUPS",
+            "GROUPS_POPUP_USER_NAME_LABEL" : "User Name",
+            "GROUPS_POPUP_DIVISION": "Division",
+            "GROUPS_POPUP_BUSINESS": "Business",
+            "GROUPS_POPUP_FACILITY": "Facility",
+            "GROUPS_POPUP_ROLE_NAME":"Role",            
+            
+
+            "GROUPS_MEMBERS_POPUP_DETAILS":"Members Details",
+            "GROUPS_MEMBERS_POPUP_GROUP_NAME_LABEL":  "Group Name",
+            "GROUPS_MEMBERS_POPUP_MEMBER_COUNT_LABEL":  "Members Count",
+            "GROUPS_MEMBERS_POPUP_TABLE_USER_NAME_TITLE": "User Name",
+            "GROUPS_MEMBERS_POPUP_BTN_CLOSE":"Close",
+
+            "GROUPS_DELETE_CONFIRATION_BTN_YES" : "Yes",
+            "GROUPS_DELETE_CONFIRATION_BTN_NO":"No",
+            "GROUPS_DELETE_SUCCESS_BTN_CLOSE":"Close"
+        }
+    },
+    {
+        "ScreenName": "Tabs",
+        "StringResources": {
+            "DASHBOARD": "Dashboard",
+            "INSPECTION": "Inspection",
+            "FACILITIES": "Facilities",
+            "USERS_AND_GROUPS": "Users & Groups",
+            "ROLE_ASSIGNMENT": "Role Assignment"
+        }
+    },
+    {
+        "ScreenName": "Facility",
+        "StringResources": {
+            "FACILITY_FILTER_DIVISION_LABEL": "Division",
+            "FACILITY_FILTER_FACILITY_LABEL": "Facility",
+            "FACILITY_FILTER_BUSINESS_LABEL": "Business",
+            "FACILITY_FORMS_TITLE": "Forms",
+            "FACILITY_MANAGE_SCHEDULE_LINK": "Manage Schedule",
+            "FACILITY_FORMS_TABLE_ACTION": "Action",
+            "FACILITY_FORMS_TABLE_FORM_NAME": "Form Name",
+            "FACILITY_MESSAGE_NO_RECORD_FOUND": "No Record Found.",
+
+            "MANAGESCHEDULE_BTN_NO": "NO",
+            "MANAGESCHEDULE_BTN_YES": "YES",
+            "MANAGESCHEDULE_CONFIRMATION_MSG": "Are you sure you want to DELETE the schedule?",
+            "MANAGESCHEDULE_BTN_CLOSE": "CLOSE",
+            "MANAGESCHEDULE_BTN_CREATE_NEW_SCHD": "Create New Schedule",
+            "MANAGESCHEDULE_FACILITY_LABEL": "Facility ",
+            "MANAGESCHEDULE_FORMNAME_LABEL": "Form",
+            "MANAGESCHEDULE_MANAGE_SCHD": "Manage Schedule",
+            "MANAGESCHEDULE_SUCCESS_TITLE1": "Thank You!",
+            "MANAGESCHEDULE_SUCCESS_TITLE2": "You have successfully deleted the schedule.",
+            "MANAGESCHEDULE_TABLE_ACTION": "Action",
+            "MANAGESCHEDULE_TABLE_DUE_TIME": "Due Time",
+            "MANAGESCHEDULE_TABLE_END_DATE": "End Date",
+            "MANAGESCHEDULE_TABLE_FREQUENCY": "Frequency",
+            "MANAGESCHEDULE_TABLE_START_DATE": "Start Date",
+
+            "SCHEDULE_INSPECTION_DATE_ERROR_MSG": "Start date cannot be greater than End date.",
+            "SCHEDULE_INSPECTION_ERRORMSG_ALREADYEXISTS": "Schedule already exists.",
+            "SCHEDULE_INSPECTION_ERRORMSG_BTN_OK": "OK",
+            "SCHEDULE_INSPECTION_REMINDER_ACTION": "Action",
+            "SCHEDULE_INSPECTION_REMINDER_TITLE": "Reminder",
+            "SCHEDULE_INSPECTION_SELECT_ALL": "Select All",
+            "SCHEDULE_INSPECTION_VALIDATION_MESSAGE_REQUIRED": "Required",
+            "SCHEDULE_INSPECTION_BEFORE_DUE_DATE": "Before Due Date",
+            "SCHEDULE_INSPECTION_BTN_ADD": "ADD",
+            "SCHEDULE_INSPECTION_BTN_CANCEL": "CANCEL",
+            "SCHEDULE_INSPECTION_BTN_PREVIEWSCHEDULE": "PREVIEW",
+            "SCHEDULE_INSPECTION_BTN_SAVE": "SAVE",
+            "SCHEDULE_INSPECTION_DAILY": "Daily",
+            "SCHEDULE_INSPECTION_DAYS": "Days",
+            "SCHEDULE_INSPECTION_DUE_BY": "Due By",
+            "SCHEDULE_INSPECTION_EARILER_SUBMISSION_ALLOWED": "Earliest Submission Allowed",
+            "SCHEDULE_INSPECTION_END_DATE": "End Date",
+            "SCHEDULE_INSPECTION_FACILITY": "Facility",
+            "SCHEDULE_INSPECTION_FACILITY_BTN_NO": "NO",
+            "SCHEDULE_INSPECTION_FACILITY_BTN_YES": "YES",
+            "SCHEDULE_INSPECTION_FACILITY_FORMS_BTN_CLOSE": "CLOSE",
+            "SCHEDULE_INSPECTION_FACILITY_NOT_MODIFIED_MSG": "There were no changes in the schedule.",
+            "SCHEDULE_INSPECTION_FACILITY_SUCCESS_MSG": "You have successfully saved the schedule.",
+            "SCHEDULE_INSPECTION_FORM": "Form",
+            "SCHEDULE_INSPECTION_FREQUENCY": "Frequency",
+            "SCHEDULE_INSPECTION_HOURS": "Hours",
+            "SCHEDULE_INSPECTION_INPROGRESS_INSPECTION_ERRORMSG": "Did not receive inspection count from the database.",
+            "SCHEDULE_INSPECTION_MESSAGE_NO_RECORD_FOUND": "No Record Found.",
+            "SCHEDULE_INSPECTION_MONTHLY": "Monthly",
+            "SCHEDULE_INSPECTION_ONE_TIME": "One Time",
+            "SCHEDULE_INSPECTION_PREVIEWSCHEDULE_DUEDATETIME": "Due Date Time",
+            "SCHEDULE_INSPECTION_PREVIEWSCHEDULE_EARLYSTARTDATE": "Early Start Date",
+            "SCHEDULE_INSPECTION_PREVIEWSCHEDULE_TITLE": "Preview Schedule",
+            "SCHEDULE_INSPECTION_REMINDER": "Reminder",
+            "SCHEDULE_INSPECTION_SAVE_CONFIRMATION_MSG": "Are you sure you want to SAVE the schedule?",
+            "SCHEDULE_INSPECTION_SCHEDULE_PREVIEW_TITLE": "Schedule Preview",
+            "SCHEDULE_INSPECTION_SELECT": "Select",
+            "SCHEDULE_INSPECTION_START_DATE": "Start Date",
+            "SCHEDULE_INSPECTION_TIME": "Due Time",
+            "SCHEDULE_INSPECTION_TITLE": "Schedule An Inspection",
+            "SCHEDULE_INSPECTION_WEEKLY": "Weekly",
+            "SCHEDULE_INSPECTION_TIME_LABEL": "Time",
+            "SCHEDULE_INSPECTION_TABLE_TITLE": "Title"
+        }
+    },
+    {
+        "ScreenName": "Login",
+        "StringResources": {
+            "TITLE": "Hello!",
+            "TITLE_1": "Sign into your account",
+            "EMAIL_ID_PLACEHOLDER": "Email ID",
+            "MSG_EMAIL_ID_REQUIRED": "Email ID is required",
+            "MSG_VALID_EMAIL": "Please enter valid Email ID",
+            "PASSWORD_PLACEHOLDER": "Password",
+            "MSG_PASSWORD_REQUIRED": "Password is required",
+            "BTN_SIGN_ON": "SIGN ON",
+            "BTN_SSO_SIGN_ON": "SSO SIGN ON",
+            "FROM_TEXT": "From",
+            "OR_TEXT": "or"
+        }
+    },
+    {
+        "ScreenName": "ErroMessage",
+        "StringResources": {
+          "ERR_SERVER_ERROR": "An unexpected error occurred on the server. Our team is actively working to resolve the issue. Please try again later. If the problem persists, please contact the support team for assistance.",
+          "ERR_INVALID_TOKEN": "The token provided is invalid or has expired. Please make sure you are using a valid token and try again.",
+          "ERR_USER_NOT_FOUND": "The requested user could not be found. Please verify the username or contact the administrator for further assistance.",
+          "ERR_INVALID_USER": "The user account you provided is invalid. Please ensure that the username and password are correct. If you believe this is an error, please contact the administrator for further assistance.",
+          "ERR_USER_ACCESS_DENIED": "You do not have sufficient privileges to access the requested resource. Please make sure you have the necessary permissions or contact the administrator for assistance.",
+          "ERR_USER_IDENTITY_NOT_FOUND": "The user identity associated with the provided information could not be found. Please ensure the user identity is correct and try again.",
+          "ERR_PASSWORD_EXPIRED": "Your password has expired and must be updated for security reasons. Please reset your password by following the provided instructions, or contact the administrator for assistance.",
+          "ERR_CLAIMS_NOT_FOUND": "The requested claims could not be found. Please ensure that the claims are correctly specified and try again.",
+          "ERR_SESSION_EXPIRED": "Your session has expired due to inactivity or for security reasons. Please log in to continue.",
+          "ERR_USER_OR_ROLE_INACTIVE": "The user account or role associated with your request is currently inactive. Please contact the administrator or support team to verify the status of your account and to resolve this issue."
+        }
+    },
+    {
+    "ScreenName": "CommonStrings",
+    "StringResources": {
+        "CLOSE": "Close",
+        "ERROR": "Error!"
+    }
+    },
+    {
+        "ScreenName": "RoleAssignments", 
+        "StringResources": {
+            "ROLE_FILTER_CARD_ROLES_ASSIGNED_FOR_LABEL": "Roles Assginment For",
+            "ROLE_FILTER_CARD_RADIO_BTN_DIVISION":"Division",
+            "ROLE_FILTER_CARD_RADIO_BTN_BUSINESS":"Business",
+            "ROLE_FILTER_CARD_RADIO_BTN_FACILITY":"Facility",
+
+            "ROLE_FILTER_CARD_DROPDOWN_DIVISION_LABEL":"Division",
+            "ROLE_FILTER_CARD_DROPDOWN_BUSINESS_LABEL":"Business",
+            "ROLE_FILTER_CARD_DROPDOWN_FACILITY_LABEL":"Facility",
+
+            "ROLE_FILTER_CARD_DROPDOWN_ROLES_LABEL":"Roles",
+            "ROLE_FILTER_CARD_DROPDOWN_USERS_LABEL":"Users",
+            "ROLE_FILTER_CARD_DROPDOWN_USERGROUPS_LABEL":"User Groups",
+            
+            "ROLE_FILTER_CARD_SHOW_BTN" : "Show",
+            "ROLE_FILTER_CARD_CLEAR_BTN" : "Clear",
+            "ROLE_FILTER_CARD_ASSIGN_USERSGROUPSROLE_BTN" :"Assign Users/Groups Role",
+
+            "ROLE_ASSIGNMENTS_CARD_LABEL": "Role Assginments",
+            "TABLE_DIVISION_BUSINESS_FACILITY": "Division/Business/Facility",
+            "TABLE_USERS_USERGROUP": "Users/User Group",
+            "TABLE_ROLE":"ROLE",
+            "TABLE_ACTION":"Action",
+            "TABLE_SEARCH":"Search"
+            
+        }
+    }
+
+]
+	

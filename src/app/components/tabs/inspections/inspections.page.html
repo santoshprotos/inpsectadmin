@@ -1,0 +1,434 @@
+<ion-content class="context">
+  <div class="px-3 mt-5">
+    <div class="card forms-card bg-white mx-3">
+      <div class="container-fluid mx-3">
+        <div class="row mb-4 mt-4 pt-2">
+          <div class="col-md-12 d-flex">
+            <div class="col-md-2 me-4">
+              <div class="dropdown">
+                <label class="dropdown-labels mb-1">{{stringValues?.BUSINESS}}</label>
+                <button class="btn bg-white dropdown-toggle dropdown-values d-flex align-items-center" type="button"
+                  data-bs-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+                  <span *ngIf="businessDropdownData.length > 0">{{selectedBUName || businessDropdownData[0].name}}</span>
+                </button>
+                <ul class="dropdown-menu dropdown-value dropdown-list mt-n1 pt-0 pb-1"
+                  aria-labelledby="dropdownMenuButton">
+                  <li class="dropdown-value" ngDefaultControl *ngFor="let business of businessDropdownData"
+                    [value]="business.business_id" (click)="selectBU(business)">
+                    {{business.name}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-md-2 me-4">
+              <div class="dropdown">
+                <label class="dropdown-labels mb-1">{{stringValues?.DIVISION}}</label>
+                <button class="btn bg-white dropdown-toggle dropdown-values d-flex align-items-center" type="button"
+                  data-bs-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+                  <span *ngIf="divisionDropdownData.length > 0">{{selectedDivName || divisionDropdownData[0].name}}</span>
+                </button>
+                <ul class="dropdown-menu dropdown-value dropdown-list mt-n1 pt-0 pb-1"
+                  aria-labelledby="dropdownMenuButton">
+                  <li class="dropdown-value" ngDefaultControl *ngFor="let division of divisionDropdownData"
+                    [value]="division.division_id" (click)="selectDivision(division)">
+                    {{division.name}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-md-2 me-4">
+              <div class="dropdown">
+                <label class="dropdown-labels mb-1">{{stringValues?.FACILITY}}</label>
+                <button class="btn bg-white dropdown-toggle dropdown-values d-flex align-items-center" type="button"
+                  data-bs-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+                  <span *ngIf="facilityDropdownData.length > 0">{{selectedFecName || facilityDropdownData[0].name}}</span>
+                </button>
+                <ul class="dropdown-menu dropdown-value dropdown-list mt-n1 pt-0 pb-1"
+                  aria-labelledby="dropdownMenuButton">
+                  <li class="dropdown-value" ngDefaultControl *ngFor="let facility of facilityDropdownData"
+                    [value]="facility.facility_id" (click)="selectFacility(facility)">
+                    {{facility.name}}
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-md-2 me-4">
+              <div>
+                <label class="dropdown-labels mb-1">{{stringValues?.STATUS}}</label>
+                <button class="btn bg-white dropdown-toggle select-dropdown d-flex align-items-center"
+                  (click)="showDropDown=!showDropDown">
+                  <span *ngIf="selectedStateList.length <= 0">{{stringValues?.ALL}}</span>
+                  <span *ngIf="selectedStateNameList.length > 0">{{selectedOptions}}</span>
+                </button>
+                <div class="drop-show" *ngIf="showDropDown" (mouseleave)="showDropDown = false">
+                  <label *ngFor="let state of statusDropdownData;let i = index">
+                    <input type="checkbox" [(ngModel)]="state.Checked" (change)="selectStates(state, i)"
+                      class="form-check-input" />
+                    <span>{{state.stateName}}</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row datePicker_container">
+            <div class="col-md-5">
+              <div class="row">
+                <div class="col-md-4">
+                  <label class="dropdown-labels mb-1">{{stringValues?.DATE}}</label>
+                  <div class="date-label-wrapper">
+                    <div class="date-type">
+                      <span>{{stringValues?.EARLIEST_SUBMISSION}}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label class="dropdown-labels  mb-1">{{stringValues?.FROM}}</label>
+                  <div class="form-group d-flex justify-content-end">
+                    <input type="text" id="dtpFromDate" class="form-control datePicker-input-box"
+                      placeholder="MM/DD/YYYY" [value]="earliestDateObj.fromDate | date: 'MM/dd/yyyy'">
+                    <img src="assets/icons/Calendar.svg" class="position-absolute mt-1 mx-1" #dp="bsDatepicker"
+                      bsDatepicker [bsConfig]="customBsDatepickerConfig" [(bsValue)]="earliestDateObj.fromDate">
+                  </div>
+                  <div class="date-picker-1 me-4 error-message">
+                    <div *ngIf="(earliestDateObj.toDate && !earliestDateObj.fromDate)" class="text-danger">{{stringValues?.REQUIRED}}
+                    </div>
+                  </div>
+                  <div class="date-picker-1 col-md-2 me-4 error-message">
+                    <div
+                      *ngIf="(earliestDateObj.hasOwnProperty('errorMessage')) && (earliestDateObj.fromDate && !earliestDateObj.toDate)"
+                      class="text-danger">{{stringValues?.REQUIRED}}</div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label class="dropdown-labels  mb-1">{{stringValues?.TO}}</label>
+                  <div class="form-group d-flex justify-content-end">
+                    <input type="text" id="dtpToDate" class="form-control datePicker-input-box" placeholder="MM/DD/YYYY"
+                      [value]="earliestDateObj.toDate | date: 'MM/dd/yyyy'">
+                    <img src="assets/icons/Calendar.svg" class="position-absolute mt-1 mx-1" #dp="bsDatepicker"
+                      bsDatepicker [bsConfig]="customBsDatepickerConfig" [(bsValue)]="earliestDateObj.toDate">
+                  </div>
+                  <div class="date-picker-1 me-4 error-message">
+                    <div *ngIf="(earliestDateObj.fromDate && !earliestDateObj.toDate)" class="text-danger">{{stringValues?.REQUIRED}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row Select_date_conatiner">
+                <div class="col-md-4">
+                  <div class="date-label-wrapper">
+                    <div class="date-type">
+                      <span>{{stringValues?.LATEST_SUBMISSION}}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group d-flex justify-content-end">
+                    <input type="text" class="form-control datePicker-input-box" placeholder="MM/DD/YYYY"
+                      [value]="latestDateObj.fromDate | date: 'MM/dd/yyyy'">
+                    <img src="assets/icons/Calendar.svg" class="position-absolute mt-1 mx-1" #dp="bsDatepicker"
+                      bsDatepicker [bsConfig]="customBsDatepickerConfig" [(bsValue)]="latestDateObj.fromDate">
+                  </div>
+                  <div class="date-picker-1 me-4 error-message"><div *ngIf="(latestDateObj.toDate && !latestDateObj.fromDate)" class="text-danger">{{stringValues?.REQUIRED}}</div></div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group d-flex justify-content-end">
+                    <input type="text" class="form-control datePicker-input-box" placeholder="MM/DD/YYYY"
+                      [value]="latestDateObj.toDate | date: 'MM/dd/yyyy'">
+                    <img src="assets/icons/Calendar.svg" class="position-absolute mt-1 mx-1" #dp="bsDatepicker"
+                      bsDatepicker [bsConfig]="customBsDatepickerConfig" [(bsValue)]="latestDateObj.toDate">
+                  </div>
+                  <div class="date-picker-1 me-4 error-message"><div *ngIf="(latestDateObj.fromDate && !latestDateObj.toDate)" class="text-danger">{{stringValues?.REQUIRED}}</div></div>
+                </div>
+              </div>
+
+              <div class="row Select_date_conatiner">
+                <div class="col-md-4">
+                  <div class="date-label-wrapper">
+                    <div class="date-type">
+                      <span>{{stringValues?.SUBMISSION_DATE}}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group d-flex justify-content-end">
+                    <input type="text" class="form-control datePicker-input-box" placeholder="MM/DD/YYYY"
+                      [value]="submissionDateObj.fromDate | date: 'MM/dd/yyyy'">
+                    <img src="assets/icons/Calendar.svg" class="position-absolute mt-1 mx-1" #dp="bsDatepicker"
+                      bsDatepicker [bsConfig]="customBsDatepickerConfig" [(bsValue)]="submissionDateObj.fromDate">
+                  </div>
+                  <div class="date-picker-1 me-4 error-message"><div *ngIf="(submissionDateObj.toDate && !submissionDateObj.fromDate)" class="text-danger">{{stringValues?.REQUIRED}}</div></div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group d-flex justify-content-end">
+                    <input type="text" class="form-control datePicker-input-box" placeholder="MM/DD/YYYY"
+                      [value]="submissionDateObj.toDate | date: 'MM/dd/yyyy'">
+                    <img src="assets/icons/Calendar.svg" class="position-absolute mt-1 mx-1" #dp="bsDatepicker"
+                      bsDatepicker [bsConfig]="customBsDatepickerConfig" [(bsValue)]="submissionDateObj.toDate">
+                  </div>
+                  <div class="date-picker-1 me-4 error-message"><div *ngIf="(submissionDateObj.fromDate && !submissionDateObj.toDate)" class="text-danger">{{stringValues?.REQUIRED}}</div></div>
+                </div>
+              </div>
+
+              <div class="row Select_date_conatiner">
+                <div class="col-md-4">
+                  <div class="date-label-wrapper">
+                    <div class="date-type">
+                      <span>{{stringValues?.APPROVAL_DATE}}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group d-flex justify-content-end">
+                    <input type="text" class="form-control datePicker-input-box" placeholder="MM/DD/YYYY"
+                      [value]="approvalDateObj.fromDate | date: 'MM/dd/yyyy'">
+                    <img src="assets/icons/Calendar.svg" class="position-absolute mt-1 mx-1" #dp="bsDatepicker"
+                      bsDatepicker [bsConfig]="customBsDatepickerConfig" [(bsValue)]="approvalDateObj.fromDate">
+                  </div>
+                  <div class="date-picker-1 me-4 error-message"><div *ngIf="(approvalDateObj.toDate && !approvalDateObj.fromDate)"  class="text-danger">{{stringValues?.REQUIRED}}</div></div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group d-flex justify-content-end">
+                    <input type="text" class="form-control datePicker-input-box" placeholder="MM/DD/YYYY"
+                      [value]="approvalDateObj.toDate | date: 'MM/dd/yyyy'">
+                    <img src="assets/icons/Calendar.svg" class="position-absolute mt-1 mx-1" #dp="bsDatepicker"
+                      bsDatepicker [bsConfig]="customBsDatepickerConfig" [(bsValue)]="approvalDateObj.toDate">
+                  </div>
+                  <div class="date-picker-1 me-4 error-message"><div *ngIf="(approvalDateObj.fromDate && !approvalDateObj.toDate)"  class="text-danger">{{stringValues?.REQUIRED}}</div></div>
+                </div>
+              </div>
+
+              <div class="row Select_date_conatiner">
+                <div class="col-md-4">
+                  <div class="date-label-wrapper">
+                    <div class="date-type">
+                      <span>{{stringValues?.CERTIFICATION_DATE}}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group d-flex justify-content-end">
+                    <input type="text" class="form-control datePicker-input-box" placeholder="MM/DD/YYYY"
+                      [value]="certificationDateObj.fromDate | date: 'MM/dd/yyyy'">
+                    <img src="assets/icons/Calendar.svg" class="position-absolute mt-1 mx-1" #dp="bsDatepicker"
+                      bsDatepicker [bsConfig]="customBsDatepickerConfig" [(bsValue)]="certificationDateObj.fromDate">
+                  </div>
+                  <div class="date-picker-1 me-4 error-message"><div *ngIf="(certificationDateObj.toDate && !certificationDateObj.fromDate)"  class="text-danger">{{stringValues?.REQUIRED}}</div></div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group d-flex justify-content-end">
+                    <input type="text" class="form-control datePicker-input-box" placeholder="MM/DD/YYYY"
+                      [value]="certificationDateObj.toDate | date: 'MM/dd/yyyy'">
+                    <img src="assets/icons/Calendar.svg" class="position-absolute mt-1 mx-1" #dp="bsDatepicker"
+                      bsDatepicker [bsConfig]="customBsDatepickerConfig" [(bsValue)]="certificationDateObj.toDate">
+                  </div>
+                  <div class="date-picker-1 me-4 error-message"><div *ngIf="(certificationDateObj.fromDate && !certificationDateObj.toDate)"  class="text-danger">{{stringValues?.REQUIRED}}</div></div>
+                </div>
+              </div>
+            
+              <div class="col-md-12 d-flex error-message pb-1">
+                <div *ngIf="(!isDateSelected && dateDataArray.length <= 0 && (!earliestDateObj.fromDate || !earliestDateObj.fromDate ))" class="text-danger">
+                  {{stringValues?.DATE_CRITERIA_MSG}}</div>
+              </div>
+
+            </div>
+            <div class="col-md-1">
+              <div [style.visibility]="(!earliestDateObj.fromDate && !earliestDateObj.toDate)?'hidden':'visible'"
+                class="clear-date earli_clear_button">
+                <span class="d-flex pe-4 pt-4" (click)='clearDateFields("earliest")'>
+                  {{stringValues?.CLEAR}}</span>
+              </div>
+
+              <div [style.visibility]="(!latestDateObj.fromDate && !latestDateObj.toDate)?'hidden':'visible'"
+                class="clear-date last_clear_button">
+                <span class="d-flex pe-4" (click)='clearDateFields("latest")'>
+                  {{stringValues?.CLEAR}}</span>
+              </div>
+
+              <div [style.visibility]="(!submissionDateObj.fromDate && !submissionDateObj.toDate)?'hidden':'visible'"
+                class="clear-date submission_clear_button">
+                <span class="d-flex pe-4" (click)='clearDateFields("submission")'>
+                  {{stringValues?.CLEAR}}</span>
+              </div>
+
+              <div [style.visibility]="(!approvalDateObj.fromDate && !approvalDateObj.toDate)?'hidden':'visible'"
+                class="clear-date approve_clear_button">
+                <span class="d-flex pe-4" (click)='clearDateFields("approval")'>
+                  {{stringValues?.CLEAR}}</span>
+              </div>
+
+              <div
+                [style.visibility]="(!certificationDateObj.fromDate && !certificationDateObj.toDate)?'hidden':'visible'"
+                class="clear-date certi_clear_button">
+                <span class="d-flex pe-4" (click)='clearDateFields("certification")'>
+                  {{stringValues?.CLEAR}}</span>
+              </div>
+
+            </div>
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="dropdown">
+                    <label class="dropdown-labels mb-1">{{stringValues?.INSPECTOR}}</label>
+                    <button class="btn bg-white dropdown-toggle dropdown-values d-flex align-items-center" type="button"
+                      data-bs-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+                      <span *ngIf="inspectorDropdownData.length > 0">{{selectedInspectorName || inspectorDropdownData[0].fullName}}</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-value dropdown-list mt-n1 pt-0 pb-1"
+                      aria-labelledby="dropdownMenuButton">
+                      <li class="dropdown-value" ngDefaultControl *ngFor="let inspector of inspectorDropdownData"
+                        [value]="inspector.id" (click)="selectInspector(inspector)">
+                        {{inspector.fullName}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="dropdown">
+                    <label class="dropdown-labels mb-1">{{stringValues?.SUPERVISOR}}</label>
+                    <button class="btn bg-white dropdown-toggle dropdown-values d-flex align-items-center" type="button"
+                      data-bs-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+                      <span *ngIf="supervisorDropdownData.length > 0">{{selectedSupervisorName || supervisorDropdownData[0].fullName}}</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-value dropdown-list mt-n1 pt-0 pb-1"
+                      aria-labelledby="dropdownMenuButton">
+                      <li class="dropdown-value" ngDefaultControl *ngFor="let supervisor of supervisorDropdownData"
+                        [value]="supervisor.id" (click)="selectSupervisor(supervisor)">
+                        {{supervisor.fullName}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="dropdown">
+                    <label class="dropdown-labels mb-1">{{stringValues?.CERTIFIER}}</label>
+                    <button class="btn bg-white dropdown-toggle dropdown-values d-flex align-items-center" type="button"
+                      data-bs-toggle="dropdown" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false">
+                      <span *ngIf="certifierDropdownData.length > 0">{{selectedCertifierName || certifierDropdownData[0].fullName}}</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-value dropdown-list mt-n1 pt-0 pb-1"
+                      aria-labelledby="dropdownMenuButton">
+                      <li class="dropdown-value" ngDefaultControl *ngFor="let certifier of certifierDropdownData"
+                        [value]="certifier.id" (click)="selectCertifier(certifier)">
+                        {{certifier.fullName}}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="row datePicker_container">
+                <div class="col-md-4">
+                  <label class="dropdown-labels">{{stringValues?.THRESHOLD_EXCEEDED}}</label>
+                  <div class="d-flex mt-3">
+                    <div class="form-check">
+                      <input id="ThreasholdYes" class="form-check-input" type="checkbox" name="Threashold" value="true" [(ngModel)]="thresholdExceeded">
+                      <label class="text-black form-check-box" for="ThreasholdYes">{{stringValues?.YES}}</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label class="dropdown-labels">{{stringValues?.GEO_TAGGED_ASSETS}}</label>
+                  <div class="d-flex mt-3">
+                    <div class="form-check">
+                      <input id="ThreasholdYes" class="form-check-input" type="checkbox" name="Threashold" value="true" [(ngModel)]="geoTaggedAssets">
+                      <label class="text-black form-check-box" for="ThreasholdYes">{{stringValues?.YES}}</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label class="dropdown-labels">{{stringValues?.NON_PERFORMING_ASSETS}}</label>
+                  <div class="d-flex mt-3">
+                    <div class="form-check">
+                      <input id="ThreasholdYes" class="form-check-input" type="checkbox" name="Threashold" value="true" [(ngModel)]="nonPerformingAssets">
+                      <label class="text-black form-check-box" for="ThreasholdYes">{{stringValues?.YES}}</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row datePicker_container">
+                <div class="col-md-12">
+                  <label class="dropdown-labels mb-1">{{stringValues?.FORM_TITLE_CONTAINS}}</label>
+                  <div class="input-group d-flex">
+                    <img src="assets/icons/SearchGrey.svg" class="search-icon ms-2" />
+                    <input type="text" name="FormContains" class="form-control search-text" placeholder="Search" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row mt-3 mb-4 button_container">
+          <div class="col-md-12 d-flex">
+            <div class="col-md-1 me-4">
+              <button type="button" class="btn search-button-style" (click)="iterateDateFields()">{{stringValues?.SEARCH}}</button>
+            </div>
+            <div class="col-md-1">
+              <button type="button" class="btn clear-button-style" (click) ="clearAdvancedSearch()">{{stringValues?.CLEAR}}</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- *********** second card *********-->
+  <div class="px-3 mt-5">
+    <div class="card forms-card bg-white table_card mx-3">
+      <div class="container-fluid mx-3">
+        <div class="row mb-4 mt-4 pt-2">
+          <div class="col-md-4">
+            <label class="table_title mb-1">{{stringValues?.SEARCH_RESULT}}</label>
+          </div>
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <div class="searchIcon">
+              <div class="input-group d-flex">
+                <img src="assets/icons/SearchGrey.svg" class="search-icon ms-2" />
+                <input type="text" name="FormContains" class="form-control search-text" placeholder="Search" [(ngModel)]="searchVal"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table table-borderless">
+              <thead class="table-design-style table-header-style">
+                <tr>
+                  <th class="facility">{{stringValues?.FACILITY}}</th>
+                  <th class="formname">{{stringValues?.FORM_NAME}}</th>
+                  <th class="inspection-data-cell">{{stringValues?.FREQUENCY}}</th>
+                  <th class="inspection-data-cell">{{stringValues?.INSPECTOR}}</th>
+                  <th class="inspection-data-cell">{{stringValues?.START_DATE}}</th>
+                  <th class="inspection-data-cell">{{stringValues?.DUE_DATE}}</th>
+                  <th class="inspection-data-cell">{{stringValues?.STATUS}}</th>
+                </tr>
+              </thead>
+              <tbody class="align-middle">
+                <tr *ngFor="let data of tableJoneData | freetextSearch: searchVal">
+                  <td class="facility_name">{{ data.facility }}</td>
+                  <td>{{ data.formname }}</td>
+                  <td>{{ data.frequency }}</td>
+                  <td>{{ data.inspector }}</td>
+                  <td>{{ data.startDate }}</td>
+                  <td>{{ data.dueDate }}</td>
+                  <td>
+                    <span class="badge"
+                      [ngClass]="{'badge-notstarted': data.status === 'Auto Approved','badge-border-saved': data.status === 'Submitted for Approval','badge-submit': data.status === 'Saved','badge-approved': data.status === 'Approved'}">{{
+                      data.status}}</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

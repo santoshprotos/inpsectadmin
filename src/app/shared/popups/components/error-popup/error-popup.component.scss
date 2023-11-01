@@ -1,0 +1,45 @@
+.frequencyLabel.titles {
+    letter-spacing: -0.15px;
+    color: #140F26;
+    opacity: 1;
+    font-size: 20px;
+    text-align: center;
+    font-family: "Montserrat-SemiBold";
+}
+.common-message{      
+    letter-spacing: 0px;
+    color: #6C7B8A;
+    opacity: 1;
+    font-size: 16px;   
+    font-weight: normal;
+    font-family: 'Montserrat-Medium';
+}
+.close-button {
+    background: #5AC8FA 0% 0% no-repeat padding-box;
+    border: 1px solid #5AC8FA;
+    border-radius: 100px;
+    opacity: 1;
+    padding: 16px 78px;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Montserrat-Medium';
+}
+.modal-footer {
+    border-top: none !important;
+    justify-content: center;
+}
+.close {
+    float: right;
+    margin: -13px -15px 0 0;
+}
+button.btn.submit-button.d-flex.justify-content-center.align-items-center.submit-button-text {
+    text-align: center;
+    letter-spacing: 1.56px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    background: #5AC8FA 0% 0% no-repeat padding-box;
+    border-radius: 100px;
+    opacity: 1;
+    padding: 14px 40px;
+    margin-right: 10px;
+}

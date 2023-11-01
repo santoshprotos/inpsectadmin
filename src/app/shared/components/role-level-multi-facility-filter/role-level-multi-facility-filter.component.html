@@ -1,0 +1,213 @@
+<div class="row">
+    <ng-container
+        *ngIf="loginUserRole === isAppConstantUserRole; then adminViewOnlyRoleTemplate; else adminRoleTemplate"></ng-container>
+    <ng-template #adminViewOnlyRoleTemplate></ng-template>
+    <ng-template #adminRoleTemplate>
+        <div class="col-md-12" [formGroup]="registerUser">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-8">
+                    <label class="form-label">{{stringValues?.ROLE_LEVEL}}<span class="mandatory">*</span></label>
+                    <select class="form-control form-select capitalize" (change)="onChangeRoleLevel($event)"
+                        formControlName="roleLevel" aria-label="role-level"
+                        [ngClass]="{ 'is-invalid': submitted && f.roleLevel.errors }"
+                        [attr.disabled]="isSuperAdmin ? true : null">
+                        <option value="" selected hidden>{{stringValues?.SELECT_ROLE_LEVEL}}</option>
+                        <option *ngFor="let role of roleLevelList" [value]="role.RoleName"
+                            class="capitalize role-level-option">
+                            {{role.RoleName}}</option>
+                    </select>
+                    <div *ngIf="submitted && f.roleLevel.errors" class="invalid-feedback">
+                        <div *ngIf="f.roleLevel.errors.required">
+                            {{stringValues?.ROLE_LEVEL_IS_REQUIRED}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4 pt-2">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <label class="form-label capitalize"> {{labelName}} <span class="mandatory">*</span></label>
+                    <!-- <ng-container *ngIf="!isDivisionLabel && !isBusinessLabel &&  !isFacilityLabel">
+
+                        <img title="search" class="fa-search filter-search-all filter-search"
+                            [ngClass]="{'skip-division': allDivisions?.length ===0 && allBusiness?.length > 0, 
+                            'skip-business': allBusiness?.length === 0 && allDivisions?.length >0, 'skip-business-division': allBusiness?.length === 0  && allDivisions?.length ===0}"
+                            src="assets/icons/SearchGrey.svg" />
+                        <ng-select class="form-control" [items]="" [clearSearchOnAdd]="true" [closeOnSelect]="false"
+                            labelForId="division" [multiple]="true" [placeholder]="stringValues?.SEARCH"
+                            clearAllText="Clear" [bindLabel]="''"
+                            [ngClass]="{ 'is-invalid': submitted && f.division.errors ,  disabled :isSuperAdmin }"
+                            [readonly]="isSuperAdmin ? true : null"></ng-select>
+                        <div class="selected-facility-filter-preview">
+                            <div class="division-list" *ngFor="let selectedDivision of registerUser.value.division">
+                                {{selectedDivision.name}} <span class="ng-value-icon right "
+                                    (click)="removeItems(selectedDivision,'division')" aria-hidden="true"><img
+                                        src="assets/icons/CloseBlue.svg" alt="close icon" /></span>
+                            </div>
+                        </div>
+                    </ng-container>
+
+                    <ng-template [ngIf]="isDivisionLabel">
+                        <img title="search" class="fa-search filter-search-division filter-search-facility"
+                            src="assets/icons/SearchGrey.svg" />
+                        <ng-select class="form-control " [items]="allDivisions" [clearSearchOnAdd]="true"
+                            [closeOnSelect]="false" labelForId="division" [multiple]="true"
+                            [placeholder]="isDivisionLabel? stringValues?.SEARCH_AND_SELECT_DIVISION:stringValues?.SEARCH "
+                            clearAllText="Clear" formControlName="division" [bindLabel]="'divisionName'"
+                            [ngClass]="{ 'is-invalid': submitted && f.division.errors ,  disabled :isSuperAdmin}"
+                            (change)="onSingleSelectionChange($event,'division')"
+                            [readonly]="isSuperAdmin ? true : null">
+                            <ng-template ng-header-tmp>
+                                <input type="checkbox" class="all-input" [checked]="DivisionAllChecked"
+                                    (change)="toggleCheckAll($event,'division')" />
+                                <span class="checkbox-name">{{stringValues?.ALL}}</span>
+                            </ng-template>
+
+                            <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                                <input id="item-{{index}}" class="checkbox-list" type="checkbox"
+                                    [ngModel]="item$.selected" [ngModelOptions]="{standalone: true}" />
+                                <span class="checkbox-name">{{item['divisionName']}}</span> <br>
+                                <span class="show_parent_list"> {{item['businessname']}}</span>
+                            </ng-template>
+                            <ng-template ng-multi-label-tmp let-items="items" let-clear="clear">
+                                <div class="ng-value" *ngFor="let item of items | slice:0:2">
+                                    {{item['divisionName']}}
+                                    <span class="ng-value-icon right" (click)="clear(item,'division')"
+                                        aria-hidden="true">x</span>
+                                </div>
+                                <div class="ng-value" *ngIf="items.length > 2">
+                                    <span class="ng-value-label">{{items.length - 2}} {{stringValues?.MORE}}</span>
+                                </div>
+                            </ng-template>
+                        </ng-select>
+
+                        <div class="selected-facility-filter-preview">
+                            <div class="division-list" *ngFor="let selectedDivision of registerUser.value.division">
+                                {{selectedDivision.divisionName}} <span class="ng-value-icon right "
+                                    (click)="removeItems(selectedDivision,'division')" aria-hidden="true"><img
+                                        src="assets/icons/CloseBlue.svg" alt="close icon" /></span> <br>
+                                <span class="show_parent_list parent-division">{{selectedDivision.businessname}} </span>
+                            </div>
+                        </div>
+                        <div *ngIf="submitted && f.division.errors" class="invalid-feedback">
+                            <div *ngIf="f.division.errors.required">
+                                {{stringValues?.DIVISION_IS_REQUIRED}}
+                            </div>
+                        </div>
+                    </ng-template>
+
+                    <ng-template [ngIf]="isBusinessLabel">
+
+                        <img title="search" class="fa-search filter-search"
+                            [ngClass]="{'business-level-css': allBusiness?.length > 0 && allDivisions?.length ===0}"
+                            src="assets/icons/SearchGrey.svg" />
+                        <ng-select class="form-control " [items]="allBusiness" [clearSearchOnAdd]="true"
+                            [closeOnSelect]="false" labelForId="business" [multiple]="true"
+                            [placeholder]="stringValues?.SEARCH_AND_SELECT_BUSINESS " clearAllText="Clear"
+                            formControlName="business" [bindLabel]="'businessname'"
+                            [ngClass]="{ 'is-invalid': submitted && f.business.errors, disabled :isSuperAdmin }"
+                            (change)="onSingleSelectionChange($event,'business')"
+                            [readonly]="isSuperAdmin ? true : null">
+                            <ng-template ng-header-tmp>
+                                <input type="checkbox" class="all-input" [checked]="BusinessAllChecked"
+                                    (change)="toggleCheckAll($event,'business')" />
+                                <span class="checkbox-name">{{stringValues?.ALL}}</span>
+                            </ng-template>
+
+                            <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                                <input id="item-{{index}}" class="checkbox-list" type="checkbox"
+                                    [ngModel]="item$.selected" [ngModelOptions]="{standalone: true}" />
+                                <span class="option-list"> {{item['businessname']}}</span>
+                            </ng-template>
+                            <ng-template ng-multi-label-tmp let-items="items" let-clear="clear">
+                                <div class="ng-value" *ngFor="let item of items | slice:0:2">
+                                    {{item['businessname']}}
+                                    <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">x</span>
+                                </div>
+                                <div class="ng-value" *ngIf="items.length > 2">
+                                    <span class="ng-value-label">{{items.length - 2}} {{stringValues?.MORE}}</span>
+                                </div>
+                            </ng-template>
+                        </ng-select>
+
+                        <div class="selected-facility-filter-preview">
+                            <div class="business-list" *ngFor="let selectedBusiness of registerUser.value.business">
+                                {{selectedBusiness.businessname}} <span class="ng-value-icon right "
+                                    (click)="removeItems(selectedBusiness,'business')" aria-hidden="true"><img
+                                        src="assets/icons/CloseBlue.svg" alt="close icon" /></span><br>
+
+                            </div>
+                        </div>
+                        <div *ngIf="submitted && f.business.errors" class="invalid-feedback">
+                            <div *ngIf="f.business.errors.required">
+                                {{stringValues?.BUSINESS_IS_REQUIRED}}
+                            </div>
+                        </div>
+                    </ng-template>
+
+                    <ng-template [ngIf]="isFacilityLabel">
+                        <img title="search" class="fa-search filter-search-facility" src="assets/icons/SearchGrey.svg"
+                            [ngClass]="{'business-level-css': allBusiness?.length > 0 && allDivisions?.length ===0, 'facility-level': allDivisions?.length ===0 && allBusiness?.length ===0}" />
+                        <ng-select class="form-control" [items]="allFacility" [clearSearchOnAdd]="true"
+                            [closeOnSelect]="false" labelForId="facility" [multiple]="true"
+                            [placeholder]="stringValues?.SEARCH_AND_SELECT_FACILITY " clearAllText="Clear"
+                            formControlName="facility" [bindLabel]="'facilityName'"
+                            [ngClass]="{ 'is-invalid': submitted && f.facility.errors, disabled :isSuperAdmin }"
+                            (change)="onSingleSelectionChange($event,'facility')"
+                            [readonly]="isSuperAdmin ? true : null">
+
+                            <ng-template ng-header-tmp>
+                                <input type="checkbox" class="all-input" [checked]="FacilityAllChecked"
+                                    (change)="toggleCheckAll($event,'facility')" />
+                                <span class="checkbox-name">{{stringValues?.ALL}}</span>
+                            </ng-template>
+
+                            <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                                <input id="item-{{index}}" class="checkbox-list" type="checkbox"
+                                    [ngModel]="item$.selected" [ngModelOptions]="{standalone: true}" />
+                                <span class="option-list"> {{item['facilityName']}} </span><br>
+                                <span class="show_parent_list">{{item['divisionname']}}
+                                </span>
+                                <span class="show_parent_list parent_business"> {{item['businessname']}}
+                                </span>
+
+                            </ng-template>
+                            <ng-template ng-multi-label-tmp let-items="items" let-clear="clear">
+                                <div class="ng-value" *ngFor="let item of items | slice:0:2">
+                                    {{item['facilityName']}}
+                                    <span class="ng-value-icon right" (click)="clear(item)" aria-hidden="true">x</span>
+                                </div>
+                                <div class="ng-value" *ngIf="items.length > 2">
+                                    <span class="ng-value-label">{{items.length - 2}} {{stringValues?.MORE}}</span>
+                                </div>
+                            </ng-template>
+                        </ng-select>
+
+                        <div class="selected-facility-filter-preview">
+                            <div class="facility-list" *ngFor="let selectedfacility of registerUser.value.facility">
+                                {{selectedfacility.facilityName}} <span class="ng-value-icon right"
+                                    (click)="removeItems(selectedfacility,'facility')" aria-hidden="true">
+                                    <img src="assets/icons/CloseBlue.svg" alt="close icon" /></span><br>
+                                <span class="show_parent_list parent-division">{{selectedfacility.divisionname}}</span>
+                                <span class="show_parent_list parent_business">{{selectedfacility.businessname}}</span>
+                            </div>
+                        </div>
+                        <div *ngIf="submitted && f.facility.errors" class="invalid-feedback">
+                            <div *ngIf="f.facility.errors.required">
+                                {{stringValues?.FACILITY_IS_REQUIRED}}
+                            </div>
+                        </div>
+                    </ng-template> -->
+                    <div style="width: 400px;">
+                        <app-multi-select-dropdown [list]="multiSelectList" (roleBasedFilterData)="receiveData($event)" [placeHolder]="placeHolder"></app-multi-select-dropdown>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+
+        </div>
+
+
+    </ng-template>
+</div>

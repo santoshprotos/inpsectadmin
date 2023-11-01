@@ -1,0 +1,18 @@
+[
+    {
+        "stateName": "Open",
+        "id": 2
+    },
+    {
+        "stateName": "Saved",
+        "id": 3
+    },
+    {
+        "stateName": "Submitted/Approved",
+        "id": 4
+    },
+    {
+        "stateName": "Submitted for Approval",
+        "id": 5
+    }
+  ]

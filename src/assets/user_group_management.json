@@ -1,0 +1,80 @@
+[
+    {
+        "userGroupId": 1,
+        "userGroupName": "Group 1",
+        "assignedRolesCodes": [
+          "string"
+        ],
+        "assignedLevel": "string",
+        "assignedEntitieIds": [
+          0
+        ],
+        "usergroupmembers": [
+            {
+                "userGroupId": 1,
+                "userId": 1,
+                "firstName": "Smita",
+                "lastName": "Kothimbire"
+            }
+        ]
+      },
+      {
+        "userGroupId": 2,
+        "userGroupName": "Group 2",
+        "assignedRolesCodes": [
+          "string"
+        ],
+        "assignedLevel": "string",
+        "assignedEntitieIds": [
+          0
+        ],
+        "usergroupmembers": [
+            {
+                "userGroupId": 1,
+                "userId": 1,
+                "firstName": "Smita",
+                "lastName": "Kothimbire"
+            }
+        ]
+      },
+      {
+        "userGroupId": 3,
+        "userGroupName": "Group 3",
+        "assignedRolesCodes": [
+          "string"
+        ],
+        "assignedLevel": "string",
+        "assignedEntitieIds": [
+          0
+        ],
+        "usergroupmembers": [
+            {
+                "userGroupId": 1,
+                "userId": 1,
+                "firstName": "Smita",
+                "lastName": "Kothimbire"
+            }
+        ]
+      },
+      {
+        "userGroupId": 4,
+        "userGroupName": "Group 4",
+        "assignedRolesCodes": [
+          "string"
+        ],
+        "assignedLevel": "string",
+        "assignedEntitieIds": [
+          0
+        ],
+        "usergroupmembers": [
+            {
+                "userGroupId": 1,
+                "userId": 1,
+                "firstName": "Smita",
+                "lastName": "Kothimbire"
+            }
+        ]
+      }
+
+  
+]
